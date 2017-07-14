@@ -1,0 +1,158 @@
+---
+title: "Research Project"
+---
+
+Students are required to submit an original research paper that employs any of the methods introduced in the course. The goal of this exercise is to demonstrate that you have the ability to conduct research that applies computational methods to political science questions. This research paper can be an individual or group project (up to 3 people). Your progress on the project will be evaluated throughout the semester, following the schedule below.
+
+
+<table class="table table-stripped">
+<thead>
+<th>
+Assignment
+</th>
+<th>
+Due date
+</th>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="research_project.html#idea">Project idea</a>
+</td>
+<td>Sept 15 10:00pm (Friday)
+</td>
+</tr>
+<tr>
+<td>
+<a href="research_project.html#summary">Project summary</a>
+</td>
+<td>Oct 2 10:00pm (Monday)
+</td>
+</tr>
+<tr>
+<td>
+<a href="research_project.html#feedback">Student feedback</a>
+</td>
+<td>Oct 9 10:00pm (Monday)
+</td>
+</tr>
+<tr>
+<td>
+<a href="research_project.html#descriptive">Descriptive statistics</a>
+</td>
+<td>Oct 30 10:00pm (Monday)
+</td>
+</tr>
+<tr>
+<td>
+<a href="research_project.html#draft">Full draft</a>
+</td>
+<td>Nov 17 10:00pm (Friday)
+</td>
+</tr>
+<tr>
+<td>
+<a href="research_project.html#presentations">Presentations</a>
+</td>
+<td>Nov 21 & 28 (Tuesday)
+</td>
+</tr>
+<tr>
+<td>
+<a href="research_project.html#final">Final Paper</a>
+</td>
+<td>Dec 12 10:00pm (Tuesday)
+</td>
+</tr>
+</tbody>
+</table>
+
+
+# Project idea   {#idea}
+
+A one-paragraph summary of your project, with a list of potential references, sent via email to the instructor. This summary should mention: your research question, argument and/or hypothesis, methodology, potential sources of data, and your expected contribution.
+
+
+# Project summary  {#idea}
+
+A two-page detailed summary of your project, building upon the previous submission and incorporating any feedback from the instructor. It should read as an extended abstract of your project, and contain specific information about your theory, hypotheses, research design, and data. No data analysis is required at this point. This summary should be submitted to the instructor and to one of the other students (or group of students) in the course, randomly assigned.
+
+
+# Student feedback  {#feedback}
+
+Each student (or group of students) will read their randomly assigned project summary and provide detailed feedback. The document may include: additional references that could be relevant, comments or questions on the theory and hypotheses, discussion of the feasibility of the research design, other methods or sources of data that could be relevant, etc.
+
+# Descriptive statistics {#descriptive}
+
+A five-page detailed summary of the project that builds upon the previous submission and incorporates the feedback received from your peers and the instructor. Unlike the previous submission, this summary should include at least descriptive statistics of the dataset employed in the study and/or some exploratory data analysis.
+
+# Full draft {#draft}
+
+The first full draft of the paper should be between 10 and 15 pages long (including figures and tables), incorporate any additional feedback received in the previous rounds, and present a nearly-finished data analysis section where at least some of the hypotheses are tested.
+
+# Presentations {#presentations}
+
+Students will be given the chance to present their project to the rest of the class during the last two sessions of the semester. Each presentation should be at most 10 minutes long, followed by 5 minutes of feedback.
+
+
+# Final paper {#final}
+
+The final paper should be around 8,000 words long (20-25 pages including an abstract, figures, and tables but not the list of references). As described above, it will be evaluated on whether it demonstrates your ability to conduct research that applies computational methods to political science questions. This refers to both the capacity to employ the advanced research methods covered in class, but also the ability to derive falsiable hypotheses, rooted in social science theories, and to apply the appropriate methods to test them (and correctly interpret the results of your analysis).
+
+## Content of submission
+
+The submission for the final paper needs to include both the paper itself and also all the replication materials (code and data) that would allow the instructor to reproduce the analysis. For datasets larger than 100MB or those containing confidential or private data, please contact the instructor about how to submit. The use of a technical appendix to the paper, with additional results, is encouraged.  
+
+All the code should be well documented, with a README file detailing the purpose of each script, and frequent comments in the scripts to guide the reader through the analysis, following the guidelines for good computing practices we discussed in class. See also Wilson, G., Bryan, J., Cranston, K., Kitzes, J., Nederbragt, L., & Teal, T. K. (2017). <a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510">Good enough practices in scientific computing</a>. <i>PLOS Computational Biology</i>, 13(6), e1005510.
+
+The following subsections present a set of guidelines for submission compiled by [Jeffrey Arnold](http://www.jrnold.me/) for the course <a href="https://uw-pols501.github.io/2017/research_project.html">POLS/CS&SS 501 at the University of Washington</a>.
+
+## Numbers, tables, and figures
+
+Tables and figures should be included where they fall in the text, and not in an appendix. Tables and figures should be formatted for publication.
+In particular do not include the direct output of software such as R.
+They should be clear, readable, and easily understandable.
+In formatting tables and figures should generally follow the guidelines for "Tables and Figures" in [Political Analysis](https://academic.oup.com/pan/pages/Instructions_To_Authors). 
+
+You are encouraged to use graphics to illustrate your main argument and research findings. If color is used, then it should be used appropriately, following the  best practices in data visualization.
+
+Generally, it is recommended to add footnotes to the tables and figures with additional details on the dependent and independent variables, sources of the data, units included in the analysis, and a one-line explanation of what the reader should learn from that table or figure.
+
+Numbers used in the manuscript text, figures, and tables should be reported with no more precision than they are measured with or is substantively meaningful.
+A good rule of thumb is to use no more than 2 digits unless there is good reason to do so.
+Do not report more significant digits than the standard errors imply.
+Variables should be scaled to make the reporting of results as straightforward as possible.
+If variables are on vastly different scales, then they should be rescaled to produce estimates on similar scales.
+Uncertain numbers should be accompanied by an indication of their uncertainty, generally a standard error or confidence interval.
+
+The uncertainty of estimates is best conveyed by standard errors or confidence intervals, presented in the context of quantities of substantive interest.
+Generally, tables should not routinely report t-statistics or p-values for tests of the null hypothesis that each coefficient is zero.
+Regression tables should report the estimate and standard errors of the coefficients, without stars indicating significance levels.
+While discouraged, it is acceptable to use asterisks, "stars", or other symbols to represent varying levels of statistical significance.
+If an author states that a test is "statistically significant", it must be at the .05 level or lower.
+
+## Footnotes
+
+Explanatory footnotes may be included but should not be used for simple citations.
+Simple citations should be made in-line in author-year format.
+Do not use end notes.
+Do not use acronyms or computational abbreviations when discussing variables in the text.
+All variables that appear in tables or figures should be described in appropriate detail in the text.
+
+## Citations and References
+
+References should be listed in a separate section titled "References."
+Citations should be in the author-year format, and references should follow the formats common to political science journals. This is generally the *Chicago Manual of Style* author-year format.
+It is best to start getting used to using a [reference manager](https://en.wikipedia.org/wiki/Reference_management_software) such as [Zotero](https://www.zotero.org/), [Mendeley](https://www.mendeley.com/), [Papers](http://papersapp.com/), [Colwiz](https://www.colwiz.com/), [Endnote](http://endnote.com/), or BibTeX (with [BibDesk](http://bibdesk.sourceforge.net/) or [JabRef](http://www.jabref.org/)). These both store references and format citations and references according to specified styles.
+
+## Data citation
+
+All data used in the paper must be cited.
+Citations must include enough information for readers to find the original sources, and for those original sources to be consistently identified in the future.
+Data citations should appear in the the manuscript's reference list, contain the name or title of the data set, the author(s), version, date of creation, and a persistent data identifier, such as a DOI, if one is available.
+If a persistent identifier is not available, include a URI if one is available.
+
+
+## Sources for these guidelines
+
+These guidelines were compiled by [Jeffrey Arnold](http://www.jrnold.me/), and are derived from the current manuscript guidelines for top political science journals: [APSR Submission Guidelines](http://www.apsanet.org/APSR-Submission-Guidelines-August-2016), [AJPS Guidelines for Manuscripts](https://ajps.org/guidelines-for-manuscripts/), [AJPS Guidelines for Preparing Replication Files](https://ajpsblogging.files.wordpress.com/2015/03/ajps-guide-for-replic-materials-1-0.pdf), [Journal of Politics Instructions for Authors](http://www.journals.uchicago.edu/journals/jop/instruct), [Political Analysis Information to Authors and Reviewers](https://academic.oup.com/pan/pages/Instructions_To_Authors).
