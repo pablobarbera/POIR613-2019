@@ -489,6 +489,8 @@ title: Course outline and readings
 <ul>
 <li><p>Messing, S., Jabon, M., & Plaut, E. (2016). <a href="https://academic.oup.com/poq/article-lookup/doi/10.1093/poq/nfv046">Bias in the Flesh: Skin Complexion and Stereotype Consistency in Political Campaigns</a>. <i>Public Opinion Quarterly</i>, 80(1), 44–65.</p>
 </li>
+<li><p>Anastasopoulos, L. J., Badani, D., Lee, C., Ginosar, S., & Williams, J. (2017). Photographic home styles in Congress: a computer vision approach. Working paper, UC Berkeley. [see Blackboard for most recent version.]</p>
+</li>
 <li><p>Dietrich, B. (2017). <a href="https://polmeth.polisci.wisc.edu/Papers/dietrich_social_polarization_1.pdf">Social Polarization in the U.S. House of Representatives</a>. Working paper, University of Iowa.</p>
 </li>
 <li><p>Knox, D. and Lucas, C. (2017). <a href="http://christopherlucas.org/files/PDFs/sam.pdf">A General Approach to Classifying Mode of Speech: The Speaker-Affect Model for Audio Data</a>. Working paper, MIT.</p>
