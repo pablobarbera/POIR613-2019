@@ -120,7 +120,7 @@ title: Course outline and readings
 
 <h4>Background reading</h4>
 <ul>
-<li><p>Broockman, D. E., Kalla, J. L., & Sekhon, J. S. (2017). <a href="http://sekhon.berkeley.edu/papers/persuasion2016.pdf">The Design of Field Experiments With Survey Outcomes: A Framework for Selecting More Efficient, Robust, and Ethical Designs.</a> <i>Political Analysis</i>.<p>
+<li><p>Chen, Y., & Konstan, J. (2015). <a href="https://link.springer.com/article/10.1007/s40881-015-0005-3">Online field experiments: a selective survey of methods.</a> <i>Journal of the Economic Science Association</i>, 1(1), 29-42.<p>
 </li>
 </ul>
 
@@ -129,6 +129,8 @@ title: Course outline and readings
 <li><p>Bond, R. M., Fariss, C. J., Jones, J. J., Kramer, A. D., Marlow, C., Settle, J. E., & Fowler, J. H. (2012). <a href="https://www.nature.com/nature/journal/v489/n7415/abs/nature11421.html">A 61-million-person experiment in social influence and political mobilization.</a> <i>Nature</i>, 489(7415), 295-298.</p>
 </li>
 <li><p>King, G., Pan, J., & Roberts, M. E. (2014). <a href="http://scholar.harvard.edu/files/gking/files/experiment_0.pdf">Reverse-engineering censorship in China: Randomized experimentation and participant observation</a>. <i>Science</i>, 345(6199), 1251722.</p>
+</li>
+<li><p>Broockman, D., & Kalla, J. (2016). <a href="http://web.stanford.edu/~dbroock/published%20paper%20PDFs/broockman_kalla_transphobia_canvassing_experiment.pdf">Durably reducing transphobia: A field experiment on door-to-door canvassing.</a> <i>Science</i>, 352(6282), 220-224.</p>
 </li>
 <li><p>Eckles, D., & Bakshy, E. (2017). <a href="https://arxiv.org/pdf/1706.04692.pdf">Bias and high-dimensional adjustment in observational studies of peer effects</a>. arXiv preprint arXiv:1706.04692.</p>
 </li>
