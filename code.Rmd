@@ -1,0 +1,269 @@
+---
+title: Code
+---
+
+The following list provides links to the code used in the guided coding sessions. The code will be added as the course progresses. The solutions to the challenges will be available on Blackboard.
+
+<div class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h2 id="week-2" class="panel-title">
+<a data-toggle="collapse" href="#collapse2">Week 2: 08/29. Webscraping.</a>
+</h2>
+</div>
+<div id="collapse2" class="panel-collapse collapse in" style="margin:12px">
+
+<ul>
+<li><p><a href="slides/03-scraping.pdf">Slides: webscraping (.pdf file)</a></p>
+</li>
+<li><p><a href="code/00-setup.html">Introduction to RMarkdown</a> (<a href="code/00-setup.Rmd">.Rmd file</a>)</p>
+</li>
+<li><p><a href="code/01-scraping-tables.html">Scraping tables from websites</a> (<a href="code/01-scraping-tables.Rmd">.Rmd file</a>)</p>
+</li>
+<li><p><a href="code/02-scraping-unstructured-data.html">Scraping unstructured data</a> (<a href="code/02-scraping-unstructured-data.Rmd">.Rmd file</a>)</p>
+</li>
+<li><p><a href="challenges/challenge1.Rmd">Coding challenge 1 (.Rmd file)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h2 id="week-3" class="panel-title">
+<a data-toggle="collapse" href="#collapse3">Week 3: 09/05. Survey research.</a>
+</h2>
+</div>
+<div id="collapse3" class="panel-collapse collapse in" style="margin:12px">
+
+<ul>
+<li><p><a href="">MRP</a></p>
+</li>
+<li><p><a href="">Coding challenge 2</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+<div class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h2 id="week-4" class="panel-title">
+<a data-toggle="collapse" href="#collapse4">Week 4: 09/12. Experiments.</a>
+</h2>
+</div>
+<div id="collapse4" class="panel-collapse collapse in" style="margin:12px">
+
+<ul>
+<li><p><a href="">Parallel computing with R</a></p>
+</li>
+<li><p><a href="">Coding challenge 3</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+<div class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h2 id="week-5" class="panel-title">
+<a data-toggle="collapse" href="#collapse5">Week 5: 09/19. Text (I).</a>
+</h2>
+</div>
+<div id="collapse5" class="panel-collapse collapse in" style="margin:12px">
+
+<ul>
+<li><p><a href="">Basics of text analysis</a></p>
+</li>
+<li><p><a href="">Dictionary methods</a></p>
+</li>
+<li><p><a href="">Coding challenge 4</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h2 id="week-6" class="panel-title">
+<a data-toggle="collapse" href="#collapse6">Week 6: 09/26. Text (II).</a>
+</h2>
+</div>
+<div id="collapse6" class="panel-collapse collapse in" style="margin:12px">
+
+<ul>
+<li><p><a href="">Assessing intercoder reliability</a></p>
+</li>
+<li><p><a href="">Supervised learning</a></p>
+</li>
+<li><p><a href="">Coding challenge 5</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h2 id="week-7" class="panel-title">
+<a data-toggle="collapse" href="#collapse7">Week 7: 10/03. Text (III).</a>
+</h2>
+</div>
+<div id="collapse1" class="panel-collapse collapse in" style="margin:12px">
+
+
+<ul>
+<li><p><a href="">Topic models</a></p>
+</li>
+<li><p><a href="">Coding challenge 6</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h2 id="week-8" class="panel-title">
+<a data-toggle="collapse" href="#collapse8">Week 8: 10/10. Text (IV).</a>
+</h2>
+</div>
+<div id="collapse8" class="panel-collapse collapse in" style="margin:12px">
+
+
+<ul>
+<li><p><a href="">The consequences of text preprocessing</a></p>
+</li>
+<li><p><a href="">Introduction to word2vec</a></p>
+</li>
+<li><p><a href="">Coding challenge 7</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h2 id="week-9" class="panel-title">
+<a data-toggle="collapse" href="#collapse9">Week 9: 10/17. Networks (I).</a>
+</h2>
+</div>
+<div id="collapse9" class="panel-collapse collapse in" style="margin:12px">
+
+
+<ul>
+<li><p><a href="">Social network analysis with igraph</a></p>
+</li>
+<li><p><a href="">Network visualization</a></p>
+</li>
+<li><p><a href="">Coding challenge 8</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h2 id="week-10" class="panel-title">
+<a data-toggle="collapse" href="#collapse10">Week 10: 10/24. Networks (II).</a>
+</h2>
+</div>
+<div id="collapse10" class="panel-collapse collapse in" style="margin:12px">
+
+
+<ul>
+<li><p><a href="">Collecting Twitter data</a></p>
+</li>
+<li><p><a href="">Collecting Facebook data</a></p>
+</li>
+<li><p><a href="">Coding challenge 9</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+<div class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h2 id="week-11" class="panel-title">
+<a data-toggle="collapse" href="#collapse11">Week 11: 10/31. Networks (III).</a>
+</h2>
+</div>
+<div id="collapse11" class="panel-collapse collapse in" style="margin:12px">
+
+
+<ul>
+<li><p><a href="">Latent space models applied to network data</a></p>
+</li>
+<li><p><a href="">Coding challenge 10</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h2 id="week-12" class="panel-title">
+<a data-toggle="collapse" href="#collapse12">Week 12: 11/07. Spatial statistics.</a>
+</h2>
+</div>
+<div id="collapse12" class="panel-collapse collapse in" style="margin:12px">
+
+
+<ul>
+<li><p><a href="">Working with shape files in R</a>. Materials based on Bivand, R. S., Pebesma, E., & Gómez-Rubio, V. (2013). <a href="http://usc.summon.serialssolutions.com/#!/search?bookMark=ePnHCXMw42JgAfZbU5lBe6iARb856Dx20BgbsGIG3YhiwgEbAAHNwAFTDyeDCrS9pVAMWkOcmKMAWhupkAg9k0MBNB6pEMTNoODmGuLsoVtanBwP2SIIrSKK40EdKkvQziGCSgBvtSyc">Applied Spatial Data Analysis with R</a>. Springer.</p>
+</li>
+<li><p><a href="">Spatial autoregression</a></p>
+</li>
+<li><p><a href="">Coding challenge 11</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h2 id="week-13" class="panel-title">
+<a data-toggle="collapse" href="#collapse13">Week 13: 11/14. Audiovisual data.</a>
+</h2>
+</div>
+<div id="collapse13" class="panel-collapse collapse in" style="margin:12px">
+
+<ul>
+<li><p><a href="">Image classification with R</a></p>
+</li>
+<li><p><a href="">Coding challenge 12</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>

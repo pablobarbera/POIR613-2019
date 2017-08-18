@@ -11,9 +11,7 @@ navbar:
     - text: "Project"
       href: "research_project.html"
     - text: "Code"
-      menu:
-      - text: "Coming soon"
-        href: "code/session1.html"
+      href: "code.html"
     - text: "Resources"
       menu:
       - text: "Academic Conduct"

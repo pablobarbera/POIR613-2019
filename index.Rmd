@@ -85,7 +85,7 @@ Late submissions will not be accepted.
 
 ## Research project (50%)
 
-Students are required to submit an original research paper that employs any of the methods introduced in the course. The goal of this exercise is to demonstrate that you have the ability to conduct research in computational social science. This research paper can be an individual or group project (up to 3 people). For more information and deadlines for each component of the project, go to the [Project](/research_project) page.
+Students are required to submit an original research paper that employs any of the methods introduced in the course. The goal of this exercise is to demonstrate that you have the ability to conduct research in computational social science. This research paper can be an individual or group project (up to 3 people). For more information and deadlines for each component of the project, go to the [Project](/research_project.html) page.
 
 # Software 
 
