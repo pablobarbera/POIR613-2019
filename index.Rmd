@@ -41,7 +41,7 @@ The course will follow a "learning-by-doing" approach and will place emphasis on
 <tr>
 <td><b>Office hours</b></td>
 <td>Wednesdays</td>
-<td>2:00&ndash;4:00 pm</td>
+<td>4:00&ndash;6:00 pm</td>
 <td><a href="http://classes.usc.edu/maps/?b=VKC">VKC 359A</a></td>
 </tr>
 </table>
@@ -95,10 +95,9 @@ This course will use [R](https://www.r-project.org/), which is a free and open-s
 
 Science should be open, and this course builds up other open licensed material, so unless otherwise noted, all materials for this class are licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 
-More specifically, some of the content of this course is based on materials kindly shared by [Dan Cervone](http://dcervone.com/), [Alex Hanna](http://alex-hanna.com), [Ken Benoit](http://www.kenbenoit.net/), [Paul Nulty](https://github.com/pnulty), [Kevin Munger](https://github.com/kmunger), [Arthur Spirling](http://www.nyu.edu/projects/spirling/), [Justin Grimmer](http://www.justingrimmer.org/), [Karsten Donnay](http://www.karstendonnay.net/), and is probably inspired by many others who have publicly released their teaching materials. I have tried to give credit to the original author of each script, but if I forgot anyone, please feel free to reach out.
+More specifically, some of the content of this course is based on materials kindly shared by [Dan Cervone](http://dcervone.com/), [Alex Hanna](http://alex-hanna.com), [Ken Benoit](http://www.kenbenoit.net/), [Paul Nulty](https://github.com/pnulty), [Kevin Munger](https://github.com/kmunger), [Arthur Spirling](http://www.nyu.edu/projects/spirling/), [Katya Ognyanova](http://kateto.net/), [Rochelle Terman](http://rochelleterman.com/), [Justin Grimmer](http://www.justingrimmer.org/), [Karsten Donnay](http://www.karstendonnay.net/), and is probably inspired by many others who have publicly released their teaching materials. I have tried to give credit to the original author of each script, but if I forgot anyone, please feel free to reach out.
 
 The layout for this website was designed by [Jeffrey Arnold](http://www.jrnold.me/) (thanks!).
-
 
 The source for the materials of this course is on GitHub at <a href="https://github.com/pablobarbera/POIR613">pablobarbera/POIR613</a>
 
