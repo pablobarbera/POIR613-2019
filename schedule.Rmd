@@ -12,6 +12,7 @@ title: Course outline and readings
 </div>
 <div id="collapse1" class="panel-collapse collapse in" style="margin:12px">
 <p><b>Topics:</b> Introductions and course overview. What is Computational Social Science? Good computing practices.</p>
+<p><a href="slides/01-intro.pdf">SLIDES (.pdf): Introduction to the course.</a></p>
 <h4>Background reading</h4>
 <ul>
 <li><p>Lazer, D., Pentland, A. S., Adamic, L., Aral, S., Barabasi, A. L., Brewer, D., ... & Jebara, T. (2009). <a href="http://fowler.ucsd.edu/computational_social_science.pdf">Life in the network: the coming age of computational social science</a>. <i>Science</i>, 323(5915), 721-3.</p>
