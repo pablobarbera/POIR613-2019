@@ -1,0 +1,184 @@
+---
+title: "Challenge 3: Efficient programming"
+author: "Pablo Barbera"
+date: "September 12, 2017"
+output: html_document
+---
+
+#### PART 1
+
+The purpose of this part of the challenge is to practice more efficient code. You will be presented with a series of code chunks that I'm honestly ashamed to have written! Using a combination of vectorized functions and more efficient handling of memory, try to see how fast you can make it run. Be creative!
+
+Here's the dataset we'll be using for this challenge -- a random sample of 10,000 tweets related to the 2014 EP elections in the UK. To make it a bit more challenging, we'll multiply the size of the dataset by 5.
+
+```{r}
+d <- read.csv("../data/EP-elections-tweets.csv", stringsAsFactors=F)
+d <- rbind(d, d, d, d, d)
+```
+
+## 1) Count how many tweets are classified as impolite:
+
+```{r}
+func1 <- function(){
+  
+  count <- 0
+  
+  for (i in 1:nrow(d)){
+    if (d$polite[i]=="impolite"){
+      count <- count + 1
+    }
+  }
+  return(count)
+}
+
+system.time(func1())
+
+```
+
+Your solution here:
+
+```{r}
+func2 <- function(){
+  ...
+}
+system.time(func2())
+```
+
+## 2) Count how many tweets mention Merkel:
+
+```{r}
+func1 <- function(){
+  merkel_tweets <- c()
+  for (i in 1:nrow(d)){
+    if (grepl("merkel", d$text[i], ignore.case=TRUE)==TRUE){
+      merkel_tweets <- c(merkel_tweets, i)
+    }
+  }
+  return(length(merkel_tweets))
+}
+system.time(func1())
+```
+
+Your solution here:
+
+```{r}
+func2 <- function(){
+  ...
+}
+system.time(func2())
+```
+
+
+## 3) Take a random sample of 200 tweets that are classified as "impolite"
+
+```{r}
+func1 <- function(){
+  
+  # sample random uniform number
+  d$random <- runif(nrow(d))
+  # sort by this random number
+  dd <- d[order(d$random),]
+  # loop over rows using 'while'
+  smp <- data.frame()
+  i <- 1
+  while (nrow(smp)<=500){
+    if (d$polite[i]=="impolite"){
+      smp <- rbind(smp, d[i,])
+    }
+    i <- i + 1
+  }
+  return(smp)
+
+}
+
+system.time(func1())
+
+```
+
+Your solution here:
+
+```{r}
+func2 <- function(){
+  ...
+}
+
+system.time(func2())
+```
+
+#### PART 2
+
+
+Now you will practice writing code that can run in parallel. We'll use simulation to solve the "birthday problem": given the number of people in this room, what is the probability that two people have the same birthday?
+
+Here's the code to run this simulation using a standard loop in R:
+
+```{r}
+system.time({
+# monte carlo simulation
+k <- 15 # number of people in this room
+sims <- 10000 # number of simulations 
+duplicates <- rep(NA, sims) # vector with results
+for (i in 1:sims) {
+  days <- sample(1:365, k, replace = TRUE)
+  days.unique <- unique(days) # unique birthdays
+  ## if there are duplicates, the number of unique birthdays 
+  ## will be less than the number of birthdays, which is `k'
+  ## so here we say TRUE if there are 2+ people with same birthday
+  duplicates[i] <- length(days.unique) < k
+
+}
+})
+
+## fraction of trials where at least two bdays are the same
+mean(duplicates)
+
+```
+
+
+Rewrite this loop using `%do%` from the `foreach` package. Make sure you use the correct function to combine. Does the running time increase or decrease?
+
+```{r}
+
+
+
+```
+
+Now set up a cluster and parallelize the loop using `%dopar%`. Does the running time increase or decrease? What does it tell you about when it makes sense to parallelize?
+
+```{r}
+
+
+
+```
+
+Now assume there's 1,500,000 million students in the class (one can dream...). Try re-running the previous code (100 simulations should be enough). We already know the answer for the birthday problem with the sample size. But what happens now with the running time? Why?
+
+
+```{r}
+
+# standard loop
+
+system.time({
+# monte carlo simulation
+k <- 1500000 # number of people in this room
+sims <- 10000 # number of simulations 
+duplicates <- rep(NA, sims) # vector with results
+for (i in 1:sims) {
+  days <- sample(1:365, k, replace = TRUE)
+  days.unique <- unique(days) # unique birthdays
+  ## if there are duplicates, the number of unique birthdays 
+  ## will be less than the number of birthdays, which is `k'
+  ## so here we say TRUE if there are 2+ people with same birthday
+  duplicates[i] <- length(days.unique) < k
+
+}
+})
+
+# parallelized foreach loop
+
+### YOUR CODE HERE
+
+
+```
+
+

@@ -39,9 +39,13 @@ The following list provides links to the code used in the guided coding sessions
 <div id="collapse3" class="panel-collapse collapse in" style="margin:12px">
 
 <ul>
-<li><p><a href="">MRP</a></p>
+<li><p><a href="slides/04-multilevel.pdf">Slides: introduction to multilevel models (.pdf file)</a></p>
 </li>
-<li><p><a href="">Coding challenge 2</a></p>
+<li><p><a href="">Multilevel models with R</a> (See Blackboard for code)</p>
+</li>
+<li><p><a href="">Multilevel Regression and Poststratification</a> (See Blackboard for code)</p>
+</li>
+<li><p><a href="challenges/challenge2.Rmd">Coding challenge 2 (.Rmd file)</a></p>
 </li>
 </ul>
 </div>
@@ -60,9 +64,15 @@ The following list provides links to the code used in the guided coding sessions
 <div id="collapse4" class="panel-collapse collapse in" style="margin:12px">
 
 <ul>
-<li><p><a href="">Parallel computing with R</a></p>
+<li><p><a href="slides/05-parallel.pdf">Slides: efficient data analysis with R (.pdf file)</a></p>
 </li>
-<li><p><a href="">Coding challenge 3</a></p>
+
+<li><p><a href="code/05-efficient-programming.html">Efficient programming with R</a> (<a href="code/05-efficient-programming.Rmd">.Rmd file</a>)</p>
+</li>
+<li><p><a href="code/06-parallel-computing.html">Parallel computing with R</a> (<a href="code/06-parallel-computing.Rmd">.Rmd file</a>)</p>
+</li>
+</li>
+<li><p><a href="challenges/challenge3.Rmd">Coding challenge 3 (.Rmd file)</a></p>
 </li>
 </ul>
 </div>

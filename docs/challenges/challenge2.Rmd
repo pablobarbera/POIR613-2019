@@ -1,0 +1,43 @@
+---
+title: "Challenge 2: MRP"
+author: "Pablo Barbera"
+date: "September 5, 2017"
+output: html_document
+---
+
+In this challenge you will continue practicing your multilevel modeling skills with the example of estimating support for gay marriage across U.S. states, adapted from Jonathan Kastellec's materials [here](http://www.princeton.edu/~jkastell/mrp_primer.html).
+
+Run MRP again using the code used in class, but this time without state-level predictors (exclude also the state-level random effects).
+
+```{r}
+
+
+```
+
+Compare your estimates of support for gay marriage at the state level with the previous result. Do you find large differences? Plot your estimates against the sample size in each state. What do you find?
+
+```{r}
+
+```
+
+Now, add back a state-level predictor: the log of population. Run the model again and compare your estimates. What does the pattern you observe suggests?
+
+```{r}
+
+```
+
+Finally, let's try to compute a model with no pooling. Let's start with a single state -- California. Compute the average support within each cell based on the megapoll. Then, extract from the census the number of individuals in each cell. Merge these two datasets and compute the average support in California, weighted by the proportion of individuals in each cell. (You can use `weighted.mean`).
+
+```{r}
+
+```
+
+Now, replicate this computation for all states with a least one data point. Compare your results with the results from MRP on a plot where the x-axis corresponds to your sample size. What do you find?
+
+```{r}
+
+```
+
+
+
+
