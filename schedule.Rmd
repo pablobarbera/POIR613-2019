@@ -100,6 +100,8 @@ title: Course outline and readings
 
 <p><b>Topics:</b> Large-scale online experiments. Basics of UNIX. Parallel programming with R.</p>
 
+<p><a href="slides/05-experiments.pdf">SLIDES (.pdf): Experimental research in the digital age.</a></p>
+
 <h4>Background reading</h4>
 <ul>
 <li><p>Chen, Y., & Konstan, J. (2015). <a href="https://link.springer.com/article/10.1007/s40881-015-0005-3">Online field experiments: a selective survey of methods.</a> <i>Journal of the Economic Science Association</i>, 1(1), 29-42.<p>

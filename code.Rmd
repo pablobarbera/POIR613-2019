@@ -64,7 +64,7 @@ The following list provides links to the code used in the guided coding sessions
 <div id="collapse4" class="panel-collapse collapse in" style="margin:12px">
 
 <ul>
-<li><p><a href="slides/05-parallel.pdf">Slides: efficient data analysis with R (.pdf file)</a></p>
+<li><p><a href="slides/06-parallel.pdf">Slides: efficient data analysis with R (.pdf file)</a></p>
 </li>
 
 <li><p><a href="code/05-efficient-programming.html">Efficient programming with R</a> (<a href="code/05-efficient-programming.Rmd">.Rmd file</a>)</p>
