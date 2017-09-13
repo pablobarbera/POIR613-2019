@@ -137,6 +137,9 @@ title: Course outline and readings
 
 <p><b>Topics:</b> Introduction to automated text analysis. Sources of textual data. String manipulation in R. Regular expressions. Text processing with quanteda. Dictionary methods.</p>
 
+<p><a href="slides/07-text-intro.pdf">SLIDES (.pdf): Introduction to automated text analysis. Dictionary methods applied to sentiment analysis.</a></p>
+
+
 <h4>Background reading</h4>
 <ul>
 <li><p>Grimmer, J., & Stewart, B. M. (2013). <a href="https://www.cambridge.org/core/journals/political-analysis/article/div-classtitletext-as-data-the-promise-and-pitfalls-of-automatic-content-analysis-methods-for-political-textsdiv/F7AAC8B2909441603FEB25C156448F20">Text as data: The promise and pitfalls of automatic content analysis methods for political texts</a>. <i>Political analysis</i>, 21(3), 267-297.<p>
