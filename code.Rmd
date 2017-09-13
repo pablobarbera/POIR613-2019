@@ -91,11 +91,12 @@ The following list provides links to the code used in the guided coding sessions
 <div id="collapse5" class="panel-collapse collapse in" style="margin:12px">
 
 <ul>
-<li><p><a href="">Basics of text analysis</a></p>
+
+<li><p><a href="code/07-text-intro.html">Basics of text analysis with R</a> (<a href="code/07-text-intro.Rmd">.Rmd file</a>)</p>
 </li>
-<li><p><a href="">Dictionary methods</a></p>
+<li><p><a href="code/08-dictionary-methods.html">Dictionary methods applied to sentiment analysis</a> (<a href="code/08-dictionary-methods.Rmd">.Rmd file</a>)</p>
 </li>
-<li><p><a href="">Coding challenge 4</a></p>
+<li><p><a href="challenges/challenge4.Rmd">Coding challenge 4 (.Rmd file)</a></p>
 </li>
 </ul>
 </div>
