@@ -114,11 +114,11 @@ The following list provides links to the code used in the guided coding sessions
 <div id="collapse6" class="panel-collapse collapse in" style="margin:12px">
 
 <ul>
-<li><p><a href="">Assessing intercoder reliability</a></p>
+<li><p><a href="code/09-supervised-learning.html">Supervised learning applied to text classification</a> (<a href="code/09-supervised-learning.Rmd">.Rmd file</a>)</p>
 </li>
-<li><p><a href="">Supervised learning</a></p>
+<li><p><a href="code/10-encoding-issues.html">Encoding issues when working with text</a> (<a href="code/10-encoding-issues.Rmd">.Rmd file</a>)</p>
 </li>
-<li><p><a href="">Coding challenge 5</a></p>
+<li><p><a href="challenges/challenge5.Rmd">Coding challenge 5</a></p>
 </li>
 </ul>
 </div>

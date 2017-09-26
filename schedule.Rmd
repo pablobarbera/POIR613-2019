@@ -171,6 +171,8 @@ title: Course outline and readings
 
 <p><b>Topics:</b> supervised machine learning applied to text classification. Crowd-sourcing the creation of training datasets.</p>
 
+<p><a href="slides/08-supervised-learning.pdf">SLIDES (.pdf): Introduction to supervised learning applied to text classification.</a></p>
+
 <h4>Background reading</h4>
 <ul>
 <li><p>Chapters 1, 3, and 5 of James, G., Witten, D., Hastie, T., & Tibshirani, R. (2013). <a href="https://library.usc.edu/uhtbin/cgisirsi/x/0/0/57/5/3?searchdata1=4192313{CKEY}&searchfield1=GENERAL^SUBJECT^GENERAL^^&user_id=WEBSERVER">An introduction to statistical learning.</a> New York: Springer.</p>
