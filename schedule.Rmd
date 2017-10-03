@@ -205,6 +205,8 @@ title: Course outline and readings
 
 <p><b>Topics:</b> Unsupervised machine learning (topic models).</p>
 
+<p><a href="slides/09-topic-models.pdf">SLIDES (.pdf): Introduction to unsupervised machine learning. Topic models.</a></p>
+
 <h4>Background reading</h4>
 <ul>
 <li><p>Blei, D. M. (2012). <a href="http://dl.acm.org/citation.cfm?id=2133826">Probabilistic topic models.</a> <i>Communications of the ACM</i>, 55(4), 77-84.</p>
