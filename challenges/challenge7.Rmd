@@ -1,0 +1,29 @@
+---
+title: "Challenge 7"
+author: Pablo Barbera
+date: October 10, 2017
+output: html_document
+---
+
+## Ideological scaling
+
+Write code in R that help you answer the following questions. As in challenge 4, we'll be working with a dataset that contains all the tweets sent by Donald Trump, Ted Cruz, Hillary Clinton, and Bernie Sanders during the 2016 primary election campaign.
+
+```{r}
+tweets <- read.csv('../data/candidate-tweets.csv', stringsAsFactors=F)
+
+```
+
+Using the code we just discussed in class, traing a wordscores model with the tweets by Members of Congress.
+
+```{r}
+
+```
+
+
+Now, apply it to estiamte the ideology of the presidential candidates. What do you find?
+
+```{r}
+
+```
+

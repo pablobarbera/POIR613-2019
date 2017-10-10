@@ -237,6 +237,8 @@ title: Course outline and readings
 
 <p><b>Topics:</b> Ideological scaling of documents. Event detection. Introduction to word embeddings.</p>
 
+<p><a href="slides/10-advanced-text.pdf">SLIDES (.pdf): Advanced automated text analysis.</a></p>
+
 <h4>Background reading</h4>
 <ul>
 <li><p>Lowe, W. (2008). <a href="http://www.jstor.org/stable/25791945">Understanding wordscores</a>. <i>Political Analysis</i>, 16(4), 356-371.</p>
