@@ -14,14 +14,14 @@ tweets <- read.csv('../data/candidate-tweets.csv', stringsAsFactors=F)
 
 ```
 
-Using the code we just discussed in class, traing a wordscores model with the tweets by Members of Congress.
+Using the code we just discussed in class, train a wordscores model with the tweets by Members of Congress.
 
 ```{r}
 
 ```
 
 
-Now, apply it to estiamte the ideology of the presidential candidates. What do you find?
+Now, apply it to estimate the ideology of the presidential candidates. What do you find?
 
 ```{r}
 
