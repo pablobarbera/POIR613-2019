@@ -274,6 +274,8 @@ title: Course outline and readings
 
 <p><b>Topics:</b> Basic concepts in social network analysis. Types of random networks. Strong and weak ties. Network visualization.</p>
 
+<p><a href="slides/11-networks-intro.pdf">SLIDES (.pdf): Introduction to social network analysis.</a></p>
+
 <h4>Background reading</h4>
 <ul>
 <li><p>Sinclair, B. (2016). Network Structure and Social Outcomes: Network Analysis for Social Science, in Alvarez, M. (ed.) Computational Social Science. Cambridge: Cambridge University Press. [<a href="https://library.usc.edu/uhtbin/cgisirsi/x/0/0/57/5/3?searchdata1=5096841{CKEY}&searchfield1=GENERAL^SUBJECT^GENERAL^^&user_id=WEBSERVER">Full text available through USC libraries</a>]

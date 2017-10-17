@@ -182,11 +182,11 @@ The following list provides links to the code used in the guided coding sessions
 
 
 <ul>
-<li><p><a href="">Social network analysis with igraph</a></p>
+<li><p><a href="code/15-networks-intro-visualization.html">Introduction social network analysis with igraph</a> (<a href="code/15-networks-intro-visualization.Rmd">.Rmd file</a>)</p>
 </li>
-<li><p><a href="">Network visualization</a></p>
+<li><p><a href="code/16-networks-descriptive-analysis.html">Descriptive analysis of social network datasets</a> (<a href="code/16-networks-descriptive-analysis.Rmd">.Rmd file</a>)</p>
 </li>
-<li><p><a href="">Coding challenge 8</a></p>
+<li><p><a href="challenges/challenge8.Rmd">Coding challenge 8</a></p>
 </li>
 </ul>
 </div>
