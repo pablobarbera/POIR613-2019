@@ -205,11 +205,15 @@ The following list provides links to the code used in the guided coding sessions
 
 
 <ul>
-<li><p><a href="">Collecting Twitter data</a></p>
+<li><p><a href="slides/12-networks-contagion.pdf">Slides: collecting social media data (.pdf file)</a></p>
 </li>
-<li><p><a href="">Collecting Facebook data</a></p>
+<li><p><a href="code/17-twitter-streaming-data-collection.html">Collecting Twitter data from the Streaming API</a> (<a href="code/17-twitter-streaming-data-collection.Rmd">.Rmd file</a>)</p>
 </li>
-<li><p><a href="">Coding challenge 9</a></p>
+<li><p><a href="code/18-twitter-REST-data-collection.html">Collecting Twitter data from the REST API</a> (<a href="code/18-twitter-REST-data-collection.Rmd">.Rmd file</a>)</p>
+</li>
+<li><p><a href="code/19-facebook-data-collection.html">Collecting Facebook data from the Graph API</a> (<a href="code/19-facebook-data-collection.Rmd">.Rmd file</a>)</p>
+</li>
+<li><p><a href="challenges/challenge9.Rmd">Coding challenge 9</a></p>
 </li>
 </ul>
 </div>
