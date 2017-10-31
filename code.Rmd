@@ -233,9 +233,13 @@ The following list provides links to the code used in the guided coding sessions
 
 
 <ul>
-<li><p><a href="">Latent space models applied to network data</a></p>
+<li><p><a href="code/20-community-detection.html">Community detection methods</a> (<a href="code/20-community-detection.Rmd">.Rmd file</a>)</p>
 </li>
-<li><p><a href="">Coding challenge 10</a></p>
+<li><p><a href="code/21-latent-space.html">Latent space network models</a> (<a href="code/21-latent-space.Rmd">.Rmd file</a>)</p>
+</li>
+<li><p><a href="challenges/challenge10.Rmd">Coding challenge 10</a></p>
+</li>
+<li><p><a href="challenges/challenge11.Rmd">Coding challenge 11</a></p>
 </li>
 </ul>
 </div>
