@@ -265,22 +265,3 @@ The following list provides links to the code used in the guided coding sessions
 </div>
 </div>
 
-
-<div class="panel-group">
-<div class="panel panel-default">
-<div class="panel-heading">
-<h2 id="week-13" class="panel-title">
-<a data-toggle="collapse" href="#collapse13">Week 13: 11/14. Audiovisual data.</a>
-</h2>
-</div>
-<div id="collapse13" class="panel-collapse collapse in" style="margin:12px">
-
-<ul>
-<li><p><a href="">Image classification with R</a></p>
-</li>
-<li><p><a href="">Coding challenge 12</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
