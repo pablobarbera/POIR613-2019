@@ -23,9 +23,10 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-1.1/textmate.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-1.1/highlight.js"></script>
-<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -35,10 +36,12 @@
   }
 </style>
 <script type="text/javascript">
-if (window.hljs && document.readyState && document.readyState === "complete") {
-   window.setTimeout(function() {
-      hljs.initHighlighting();
-   }, 0);
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
 }
 </script>
 
@@ -94,8 +97,14 @@ img {
 .tabbed-pane {
   padding-top: 12px;
 }
+.html-widget {
+  margin-bottom: 20px;
+}
 button.code-folding-btn:focus {
   outline: none;
+}
+summary {
+  display: list-item;
 }
 </style>
 
@@ -111,7 +120,6 @@ body {
   padding-top: 56px;
   margin-top: -56px;
 }
-
 .section h2 {
   padding-top: 56px;
   margin-top: -56px;
@@ -131,6 +139,43 @@ body {
 .section h6 {
   padding-top: 56px;
   margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -152,18 +197,77 @@ $(document).ready(function () {
 });
 </script>
 
-
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
 </script>
 
 <!-- code folding -->
-
 
 
 
@@ -342,7 +446,7 @@ Due date
 <a href="research_project.html#idea">Project idea</a>
 </td>
 <td>
-Sept 15 10:00pm (Friday)
+Sept 20 10:00pm (Friday)
 </td>
 </tr>
 <tr>
@@ -350,7 +454,7 @@ Sept 15 10:00pm (Friday)
 <a href="research_project.html#summary">Project summary</a>
 </td>
 <td>
-Oct 2 10:00pm (Monday)
+Oct 7 10:00pm (Monday)
 </td>
 </tr>
 <tr>
@@ -358,7 +462,7 @@ Oct 2 10:00pm (Monday)
 <a href="research_project.html#feedback">Student feedback</a>
 </td>
 <td>
-Oct 9 10:00pm (Monday)
+Oct 15 10:00pm (Monday)
 </td>
 </tr>
 <tr>
@@ -366,7 +470,7 @@ Oct 9 10:00pm (Monday)
 <a href="research_project.html#descriptive">Descriptive statistics</a>
 </td>
 <td>
-Oct 30 10:00pm (Monday)
+Nov 4 10:00pm (Monday)
 </td>
 </tr>
 <tr>
@@ -374,7 +478,7 @@ Oct 30 10:00pm (Monday)
 <a href="research_project.html#draft">Full draft</a>
 </td>
 <td>
-Nov 17 10:00pm (Friday)
+Nov 25 10:00pm (Friday)
 </td>
 </tr>
 <tr>
@@ -382,7 +486,7 @@ Nov 17 10:00pm (Friday)
 <a href="research_project.html#presentations">Presentations</a>
 </td>
 <td>
-Nov 21 &amp; 28 (Tuesday)
+Dec 3 (Tuesday)
 </td>
 </tr>
 <tr>
@@ -390,7 +494,7 @@ Nov 21 &amp; 28 (Tuesday)
 <a href="research_project.html#final">Final Paper</a>
 </td>
 <td>
-Dec 12 10:00pm (Tuesday)
+Dec 18 10:00pm (Tuesday)
 </td>
 </tr>
 </tbody>
@@ -405,7 +509,7 @@ Dec 12 10:00pm (Tuesday)
 </div>
 <div id="feedback" class="section level1">
 <h1>Student feedback</h1>
-<p>Each student (or group of students) will read their randomly assigned project summary and provide detailed feedback. The document may include: additional references that could be relevant, comments or questions on the theory and hypotheses, discussion of the feasibility of the research design, other methods or sources of data that could be relevant, etc.</p>
+<p>Each student (or group of students) will read their randomly assigned project summary and provide detailed feedback. The document may include: additional references that could be relevant, comments or questions on the theory and hypotheses, discussion of the feasibility of the research design, other methods or sources of data that could be relevant, etc. The feedback should be roughly 2-3 paragraphs in length.</p>
 </div>
 <div id="descriptive" class="section level1">
 <h1>Descriptive statistics</h1>
@@ -417,14 +521,14 @@ Dec 12 10:00pm (Tuesday)
 </div>
 <div id="presentations" class="section level1">
 <h1>Presentations</h1>
-<p>Students will be given the chance to present their project to the rest of the class during the last two sessions of the semester. Each presentation should be at most 10 minutes long, followed by 5 minutes of feedback.</p>
+<p>Students will be given the chance to present their project to the rest of the class during the last two sessions of the semester. Each presentation should be at most 10 minutes long. During the presentation, students are expected to write notes and feedback on a shared document. The student that provided feedback earlier in the course will be assigned as a discussant and expected to summarize the feedback received.</p>
 </div>
 <div id="final" class="section level1">
 <h1>Final paper</h1>
 <p>The final paper should be around 8,000 words long (20-25 pages including an abstract, figures, and tables but not the list of references). As described above, it will be evaluated on whether it demonstrates your ability to conduct research that applies computational methods to political science questions. This refers to both the capacity to employ the advanced research methods covered in class, but also the ability to derive falsiable hypotheses, rooted in social science theories, and to apply the appropriate methods to test them (and correctly interpret the results of your analysis).</p>
 <div id="content-of-submission" class="section level2">
 <h2>Content of submission</h2>
-<p>The submission for the final paper needs to include both the paper itself and also all the replication materials (code and data) that would allow the instructor to reproduce the analysis. For datasets larger than 100MB or those containing confidential or private data, please contact the instructor about how to submit. The use of a technical appendix to the paper, with additional results, is encouraged.</p>
+<p>The submission for the final paper needs to include both the paper itself and also all the replication materials (code and data) that would allow the instructor to reproduce the analysis. For datasets larger than 100MB or those containing confidential or private data, please contact the instructor about how to submit. The use of a technical appendix to the paper, with additional results, is encouraged. Submission will take place via GitHub classroom.</p>
 <p>All the code should be well documented, with a README file detailing the purpose of each script, and frequent comments in the scripts to guide the reader through the analysis, following the guidelines for good computing practices we discussed in class. See also Wilson, G., Bryan, J., Cranston, K., Kitzes, J., Nederbragt, L., &amp; Teal, T. K. (2017). <a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510">Good enough practices in scientific computing</a>. <i>PLOS Computational Biology</i>, 13(6), e1005510.</p>
 <p>The following subsections present a set of guidelines for submission compiled by <a href="http://www.jrnold.me/">Jeffrey Arnold</a> for the course <a href="https://uw-pols501.github.io/2017/research_project.html">POLS/CS&amp;SS 501 at the University of Washington</a>.</p>
 </div>

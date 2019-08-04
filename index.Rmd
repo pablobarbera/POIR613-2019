@@ -8,8 +8,8 @@ output:
 <div class="container">
 <div class="jumbotron" style="margin-left:-15px">
 <h1 class="title">POIR 613</h1>
-<h2 class="subtitle">Measurement Models and Statistical Computing</h2>
-<p>University of Southern California, Fall 2017</p>
+<h2 class="subtitle">Computational Social Science</h2>
+<p>University of Southern California, Fall 2019</p>
 </div>
 </div>
 
@@ -34,14 +34,14 @@ The course will follow a "learning-by-doing" approach and will place emphasis on
 <table class = "table table-striped table-hover">
 <tr>
 <td><b>Class meetings</b></td>
-<td>Tuesdays</td>
-<td> 5:00&ndash;7:50 pm </td>
-<td><a href="http://classes.usc.edu/maps/?b=VKC">VKC 110</a></td>
+<td>Wednesdays</td>
+<td> 2:00&ndash;4:50 pm </td>
+<td><a href="http://classes.usc.edu/maps/?b=VKC">VKC 204</a></td>
 </tr>
 <tr>
 <td><b>Office hours</b></td>
 <td>Wednesdays</td>
-<td>4:00&ndash;6:00 pm</td>
+<td>1:00&ndash;2:00 pm</td>
 <td><a href="http://classes.usc.edu/maps/?b=VKC">VKC 359A</a></td>
 </tr>
 </table>
@@ -63,7 +63,7 @@ The first block, led by the instructor, will be based on a set of readings from 
 
 The second block will feature a critical discussion of recent publications or working papers that apply these methods. Two students will prepare a two-page referee report (due the night before the class) and a 10-minute presentation during which they will discuss their assessment of the paper. All students in the class are expected to at least have skimmed the papers and be ready to ask questions or engage in the discussion.
 
-The third part of each class will be applied. The instructor will provide code and data that illustrate the application of a specific computational social science method, followed by a "coding challenge" where students will need to apply what they have learned to a new dataset. The code and output (log file) of their coding challenge will be due before the beginning of the following class. 
+The third part of each class will be applied. The instructor will provide code and data that illustrate the application of a specific computational social science method, followed by a "coding challenge" where students will need to apply what they have learned to a new dataset. The code and output (log file) of their coding challenge needs to be submitted via GitHub classroom before the beginning of the following class. 
 
 # Course requirements and grading
 
@@ -71,15 +71,15 @@ The third part of each class will be applied. The instructor will provide code a
 
 Students are expected to attend every session, and do the assigned readings before each session. You should come to class with questions and ready to engage in a discussion about that week's topic.
 
-## Referee report and student presentation (15%)
+## Referee report and student presentation (20%)
 
-Each student is expected to write TWO referee reports and present them to the rest of the class. The report should be 800-1000 words long and provide a critical evaluation of the strengths and weakness of the paper, with a particular emphasis on its methodological aspects. For some suggestions on how to write a good report, see for example this <a href="https://thepoliticalmethodologist.files.wordpress.com/2016/02/tpm_v23_n1.pdf">Special Issue on Peer Review</a> in The Political Methodologist. The presentation in class should summarize the main points in the referee report, but also go beyond its content by e.g. suggesting follow-up studies or other methods that could have been applied. The use of slides is recommended but not required. Each presentation should last no longer than 10 minutes, not including questions.
+Each student is expected to write TWO referee reports and present them to the rest of the class. The report should be 800-1000 words long and provide a critical evaluation of the strengths and weakness of the paper, with a particular emphasis on its methodological aspects. For some suggestions on how to write a good report, see for example this <a href="https://thepoliticalmethodologist.files.wordpress.com/2016/02/tpm_v23_n1.pdf">Special Issue on Peer Review</a> in The Political Methodologist. The presentation in class should summarize the main points in the referee report, but also go beyond its content by e.g. suggesting follow-up studies or other methods that could have been applied. The use of slides is recommended but not required. Each presentation should last no longer than 15 minutes, not including questions.
 
-Note: The referee report will be due at <b>8pm the day before the class</b> where it will be discussed via email.
+Note: The referee report will be due by <b>8pm the day before the class</b> where it will be discussed via email.
 
-## Coding challenges (25%)
+## Coding challenges (20%)
 
-At the end of each class, the instructor will share a short problem set based on the content of that class. There will be some time during class to start working on this exercise, and to address any question, but most of it should be completed after class. Each of these coding challenges will be due before the beginning of the following class, when the solutions (or a sketch of the solution) will be posted. They will not be graded, but submitting them is compulsory. A complete submission includes both the R script with the code written by the student (and comments with interpretation of the results, answering the questions) as well as a log file showing the output of running the code.
+At the end of each class, the instructor will share a short problem set based on the content of that class. There will be some time during class to start working on this exercise, and to address any question, but most of it should be completed after class. Each of these coding challenges will be due before the beginning of the following class, when the solutions (or a sketch of the solution) will be posted. They will not be graded, but submitting at least FIVE of them is compulsory. A complete submission includes both the R script with the code written by the student (and comments with interpretation of the results, answering the questions) as well as a log/html file showing the output of compiling the code.
 
 Late submissions will not be accepted.
 

@@ -23,9 +23,10 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-1.1/textmate.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-1.1/highlight.js"></script>
-<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -35,10 +36,12 @@
   }
 </style>
 <script type="text/javascript">
-if (window.hljs && document.readyState && document.readyState === "complete") {
-   window.setTimeout(function() {
-      hljs.initHighlighting();
-   }, 0);
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
 }
 </script>
 
@@ -94,8 +97,14 @@ img {
 .tabbed-pane {
   padding-top: 12px;
 }
+.html-widget {
+  margin-bottom: 20px;
+}
 button.code-folding-btn:focus {
   outline: none;
+}
+summary {
+  display: list-item;
 }
 </style>
 
@@ -111,7 +120,6 @@ body {
   padding-top: 56px;
   margin-top: -56px;
 }
-
 .section h2 {
   padding-top: 56px;
   margin-top: -56px;
@@ -131,6 +139,43 @@ body {
 .section h6 {
   padding-top: 56px;
   margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -152,18 +197,77 @@ $(document).ready(function () {
 });
 </script>
 
-
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
 </script>
 
 <!-- code folding -->
-
 
 
 
@@ -331,10 +435,10 @@ div.tocify {
 POIR 613
 </h1>
 <h2 class="subtitle">
-Measurement Models and Statistical Computing
+Computational Social Science
 </h2>
 <p>
-University of Southern California, Fall 2017
+University of Southern California, Fall 2019
 </p>
 </div>
 </div>
@@ -364,13 +468,13 @@ University of Southern California, Fall 2017
 <b>Class meetings</b>
 </td>
 <td>
-Tuesdays
+Wednesdays
 </td>
 <td>
-5:00–7:50 pm
+2:00–4:50 pm
 </td>
 <td>
-<a href="http://classes.usc.edu/maps/?b=VKC">VKC 110</a>
+<a href="http://classes.usc.edu/maps/?b=VKC">VKC 204</a>
 </td>
 </tr>
 <tr>
@@ -381,7 +485,7 @@ Tuesdays
 Wednesdays
 </td>
 <td>
-4:00–6:00 pm
+1:00–2:00 pm
 </td>
 <td>
 <a href="http://classes.usc.edu/maps/?b=VKC">VKC 359A</a>
@@ -400,7 +504,7 @@ Wednesdays
 <p>Each session will be divided into three blocks: an introduction to a computational social science tool or method, a discussion of recent research that uses that method, and a lab component that will demonstrate how to use it with R.</p>
 <p>The first block, led by the instructor, will be based on a set of readings from textbooks and introductory manuals. This part will assume that all students have done the readings and thus we will move quickly and focus on the most complex aspects, how these methods are embedded in the broader computational social science literature, and strengths and weaknesses that perhaps were not obvious from the readings.</p>
 <p>The second block will feature a critical discussion of recent publications or working papers that apply these methods. Two students will prepare a two-page referee report (due the night before the class) and a 10-minute presentation during which they will discuss their assessment of the paper. All students in the class are expected to at least have skimmed the papers and be ready to ask questions or engage in the discussion.</p>
-<p>The third part of each class will be applied. The instructor will provide code and data that illustrate the application of a specific computational social science method, followed by a “coding challenge” where students will need to apply what they have learned to a new dataset. The code and output (log file) of their coding challenge will be due before the beginning of the following class.</p>
+<p>The third part of each class will be applied. The instructor will provide code and data that illustrate the application of a specific computational social science method, followed by a “coding challenge” where students will need to apply what they have learned to a new dataset. The code and output (log file) of their coding challenge needs to be submitted via GitHub classroom before the beginning of the following class.</p>
 </div>
 <div id="course-requirements-and-grading" class="section level1">
 <h1>Course requirements and grading</h1>
@@ -408,14 +512,14 @@ Wednesdays
 <h2>Class participation (10%)</h2>
 <p>Students are expected to attend every session, and do the assigned readings before each session. You should come to class with questions and ready to engage in a discussion about that week’s topic.</p>
 </div>
-<div id="referee-report-and-student-presentation-15" class="section level2">
-<h2>Referee report and student presentation (15%)</h2>
-<p>Each student is expected to write TWO referee reports and present them to the rest of the class. The report should be 800-1000 words long and provide a critical evaluation of the strengths and weakness of the paper, with a particular emphasis on its methodological aspects. For some suggestions on how to write a good report, see for example this <a href="https://thepoliticalmethodologist.files.wordpress.com/2016/02/tpm_v23_n1.pdf">Special Issue on Peer Review</a> in The Political Methodologist. The presentation in class should summarize the main points in the referee report, but also go beyond its content by e.g. suggesting follow-up studies or other methods that could have been applied. The use of slides is recommended but not required. Each presentation should last no longer than 10 minutes, not including questions.</p>
-<p>Note: The referee report will be due at <b>8pm the day before the class</b> where it will be discussed via email.</p>
+<div id="referee-report-and-student-presentation-20" class="section level2">
+<h2>Referee report and student presentation (20%)</h2>
+<p>Each student is expected to write TWO referee reports and present them to the rest of the class. The report should be 800-1000 words long and provide a critical evaluation of the strengths and weakness of the paper, with a particular emphasis on its methodological aspects. For some suggestions on how to write a good report, see for example this <a href="https://thepoliticalmethodologist.files.wordpress.com/2016/02/tpm_v23_n1.pdf">Special Issue on Peer Review</a> in The Political Methodologist. The presentation in class should summarize the main points in the referee report, but also go beyond its content by e.g. suggesting follow-up studies or other methods that could have been applied. The use of slides is recommended but not required. Each presentation should last no longer than 15 minutes, not including questions.</p>
+<p>Note: The referee report will be due by <b>8pm the day before the class</b> where it will be discussed via email.</p>
 </div>
-<div id="coding-challenges-25" class="section level2">
-<h2>Coding challenges (25%)</h2>
-<p>At the end of each class, the instructor will share a short problem set based on the content of that class. There will be some time during class to start working on this exercise, and to address any question, but most of it should be completed after class. Each of these coding challenges will be due before the beginning of the following class, when the solutions (or a sketch of the solution) will be posted. They will not be graded, but submitting them is compulsory. A complete submission includes both the R script with the code written by the student (and comments with interpretation of the results, answering the questions) as well as a log file showing the output of running the code.</p>
+<div id="coding-challenges-20" class="section level2">
+<h2>Coding challenges (20%)</h2>
+<p>At the end of each class, the instructor will share a short problem set based on the content of that class. There will be some time during class to start working on this exercise, and to address any question, but most of it should be completed after class. Each of these coding challenges will be due before the beginning of the following class, when the solutions (or a sketch of the solution) will be posted. They will not be graded, but submitting at least FIVE of them is compulsory. A complete submission includes both the R script with the code written by the student (and comments with interpretation of the results, answering the questions) as well as a log/html file showing the output of compiling the code.</p>
 <p>Late submissions will not be accepted.</p>
 </div>
 <div id="research-project-50" class="section level2">

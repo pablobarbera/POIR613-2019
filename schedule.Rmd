@@ -7,11 +7,11 @@ title: Course outline and readings
 <div class="panel-heading">
 
 <h2 id="week-1" class="panel-title">
-<a data-toggle="collapse" href="#collapse1">Week 1: 08/22. Introduction</a>
+<a data-toggle="collapse" href="#collapse1">Week 1: 08/28. Introduction</a>
 </h2>
 </div>
 <div id="collapse1" class="panel-collapse collapse in" style="margin:12px">
-<p><b>Topics:</b> Introductions and course overview. What is Computational Social Science? Good computing practices.</p>
+<p><b>Topics:</b> Introductions and course overview. What is Computational Social Science? Good computing practices. Introduction to version control and GitHub</p>
 <p><a href="slides/01-intro.pdf">SLIDES (.pdf): Introduction to the course.</a></p>
 <h4>Background reading</h4>
 <ul>
@@ -33,16 +33,19 @@ title: Course outline and readings
 <div class="panel panel-default">
 <div class="panel-heading">
 <h2 id="week-2" class="panel-title">
-<a data-toggle="collapse" href="#collapse2">Week 2: 08/29. Ethics.</a>
+<a data-toggle="collapse" href="#collapse2">Week 2: 09/04. Ethics.</a>
 </h2>
 </div>
 <div id="collapse2" class="panel-collapse collapse in" style="margin:12px">
 
-<p><b>Topics:</b> Computational social science: research opportunities and challenges. Overview of theories, methods, and data. Ethics of social science research in the digital age. Big data, big bias? Data collection: automated data collection from the web.</p>
+<p><b>Topics:</b> Computational social science: research opportunities and challenges. Ethics of social science research in the digital age. Big data, big bias? Data collection: automated data collection from the web.</p>
+
 <p><a href="slides/02-big-data.pdf">SLIDES (.pdf): Computational Social Science - Research opportunities and challenges.</a></p>
 
 <h4>Background reading</h4>
 <ul>
+<li><p>Barberá, P. & and Steinert-Threlkeld, Z. (2017). <a href="http://pablobarbera.com/static/social-media-data-generators.pdf">How to Use Social Media Data for Political Science Research.</a> Forthcoming in Curini, L., and Franzese, R. (eds) <i>The SAGE Handbook of Research Methods in Political Science and International Relations</i>, London: Sage, 2019.</p>
+</li>
 <li><p>Lazer, D. & and Radford, J. (2017). <a href="http://www.annualreviews.org/doi/abs/10.1146/annurev-soc-060116-053457">Data ex Machina: Introduction to Big Data.</a> <i>Annual Review of Sociology</i>.</p>
 </li>
 <li><p><a href="http://www.bitbybitbook.com/en/ethics/">Chapter 6</a> of Salganik, M. (2017). <a href="http://www.bitbybitbook.com/">Bit by Bit: Social Research in the Digital Age.</a> Princeton, NJ: Princeton University Press. Open review edition.</p>
@@ -53,8 +56,7 @@ title: Course outline and readings
 <ul>
 <li><p>Kramer, A. D., Guillory, J. E., & Hancock, J. T. (2014). <a href="http://www.pnas.org/content/111/24/8788.short">Experimental evidence of massive-scale emotional contagion through social networks.</a> <i>Proceedings of the National Academy of Sciences</i>, 111(24), 8788-8790.<p>
 </li>
-<li><p>Tufekci, Z. (2014). <a href="https://www.aaai.org/ocs/index.php/ICWSM/ICWSM14/paper/viewFile/8062/8151">Big Questions for Social Media Big Data: Representativeness, Validity and Other Methodological Pitfalls</a>. <i>ICWSM</i>, 14, 505-514.<p>
-</li>
+
 </ul>
 
 </div>
@@ -65,40 +67,12 @@ title: Course outline and readings
 <div class="panel panel-default">
 <div class="panel-heading">
 <h2 id="week-3" class="panel-title">
-<a data-toggle="collapse" href="#collapse3">Week 3: 09/05. Survey research.</a>
+<a data-toggle="collapse" href="#collapse3">Week 3: 09/11. Online experiments.</a>
 </h2>
 </div>
 <div id="collapse3" class="panel-collapse collapse in" style="margin:12px">
 
-<p><b>Topics:</b> Survey research in the digital age. New sampling techniques. Multilevel regression and poststratification.</p>
-
-<h4>Readings for discussion</h4>
-<ul>
-<li><p>Berinsky, A. J., Huber, G. A., & Lenz, G. S. (2012). <a href="https://www.cambridge.org/core/journals/political-analysis/article/div-classtitleevaluating-online-labor-markets-for-experimental-research-amazoncomandaposs-mechanical-turkdiv/348F95C0FBCF21C3B37D66EB432F3BA5">Evaluating online labor markets for experimental research: Amazon.com's Mechanical Turk</a>. <i>Political Analysis</i>, 20(3), 351-368.</p>
-</li>
-<li><p>Wang, W., Rothschild, D., Goel, S., & Gelman, A. (2015). <a href="http://stat.columbia.edu/~gelman/research/published/forecasting-with-nonrepresentative-polls.pdf">Forecasting elections with non-representative polls.</a> <i>International Journal of Forecasting</i>, 31(3), 980-991.<p>
-</li>
-<li><p>Jäger, K. (2017). <a href="https://www.cambridge.org/core/journals/political-analysis/article/potential-of-online-sampling-for-studying-political-activists-around-the-world-and-across-time/8F6159C4242EA2F443E2B0DACC0DA9F0">The potential of online sampling for studying political activists around the world and across time</a>. <i>Political Analysis</i>, 1-15.</p></li>
-<li><p>Mullinix, K. J., Leeper, T. J., Druckman, J. N., & Freese, J. (2015). <a href="https://www.cambridge.org/core/journals/journal-of-experimental-political-science/article/the-generalizability-of-survey-experiments/72D4E3DB90569AD7F2D469E9DF3A94CB">The generalizability of survey experiments.</a> <i>Journal of Experimental Political Science</i>, 2(2), 109-138.<p>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-
-
-
-<div class="panel-group">
-<div class="panel panel-default">
-<div class="panel-heading">
-<h2 id="week-4" class="panel-title">
-<a data-toggle="collapse" href="#collapse4">Week 4: 09/12. Experiments.</a>
-</h2>
-</div>
-<div id="collapse4" class="panel-collapse collapse in" style="margin:12px">
-
-<p><b>Topics:</b> Large-scale online experiments. Basics of UNIX. Parallel programming with R.</p>
+<p><b>Topics:</b> Large-scale online experiments. Parallel programming with R.</p>
 
 <p><a href="slides/05-experiments.pdf">SLIDES (.pdf): Experimental research in the digital age.</a></p>
 
@@ -114,11 +88,45 @@ title: Course outline and readings
 </li>
 <li><p>King, G., Pan, J., & Roberts, M. E. (2014). <a href="http://scholar.harvard.edu/files/gking/files/experiment_0.pdf">Reverse-engineering censorship in China: Randomized experimentation and participant observation</a>. <i>Science</i>, 345(6199), 1251722.</p>
 </li>
-<li><p>Broockman, D., & Kalla, J. (2016). <a href="http://web.stanford.edu/~dbroock/published%20paper%20PDFs/broockman_kalla_transphobia_canvassing_experiment.pdf">Durably reducing transphobia: A field experiment on door-to-door canvassing.</a> <i>Science</i>, 352(6282), 220-224.</p>
+<li><p>Munger, K. (2017). <a href="https://link.springer.com/article/10.1007/s11109-016-9373-5">Tweetment Effects on the Tweeted: An Experiment to Decrease Online Harassment.</a> <i>Political Behavior</i>, 39(3), 629-649.</p>
 </li>
-<li><p>Eckles, D., & Bakshy, E. (2017). <a href="https://arxiv.org/pdf/1706.04692.pdf">Bias and high-dimensional adjustment in observational studies of peer effects</a>. arXiv preprint arXiv:1706.04692.</p>
+<li><p>Bail et al (2018). <a href="https://www.pnas.org/content/pnas/115/37/9216.full.pdf">Exposure to opposing views on social media can increase political polarization</a>. <i>Proceedings of the National Academy of Sciences</i>, 115(37): 9216-9221.</p>
 </li>
 </ul>
+
+</div>
+</div>
+</div>
+
+
+<div class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h2 id="week-4" class="panel-title">
+<a data-toggle="collapse" href="#collapse4">Week 4: 09/18. Text (I).</a>
+</h2>
+</div>
+<div id="collapse4" class="panel-collapse collapse in" style="margin:12px">
+
+<p><b>Topics:</b> Introduction to automated text analysis. Sources of textual data. String manipulation in R. Regular expressions. Text processing with quanteda.</p>
+
+<p><a href="slides/06-text-intro.pdf">SLIDES (.pdf): Introduction to automated text analysis. Text preprocessing.</a></p>
+
+
+<h4>Background reading</h4>
+<ul>
+<li><p>Grimmer, J., & Stewart, B. M. (2013). <a href="https://www.cambridge.org/core/journals/political-analysis/article/div-classtitletext-as-data-the-promise-and-pitfalls-of-automatic-content-analysis-methods-for-political-textsdiv/F7AAC8B2909441603FEB25C156448F20">Text as data: The promise and pitfalls of automatic content analysis methods for political texts</a>. <i>Political analysis</i>, 21(3), 267-297.<p>
+</li>
+<li><p>Benoit, K. (2019). <a href="https://kenbenoit.net/pdfs/28%20Benoit%20Text%20as%20Data%20draft%202.pdf">Text as data: an overview.</a> Forthcoming in Curini, L., and Franzese, R. (eds) <i>The SAGE Handbook of Research Methods in Political Science and International Relations</i>, London: Sage, 2019.</p>
+</li>
+<li><p>Wilkerson, J. and Casas, A. (2017). <a href="https://www.annualreviews.org/doi/abs/10.1146/annurev-polisci-052615-025542?journalCode=polisci">Large-Scale Computerized Text Analysis in Political Science: Opportunities and Challenges.</a> <i>Annual Review of Political Science</i>, 20, 529:544.</p>
+</li>
+<li><p>Denny, M. J., & Spirling, A. (2018). <a href="https://www.cambridge.org/core/journals/political-analysis/article/text-preprocessing-for-unsupervised-learning-why-it-matters-when-it-misleads-and-what-to-do-about-it/AA7D4DE0AA6AB208502515AE3EC6989E">Text preprocessing for unsupervised learning: why it matters, when it misleads, and what to do about it.</a> <i>Political Analysis</i>, 26(2): 168-189.</p>
+</li>
+</ul>
+
+<h4>No readings for discussion this week</h4>
+
 
 </div>
 </div>
@@ -130,22 +138,23 @@ title: Course outline and readings
 <div class="panel panel-default">
 <div class="panel-heading">
 <h2 id="week-5" class="panel-title">
-<a data-toggle="collapse" href="#collapse5">Week 5: 09/19. Text (I).</a>
+<a data-toggle="collapse" href="#collapse5">Week 5: 09/25. Text (II).</a>
 </h2>
 </div>
 <div id="collapse5" class="panel-collapse collapse in" style="margin:12px">
 
-<p><b>Topics:</b> Introduction to automated text analysis. Sources of textual data. String manipulation in R. Regular expressions. Text processing with quanteda. Dictionary methods.</p>
+<p><b>Topics:</b> Dictionary methods applied to sentiment analysis.</p>
 
-<p><a href="slides/07-text-intro.pdf">SLIDES (.pdf): Introduction to automated text analysis. Dictionary methods applied to sentiment analysis.</a></p>
+<p><a href="slides/07-dictionaries.pdf">SLIDES (.pdf): Dictionary methods.</a></p>
 
 
 <h4>Background reading</h4>
 <ul>
-<li><p>Grimmer, J., & Stewart, B. M. (2013). <a href="https://www.cambridge.org/core/journals/political-analysis/article/div-classtitletext-as-data-the-promise-and-pitfalls-of-automatic-content-analysis-methods-for-political-textsdiv/F7AAC8B2909441603FEB25C156448F20">Text as data: The promise and pitfalls of automatic content analysis methods for political texts</a>. <i>Political analysis</i>, 21(3), 267-297.<p>
+<li><p>González-Bailón, S., & Paltoglou, G. (2015). <a href="https://journals.sagepub.com/doi/pdf/10.1177/0002716215569192?casa_token=a0RzWG5Ax84AAAAA:1Bz3VYxGncl41uzHDY8GAiQiXUJN10ExZGtpDuu2n-qxPwI20hn-l-omjrI5SkwB8X8ToB-6K1M_">Signals of public opinion in online communication: A comparison of methods and data sources.</a>. <i>The ANNALS of the American Academy of Political and Social Science</i>, 659(1), 95-107.</p>
 </li>
-<li><p>Benoit, K. et al. (2017) <a href="http://quanteda.io/articles/quickstart.html">Getting Started with quanteda</a>.</p>
-</li>
+<li><p>Barberá et al (2019). <a href="http://www.pablobarbera.com/static/text_practical_guide.pdf">Automated Text Classification of News Articles: A Practical Guide.</a> <i>Working paper</i>.
+
+</li>	
 </ul>
 
 <h4>Readings for discussion</h4>
@@ -164,12 +173,12 @@ title: Course outline and readings
 <div class="panel panel-default">
 <div class="panel-heading">
 <h2 id="week-6" class="panel-title">
-<a data-toggle="collapse" href="#collapse6">Week 6: 09/26. Text (II).</a>
+<a data-toggle="collapse" href="#collapse6">Week 6: 10/02. Text (III).</a>
 </h2>
 </div>
 <div id="collapse6" class="panel-collapse collapse in" style="margin:12px">
 
-<p><b>Topics:</b> supervised machine learning applied to text classification. Crowd-sourcing the creation of training datasets.</p>
+<p><b>Topics:</b> Supervised machine learning applied to text classification. Crowd-sourcing the creation of training datasets.</p>
 
 <p><a href="slides/08-supervised-learning.pdf">SLIDES (.pdf): Introduction to supervised learning applied to text classification.</a></p>
 
@@ -177,16 +186,17 @@ title: Course outline and readings
 <ul>
 <li><p>Chapters 1, 3, and 5 of James, G., Witten, D., Hastie, T., & Tibshirani, R. (2013). <a href="https://library.usc.edu/uhtbin/cgisirsi/x/0/0/57/5/3?searchdata1=4192313{CKEY}&searchfield1=GENERAL^SUBJECT^GENERAL^^&user_id=WEBSERVER">An introduction to statistical learning.</a> New York: Springer.</p>
 </li>
+<li><p>Benoit, K., Conway, D., Lauderdale, B. E., Laver, M., & Mikhaylov, S. (2016). <a href="https://www.cambridge.org/core/journals/american-political-science-review/article/crowd-sourced-text-analysis-reproducible-and-agile-production-of-political-data/EC674A9384A19CFA357BC2B525461AC3">Crowd-sourced text analysis: reproducible and agile production of political data</a>. <i>American Political Science Review</i>, 110(2), 278-295.</p>
+</li>
 </ul>
 
 <h4>Readings for discussion</h4>
 <ul>
 <li><p>Beauchamp, N. (2017). <a href="http://onlinelibrary.wiley.com/doi/10.1111/ajps.12274/full">Predicting and Interpolating State‐Level Polls Using Twitter Textual Data</a>. American Journal of Political Science, 61(2), 490-503.</p>
 </li>
-<li><p>Benoit, K., Conway, D., Lauderdale, B. E., Laver, M., & Mikhaylov, S. (2016). <a href="https://www.cambridge.org/core/journals/american-political-science-review/article/crowd-sourced-text-analysis-reproducible-and-agile-production-of-political-data/EC674A9384A19CFA357BC2B525461AC3">Crowd-sourced text analysis: reproducible and agile production of political data</a>. <i>American Political Science Review</i>, 110(2), 278-295.</p>
+<li><p>Theocharis, Y., Barberá, P., Fazekas, Z., Popa, S. A. and Parnet, O. (2016). <a href="http://onlinelibrary.wiley.com/doi/10.1111/jcom.12259/abstract">A Bad Workman Blames His Tweets: The Consequences of Citizens' Uncivil Twitter Use When Interacting With Party Candidates</a>. <i>Journal of Communication</i>, 66: 1007–1031.</p>
 </li>
-<li><p>Theocharis, Y., Barberá, P., Fazekas, Z., Popa, S. A. and Parnet, O. (2016), <a href="http://onlinelibrary.wiley.com/doi/10.1111/jcom.12259/abstract">A Bad Workman Blames His Tweets: The Consequences of Citizens' Uncivil Twitter Use When Interacting With Party Candidates</a>. <i>Journal of Communication</i>, 66: 1007–1031.</p>
-</li>
+<li>Davidson et al. (2017). <a href="https://aaai.org/ocs/index.php/ICWSM/ICWSM17/paper/view/15665/14843">Automated Hate Speech Detection and the Problem of Offensive Language</a>. ICWSM 2017.
 </ul>
 
 </div>
@@ -198,7 +208,7 @@ title: Course outline and readings
 <div class="panel panel-default">
 <div class="panel-heading">
 <h2 id="week-7" class="panel-title">
-<a data-toggle="collapse" href="#collapse7">Week 7: 10/03. Text (III).</a>
+<a data-toggle="collapse" href="#collapse7">Week 7: 10/09. Text (IV).</a>
 </h2>
 </div>
 <div id="collapse1" class="panel-collapse collapse in" style="margin:12px">
@@ -217,9 +227,9 @@ title: Course outline and readings
 
 <h4>Readings for discussion</h4>
 <ul>
-<li><p>Lucas, C., Nielsen, R. A., Roberts, M. E., Stewart, B. M., Storer, A., & Tingley, D. (2015). <a href="http://scholar.princeton.edu/sites/default/files/bstewart/files/comparativepoliticstext.pdf">Computer-assisted text analysis for comparative politics</a>. <i>Political Analysis</i>, 23(2), 254-277.</p>
+<li><p>Barberá et al. (2019). <a href="https://www.cambridge.org/core/journals/american-political-science-review/article/who-leads-who-follows-measuring-issue-attention-and-agenda-setting-by-legislators-and-the-mass-public-using-social-media-data/D855849CE288A241529E9EC2E4FBD3A8">Who Leads? Who Follows? Measuring Issue Attention and Agenda Setting by Legislators and the Mass Public Using Social Media Data.</a> <i>American Political Science Review</i></p></li>
+<li><p>de Vries, E., Schoonvelde, M. & Schumacher, G. (2018). <a href="https://www.cambridge.org/core/journals/political-analysis/article/no-longer-lost-in-translation-evidence-that-google-translate-works-for-comparative-bagofwords-text-applications/43CB03805973BB8AD567F7AE50E72CA6">No Longer Lost in Translation: Evidence that Google Translate Works for Comparative Bag-of-Words Text Applications</a>. <i>Political Analysis</i>, 26(4), 417-430.</p>
 </li>
-<li><p>Gilardi, F., Shipan, C. R., & Wueest, B. (2017). <a href="https://www.fabriziogilardi.org/resources/papers/policy-diffusion-issue-definition.pdf">Policy Diffusion: The Issue-Definition Stage.</a> Working paper, University of Zurich.</p></li>
 </ul>
 
 </div>
@@ -230,7 +240,7 @@ title: Course outline and readings
 <div class="panel panel-default">
 <div class="panel-heading">
 <h2 id="week-8" class="panel-title">
-<a data-toggle="collapse" href="#collapse8">Week 8: 10/10. Text (IV).</a>
+<a data-toggle="collapse" href="#collapse8">Week 8: 10/16. Text (V).</a>
 </h2>
 </div>
 <div id="collapse8" class="panel-collapse collapse in" style="margin:12px">
@@ -248,14 +258,18 @@ title: Course outline and readings
 </li>
 <li><p>Skim: Mikolov, T., Chen, K., Corrado, G., & Dean, J. (2013). <a href="https://arxiv.org/pdf/1301.3781.pdf">Efficient estimation of word representations in vector space.</a> arXiv preprint arXiv:1301.3781.</p>
 </li>
+<li><p>Skim: Spirling, A. and Rodriguez, P. (2019). <a href="https://www.nyu.edu/projects/spirling/documents/embed.pdf">Word Embeddings
+What works, what doesn’t, and how to tell the difference for applied research</a>. Working paper, New York University</p>
+</li>
 </ul>
 
 <h4>Readings for discussion</h4>
 <ul>
-<li><p>Gurciullo, S., & Mikhaylov, S. J. (2016). <a href="http://www.smikhaylov.net/wp-content/uploads/2017/04/UNembeddings.pdf">Detecting Policy Preferences and Dynamics in the UN General Debate with Neural Word Embeddings.</a> Working paper, University College London.</p>
+<li><p>Rodman, E. (2019). <a href="https://www.cambridge.org/core/journals/political-analysis/article/timely-intervention-tracking-the-changing-meanings-of-political-concepts-with-word-vectors/DDF3B5833A12E673EEE24FBD9798679E">A Timely Intervention: Tracking the Changing Meanings of Political Concepts with Word Vectors.</a> <i>Political Analysis</i>.</p>
 </li>
-<li><p>Denny, M. J., & Spirling, A. (2017). <a href="http://www.nyu.edu/projects/spirling/documents/preprocessing.pdf">Text preprocessing for unsupervised learning: why it matters, when it misleads, and what to do about it.</a> Working paper, New York University.</p>
+<li><p>Rheault, L and Cochrane, C. (2019). <a href="https://www.cambridge.org/core/journals/political-analysis/article/word-embeddings-for-the-analysis-of-ideological-placement-in-parliamentary-corpora/017F0CEA9B3DB6E1B94AC36A509A8A7B">Word Embeddings for the Analysis of Ideological Placement in Parliamentary Corpora.</a> <i>Political Analysis</i>.</p>
 </li>
+
 </ul>
 
 </div>
@@ -267,12 +281,12 @@ title: Course outline and readings
 <div class="panel panel-default">
 <div class="panel-heading">
 <h2 id="week-9" class="panel-title">
-<a data-toggle="collapse" href="#collapse9">Week 9: 10/17. Networks (I).</a>
+<a data-toggle="collapse" href="#collapse9">Week 9: 10/23. Networks (I).</a>
 </h2>
 </div>
 <div id="collapse9" class="panel-collapse collapse in" style="margin:12px">
 
-<p><b>Topics:</b> Basic concepts in social network analysis. Types of random networks. Strong and weak ties. Network visualization.</p>
+<p><b>Topics:</b> Basic concepts in social network analysis. Network visualization.</p>
 
 <p><a href="slides/11-networks-intro.pdf">SLIDES (.pdf): Introduction to social network analysis.</a></p>
 
@@ -286,7 +300,7 @@ title: Course outline and readings
 
 <h4>Readings for discussion</h4>
 <ul>
-<li><p>Steinert-Threlkeld, Z. C. (2017). <a href="https://www.cambridge.org/core/journals/political-analysis/article/longitudinal-network-centrality-using-incomplete-data/D2D59F17EB02D8F4B996EB65B05899F0">Longitudinal Network Centrality Using Incomplete Data</a>. <i>Political Analysis</i>, 1-21.</p>
+<li><p>Iakhnis, E. and Badawy, A. (2019). <a href="https://arxiv.org/abs/1907.11283">Networks of Power: Analyzing World Leaders Interactions on Social Media</a>. <i>arXiv prepring</i>, 1907.11283.</p>
 </li>
 <li><p>Bisbee, J., & Larson, J. M. (2017). <a href="https://www.cambridge.org/core/journals/american-political-science-review/article/testing-social-science-network-theories-with-online-network-data-an-evaluation-of-external-validity/4BF517F10F38DFB574FED4A3D805B613">Testing Social Science Network Theories with Online Network Data: An Evaluation of External Validity.</a> <i>American Political Science Review</i>, 1-20.</p>
 </li>
@@ -301,7 +315,7 @@ title: Course outline and readings
 <div class="panel panel-default">
 <div class="panel-heading">
 <h2 id="week-10" class="panel-title">
-<a data-toggle="collapse" href="#collapse10">Week 10: 10/24. Networks (II).</a>
+<a data-toggle="collapse" href="#collapse10">Week 10: 10/30. Networks (II).</a>
 </h2>
 </div>
 <div id="collapse10" class="panel-collapse collapse in" style="margin:12px">
@@ -334,12 +348,38 @@ title: Course outline and readings
 <div class="panel panel-default">
 <div class="panel-heading">
 <h2 id="week-11" class="panel-title">
-<a data-toggle="collapse" href="#collapse11">Week 11: 10/31. Networks (III).</a>
+<a data-toggle="collapse" href="#collapse11">Week 11: 11/06. SQL.</a>
 </h2>
 </div>
 <div id="collapse11" class="panel-collapse collapse in" style="margin:12px">
 
-<p><b>Topics:</b> Latent variable models, with applications to networks. Introduction to exponential random graph models.</p>
+<p><b>Topics:</b> Querying large-scale online datasets with SQL and Google BigQuery.</p>
+
+<p><a href="slides/12-SQL.pdf">SLIDES (.pdf): SQL and Google BigQuery.</a></p>
+
+<h4>Background reading</h4>
+<ul>
+<li><p>Beaulieu, A. (2009). <a href="https://books.google.co.uk/books?hl=en&lr=&id=1PgCCVryjOQC&oi=fnd&pg=PR3&dq=learning+sql+alan&ots=X6M3Iaz1wO&sig=38Fp1kDlxM8TF7miw0K2CNcKib4#v=onepage&q=learning%20sql%20alan&f=false">Learning SQL: Master SQL Fundamentals.</a> O'Reilly Media, Inc.</p></li>
+<li><p>Stephens, R., Plew, R., & Jones, A. D. (2009). <a href="https://books.google.co.uk/books?hl=en&lr=&id=9fDZ_rVoxx0C&oi=fnd&pg=PR5&dq=%22Sams+Teach+Yourself+SQL+in+24+Hours%22&ots=UkaClJDMem&sig=wgLy-DG3bc7g0LO0_Ojy5Cy2Ejs#v=onepage&q=%22Sams%20Teach%20Yourself%20SQL%20in%2024%20Hours%22&f=false">Sams teach yourself SQL in one hour a day</a>. Sams Publishing.</p></li>
+<li><p><a href="https://cloud.google.com/bigquery/docs/reference/legacy-sql">Google BigQuery: Legacy SQL Functions and Operators.</a></p></li>
+</ul>
+
+
+</div>
+</div>
+</div>
+
+
+<div class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h2 id="week-12" class="panel-title">
+<a data-toggle="collapse" href="#collapse12">Week 12: 11/13. Networks (III).</a>
+</h2>
+</div>
+<div id="collapse12" class="panel-collapse collapse in" style="margin:12px">
+
+<p><b>Topics:</b> Latent variable models. Introduction to exponential random graph models.</p>
 
 <p><a href="slides/13-networks-latent.pdf">SLIDES (.pdf): Latent space network models. Community detection.</a></p>
 
@@ -359,38 +399,6 @@ title: Course outline and readings
 </p></li>
 </ul>
 
-</div>
-</div>
-</div>
-
-
-<div class="panel-group">
-<div class="panel panel-default">
-<div class="panel-heading">
-<h2 id="week-12" class="panel-title">
-<a data-toggle="collapse" href="#collapse12">Week 12: 11/07. Spatial statistics.</a>
-</h2>
-</div>
-<div id="collapse12" class="panel-collapse collapse in" style="margin:12px">
-
-<p><b>Topics:</b> Spatial data. Geographical Information Systems (GIS). Spatial autocorrelation. Spatial autoregresion models.</p>
-
-<p><a href="slides/14-GIS.pdf">SLIDES (.pdf): GIS.</a></p>
-
-
-<h4>Background reading</h4>
-<ul>
-<li><p>Gleditsch, K. S., & Weidmann, N. B. (2012). <a href="http://www.annualreviews.org/doi/full/10.1146/annurev-polisci-031710-112604">Richardson in the information age: Geographic information systems and spatial data in international studies.</a> <i>Annual Review of Political Science</i>, 15, 461-481.</p>
-</li>
-<li>Chapters 1 and 2 of Ward, M. D., & Gleditsch, K. S. (2008). <a href="http://usc.summon.serialssolutions.com/#!/search?bookMark=ePnHCXMw42JgAfZbU5mhpykZguaRDEEzZ1ygUTEDY3NL0E2kohrhicGpwcGa0CLTBHSOmikHbHAEyudkkARdzAuMCIWi1HTIutA8BfAVMcXcDFJuriHOHrqlxcnx0KGOeNA2TyND0JGeeCQBL9kqOg">Spatial regression models.</a> Sage.
-</ul>
-
-<h4>Readings for discussion</h4>
-<ul>
-<li><p>Weidmann, N. B. (2009). <a href="http://journals.sagepub.com/doi/abs/10.1177/0022002709336456">Geography as motivation and opportunity: Group concentration and ethnic conflict.</a> <i>Journal of Conflict Resolution</i>, 53(4), 526-543.</p>
-</li>
-<li><p>Montgomery, J. M., & Nyhan, B. (2017). <a href="http://www.journals.uchicago.edu/doi/abs/10.1086/690301">The Effects of Congressional Staff Networks in the US House of Representatives</a>. <i>The Journal of Politics</i>, 79(3), 745-761.</p></li>
-</ul>
 
 </div>
 </div>
@@ -401,12 +409,73 @@ title: Course outline and readings
 <div class="panel panel-default">
 <div class="panel-heading">
 <h2 id="week-13" class="panel-title">
-<a data-toggle="collapse" href="#collapse13">Week 13: 11/14. Audiovisual data.</a>
+<a data-toggle="collapse" href="#collapse13">Week 13: 11/20. Survey research.</a>
 </h2>
 </div>
 <div id="collapse13" class="panel-collapse collapse in" style="margin:12px">
 
-<p><b>Topics:</b> Deep learning. Images, audio, and video as data.</p>
+<p><b>Topics:</b> Recent advances in survey research. Multilevel regression and poststratification.</p>
+
+<h4>Readings for discussion</h4>
+<ul>
+<li><p>Wang, W., Rothschild, D., Goel, S., & Gelman, A. (2015). <a href="http://stat.columbia.edu/~gelman/research/published/forecasting-with-nonrepresentative-polls.pdf">Forecasting elections with non-representative polls.</a> <i>International Journal of Forecasting</i>, 31(3), 980-991.<p>
+</li>
+<li><p>Jäger, K. (2017). <a href="https://www.cambridge.org/core/journals/political-analysis/article/potential-of-online-sampling-for-studying-political-activists-around-the-world-and-across-time/8F6159C4242EA2F443E2B0DACC0DA9F0">The potential of online sampling for studying political activists around the world and across time</a>. <i>Political Analysis</i>, 1-15.</p></li>
+<li><p>Mullinix, K. J., Leeper, T. J., Druckman, J. N., & Freese, J. (2015). <a href="https://www.cambridge.org/core/journals/journal-of-experimental-political-science/article/the-generalizability-of-survey-experiments/72D4E3DB90569AD7F2D469E9DF3A94CB">The generalizability of survey experiments.</a> <i>Journal of Experimental Political Science</i>, 2(2), 109-138.<p>
+</li>
+<li><p>Muñoz, J., Falcó-Gimeno, A., and Hernández, E. (2019). <a href="https://www.cambridge.org/core/journals/political-analysis/article/unexpected-event-during-survey-design-promise-and-pitfalls-for-causal-inference/E9DB24A62172D1EB2116FEFFEAE45998">Unexpected Event during Survey Design: Promise and Pitfalls for Causal Inference</a>. <i>Political Analysis</i>, forthcoming.</p>
+</li>
+</ul>
+
+
+</div>
+</div>
+</div>
+
+
+<div class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h2 id="week-14" class="panel-title">
+<a data-toggle="collapse" href="#collapse14">Week 14: 11/27. No class.</a>
+</h2>
+</div>
+<div id="collapse14" class="panel-collapse collapse in" style="margin:12px">
+
+<p>No class: Thanksgiving Holiday.</p>
+
+</div>
+</div>
+</div>
+
+
+<div class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h2 id="week-15" class="panel-title">
+<a data-toggle="collapse" href="#collapse15">Week 15: 12/03. Presentations.</a>
+</h2>
+</div>
+<div id="collapse15" class="panel-collapse collapse in" style="margin:12px">
+
+<p>Student presentations of research projects. Course recap.</p>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h2 id="others" class="panel-title">
+<a data-toggle="collapse" href="#others">Other topics.</a>
+</h2>
+</div>
+<div id="others" class="panel-collapse collapse in" style="margin:12px">
+
+<p><b>Other topics not covered in this year's version of the course:</b> Audiovisual data (Images, audio, and video as data.)</p>
 
 <h4>Background reading</h4>
 <ul>
@@ -426,41 +495,26 @@ title: Course outline and readings
 </li>
 </ul>
 
-</div>
-</div>
-</div>
+<p><b>Other topics not covered in this year's version of the course:</b> Spatial data. Geographical Information Systems (GIS). Spatial autocorrelation. Spatial autoregresion models.</p>
+
+<p><a href="slides/14-GIS.pdf">SLIDES (.pdf): GIS.</a></p>
 
 
-<div class="panel-group">
-<div class="panel panel-default">
-<div class="panel-heading">
-<h2 id="week-14" class="panel-title">
-<a data-toggle="collapse" href="#collapse14">Week 14: 11/21. Presentations.</a>
-</h2>
-</div>
-<div id="collapse14" class="panel-collapse collapse in" style="margin:12px">
+<h4>Background reading</h4>
+<ul>
+<li><p>Gleditsch, K. S., & Weidmann, N. B. (2012). <a href="http://www.annualreviews.org/doi/full/10.1146/annurev-polisci-031710-112604">Richardson in the information age: Geographic information systems and spatial data in international studies.</a> <i>Annual Review of Political Science</i>, 15, 461-481.</p>
+</li>
+<li>Chapters 1 and 2 of Ward, M. D., & Gleditsch, K. S. (2008). <a href="http://usc.summon.serialssolutions.com/#!/search?bookMark=ePnHCXMw42JgAfZbU5mhpykZguaRDEEzZ1ygUTEDY3NL0E2kohrhicGpwcGa0CLTBHSOmikHbHAEyudkkARdzAuMCIWi1HTIutA8BfAVMcXcDFJuriHOHrqlxcnx0KGOeNA2TyND0JGeeCQBL9kqOg">Spatial regression models.</a> Sage.
+</ul>
 
-<p>Student presentations of research projects.</p>
+<h4>Readings for discussion</h4>
+<ul>
+<li><p>Weidmann, N. B. (2009). <a href="http://journals.sagepub.com/doi/abs/10.1177/0022002709336456">Geography as motivation and opportunity: Group concentration and ethnic conflict.</a> <i>Journal of Conflict Resolution</i>, 53(4), 526-543.</p>
+</li>
+<li><p>Montgomery, J. M., & Nyhan, B. (2017). <a href="http://www.journals.uchicago.edu/doi/abs/10.1086/690301">The Effects of Congressional Staff Networks in the US House of Representatives</a>. <i>The Journal of Politics</i>, 79(3), 745-761.</p></li>
+</ul>
 
-</div>
-</div>
-</div>
-
-
-<div class="panel-group">
-<div class="panel panel-default">
-<div class="panel-heading">
-<h2 id="week-15" class="panel-title">
-<a data-toggle="collapse" href="#collapse15">Week 15: 11/28. Recap.</a>
-</h2>
-</div>
-<div id="collapse15" class="panel-collapse collapse in" style="margin:12px">
-
-<p>Student presentations of research projects. Course recap.</p>
 
 </div>
 </div>
 </div>
-
-
-

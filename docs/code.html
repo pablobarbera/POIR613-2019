@@ -23,9 +23,10 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-1.1/textmate.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-1.1/highlight.js"></script>
-<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -35,10 +36,12 @@
   }
 </style>
 <script type="text/javascript">
-if (window.hljs && document.readyState && document.readyState === "complete") {
-   window.setTimeout(function() {
-      hljs.initHighlighting();
-   }, 0);
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
 }
 </script>
 
@@ -94,8 +97,14 @@ img {
 .tabbed-pane {
   padding-top: 12px;
 }
+.html-widget {
+  margin-bottom: 20px;
+}
 button.code-folding-btn:focus {
   outline: none;
+}
+summary {
+  display: list-item;
 }
 </style>
 
@@ -111,7 +120,6 @@ body {
   padding-top: 56px;
   margin-top: -56px;
 }
-
 .section h2 {
   padding-top: 56px;
   margin-top: -56px;
@@ -131,6 +139,43 @@ body {
 .section h6 {
   padding-top: 56px;
   margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -152,18 +197,77 @@ $(document).ready(function () {
 });
 </script>
 
-
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
 </script>
 
 <!-- code folding -->
-
 
 
 
@@ -330,38 +434,46 @@ div.tocify {
 <div class="panel-group">
 <div class="panel panel-default">
 <div class="panel-heading">
+<h2 id="week-1" class="panel-title">
+<a data-toggle="collapse" href="#collapse1">Week 1: 08/28. Version control and GitHub.</a>
+</h2>
+</div>
+<div id="collapse1" class="panel-collapse collapse in" style="margin:12px">
+<!--
+
+<ul>
+<li><p><a href="slides/03-GitHub.pdf">Slides: GitHub (.pdf file)</a></p>
+</li>
+</ul>
+
+-->
+</div>
+</div>
+</div>
+<div class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
 <h2 id="week-2" class="panel-title">
-<a data-toggle="collapse" href="#collapse2">Week 2: 08/29. Webscraping.</a>
+<a data-toggle="collapse" href="#collapse2">Week 2: 09/04. Web Scraping.</a>
 </h2>
 </div>
 <div id="collapse2" class="panel-collapse collapse in" style="margin:12px">
+<!--
+
 <ul>
-<li>
-<p>
-<a href="slides/03-scraping.pdf">Slides: webscraping (.pdf file)</a>
-</p>
+<li><p><a href="slides/03-scraping.pdf">Slides: webscraping (.pdf file)</a></p>
 </li>
-<li>
-<p>
-<a href="code/00-setup.html">Introduction to RMarkdown</a> (<a href="code/00-setup.Rmd">.Rmd file</a>)
-</p>
+<li><p><a href="code/00-setup.html">Introduction to RMarkdown</a> (<a href="code/00-setup.Rmd">.Rmd file</a>)</p>
 </li>
-<li>
-<p>
-<a href="code/01-scraping-tables.html">Scraping tables from websites</a> (<a href="code/01-scraping-tables.Rmd">.Rmd file</a>)
-</p>
+<li><p><a href="code/01-scraping-tables.html">Scraping tables from websites</a> (<a href="code/01-scraping-tables.Rmd">.Rmd file</a>)</p>
 </li>
-<li>
-<p>
-<a href="code/02-scraping-unstructured-data.html">Scraping unstructured data</a> (<a href="code/02-scraping-unstructured-data.Rmd">.Rmd file</a>)
-</p>
+<li><p><a href="code/02-scraping-unstructured-data.html">Scraping unstructured data</a> (<a href="code/02-scraping-unstructured-data.Rmd">.Rmd file</a>)</p>
 </li>
-<li>
-<p>
-<a href="challenges/challenge1.Rmd">Coding challenge 1 (.Rmd file)</a>
-</p>
+<li><p><a href="challenges/challenge1.Rmd">Coding challenge 1 (.Rmd file)</a></p>
 </li>
 </ul>
+
+-->
 </div>
 </div>
 </div>
@@ -369,32 +481,26 @@ div.tocify {
 <div class="panel panel-default">
 <div class="panel-heading">
 <h2 id="week-3" class="panel-title">
-<a data-toggle="collapse" href="#collapse3">Week 3: 09/05. Survey research.</a>
+<a data-toggle="collapse" href="#collapse3">Week 3: 09/11. Online experiments.</a>
 </h2>
 </div>
 <div id="collapse3" class="panel-collapse collapse in" style="margin:12px">
+<!--
+
 <ul>
-<li>
-<p>
-<a href="slides/04-multilevel.pdf">Slides: introduction to multilevel models (.pdf file)</a>
-</p>
+<li><p><a href="slides/06-parallel.pdf">Slides: efficient data analysis with R (.pdf file)</a></p>
 </li>
-<li>
-<p>
-<a href="">Multilevel models with R</a> (See Blackboard for code)
-</p>
+
+<li><p><a href="code/05-efficient-programming.html">Efficient programming with R</a> (<a href="code/05-efficient-programming.Rmd">.Rmd file</a>)</p>
 </li>
-<li>
-<p>
-<a href="">Multilevel Regression and Poststratification</a> (See Blackboard for code)
-</p>
+<li><p><a href="code/06-parallel-computing.html">Parallel computing with R</a> (<a href="code/06-parallel-computing.Rmd">.Rmd file</a>)</p>
 </li>
-<li>
-<p>
-<a href="challenges/challenge2.Rmd">Coding challenge 2 (.Rmd file)</a>
-</p>
+</li>
+<li><p><a href="challenges/challenge3.Rmd">Coding challenge 3 (.Rmd file)</a></p>
 </li>
 </ul>
+
+-->
 </div>
 </div>
 </div>
@@ -402,33 +508,17 @@ div.tocify {
 <div class="panel panel-default">
 <div class="panel-heading">
 <h2 id="week-4" class="panel-title">
-<a data-toggle="collapse" href="#collapse4">Week 4: 09/12. Experiments.</a>
+<a data-toggle="collapse" href="#collapse4">Week 4: 09/18. Text (I).</a>
 </h2>
 </div>
 <div id="collapse4" class="panel-collapse collapse in" style="margin:12px">
+<!--
 <ul>
-<li>
-<p>
-<a href="slides/06-parallel.pdf">Slides: efficient data analysis with R (.pdf file)</a>
-</p>
-</li>
-<li>
-<p>
-<a href="code/05-efficient-programming.html">Efficient programming with R</a> (<a href="code/05-efficient-programming.Rmd">.Rmd file</a>)
-</p>
-</li>
-<li>
-<p>
-<a href="code/06-parallel-computing.html">Parallel computing with R</a> (<a href="code/06-parallel-computing.Rmd">.Rmd file</a>)
-</p>
-</li>
-</li>
-<li>
-<p>
-<a href="challenges/challenge3.Rmd">Coding challenge 3 (.Rmd file)</a>
-</p>
+
+<li><p><a href="code/07-text-intro.html">Basics of text analysis with R</a> (<a href="code/07-text-intro.Rmd">.Rmd file</a>)</p>
 </li>
 </ul>
+-->
 </div>
 </div>
 </div>
@@ -436,27 +526,20 @@ div.tocify {
 <div class="panel panel-default">
 <div class="panel-heading">
 <h2 id="week-5" class="panel-title">
-<a data-toggle="collapse" href="#collapse5">Week 5: 09/19. Text (I).</a>
+<a data-toggle="collapse" href="#collapse5">Week 5: 09/25. Text (II).</a>
 </h2>
 </div>
 <div id="collapse5" class="panel-collapse collapse in" style="margin:12px">
+<!--
+
 <ul>
-<li>
-<p>
-<a href="code/07-text-intro.html">Basics of text analysis with R</a> (<a href="code/07-text-intro.Rmd">.Rmd file</a>)
-</p>
+<li><p><a href="code/08-dictionary-methods.html">Dictionary methods applied to sentiment analysis</a> (<a href="code/08-dictionary-methods.Rmd">.Rmd file</a>)</p>
 </li>
-<li>
-<p>
-<a href="code/08-dictionary-methods.html">Dictionary methods applied to sentiment analysis</a> (<a href="code/08-dictionary-methods.Rmd">.Rmd file</a>)
-</p>
-</li>
-<li>
-<p>
-<a href="challenges/challenge4.Rmd">Coding challenge 4 (.Rmd file)</a>
-</p>
+<li><p><a href="challenges/challenge4.Rmd">Coding challenge 4 (.Rmd file)</a></p>
 </li>
 </ul>
+
+-->
 </div>
 </div>
 </div>
@@ -464,27 +547,22 @@ div.tocify {
 <div class="panel panel-default">
 <div class="panel-heading">
 <h2 id="week-6" class="panel-title">
-<a data-toggle="collapse" href="#collapse6">Week 6: 09/26. Text (II).</a>
+<a data-toggle="collapse" href="#collapse6">Week 6: 10/02. Text (III).</a>
 </h2>
 </div>
 <div id="collapse6" class="panel-collapse collapse in" style="margin:12px">
+<!--
+
 <ul>
-<li>
-<p>
-<a href="code/09-supervised-learning.html">Supervised learning applied to text classification</a> (<a href="code/09-supervised-learning.Rmd">.Rmd file</a>)
-</p>
+<li><p><a href="code/09-supervised-learning.html">Supervised learning applied to text classification</a> (<a href="code/09-supervised-learning.Rmd">.Rmd file</a>)</p>
 </li>
-<li>
-<p>
-<a href="code/10-encoding-issues.html">Encoding issues when working with text</a> (<a href="code/10-encoding-issues.Rmd">.Rmd file</a>)
-</p>
+<li><p><a href="code/10-encoding-issues.html">Encoding issues when working with text</a> (<a href="code/10-encoding-issues.Rmd">.Rmd file</a>)</p>
 </li>
-<li>
-<p>
-<a href="challenges/challenge5.Rmd">Coding challenge 5</a>
-</p>
+<li><p><a href="challenges/challenge5.Rmd">Coding challenge 5</a></p>
 </li>
 </ul>
+
+-->
 </div>
 </div>
 </div>
@@ -492,27 +570,22 @@ div.tocify {
 <div class="panel panel-default">
 <div class="panel-heading">
 <h2 id="week-7" class="panel-title">
-<a data-toggle="collapse" href="#collapse7">Week 7: 10/03. Text (III).</a>
+<a data-toggle="collapse" href="#collapse7">Week 7: 10/09. Text (IV).</a>
 </h2>
 </div>
 <div id="collapse1" class="panel-collapse collapse in" style="margin:12px">
+<!--
+
 <ul>
-<li>
-<p>
-<a href="code/11-text-discovery.html">Exploring large-scale text datasets</a> (<a href="code/11-text-discovery.Rmd">.Rmd file</a>)
-</p>
+<li><p><a href="code/11-text-discovery.html">Exploring large-scale text datasets</a> (<a href="code/11-text-discovery.Rmd">.Rmd file</a>)</p>
 </li>
-<li>
-<p>
-<a href="code/12-topic-models.html">Topic models</a> (<a href="code/12-topic-models.Rmd">.Rmd file</a>)
-</p>
+<li><p><a href="code/12-topic-models.html">Topic models</a> (<a href="code/12-topic-models.Rmd">.Rmd file</a>)</p>
 </li>
-<li>
-<p>
-<a href="challenges/challenge6.Rmd">Coding challenge 6</a>
-</p>
+<li><p><a href="challenges/challenge6.Rmd">Coding challenge 6</a></p>
 </li>
 </ul>
+
+-->
 </div>
 </div>
 </div>
@@ -520,27 +593,22 @@ div.tocify {
 <div class="panel panel-default">
 <div class="panel-heading">
 <h2 id="week-8" class="panel-title">
-<a data-toggle="collapse" href="#collapse8">Week 8: 10/10. Text (IV).</a>
+<a data-toggle="collapse" href="#collapse8">Week 8: 10/16. Text (V).</a>
 </h2>
 </div>
 <div id="collapse8" class="panel-collapse collapse in" style="margin:12px">
+<!--
+
 <ul>
-<li>
-<p>
-<a href="code/13-word-embeddings.html">Introduction to word2vec</a> (<a href="code/13-word-embeddings.Rmd">.Rmd file</a>)
-</p>
+<li><p><a href="code/13-word-embeddings.html">Introduction to word2vec</a> (<a href="code/13-word-embeddings.Rmd">.Rmd file</a>)</p>
 </li>
-<li>
-<p>
-<a href="code/14-ideological-scaling.html">Ideological scaling</a> (<a href="code/14-ideological-scaling.Rmd">.Rmd file</a>)
-</p>
+<li><p><a href="code/14-ideological-scaling.html">Ideological scaling</a> (<a href="code/14-ideological-scaling.Rmd">.Rmd file</a>)</p>
 </li>
-<li>
-<p>
-<a href="challenges/challenge7.Rmd">Coding challenge 7</a>
-</p>
+<li><p><a href="challenges/challenge7.Rmd">Coding challenge 7</a></p>
 </li>
 </ul>
+
+-->
 </div>
 </div>
 </div>
@@ -548,27 +616,22 @@ div.tocify {
 <div class="panel panel-default">
 <div class="panel-heading">
 <h2 id="week-9" class="panel-title">
-<a data-toggle="collapse" href="#collapse9">Week 9: 10/17. Networks (I).</a>
+<a data-toggle="collapse" href="#collapse9">Week 9: 10/23. Networks (I).</a>
 </h2>
 </div>
 <div id="collapse9" class="panel-collapse collapse in" style="margin:12px">
+<!--
+
 <ul>
-<li>
-<p>
-<a href="code/15-networks-intro-visualization.html">Introduction social network analysis with igraph</a> (<a href="code/15-networks-intro-visualization.Rmd">.Rmd file</a>)
-</p>
+<li><p><a href="code/15-networks-intro-visualization.html">Introduction social network analysis with igraph</a> (<a href="code/15-networks-intro-visualization.Rmd">.Rmd file</a>)</p>
 </li>
-<li>
-<p>
-<a href="code/16-networks-descriptive-analysis.html">Descriptive analysis of social network datasets</a> (<a href="code/16-networks-descriptive-analysis.Rmd">.Rmd file</a>)
-</p>
+<li><p><a href="code/16-networks-descriptive-analysis.html">Descriptive analysis of social network datasets</a> (<a href="code/16-networks-descriptive-analysis.Rmd">.Rmd file</a>)</p>
 </li>
-<li>
-<p>
-<a href="challenges/challenge8.Rmd">Coding challenge 8</a>
-</p>
+<li><p><a href="challenges/challenge8.Rmd">Coding challenge 8</a></p>
 </li>
 </ul>
+
+-->
 </div>
 </div>
 </div>
@@ -576,37 +639,24 @@ div.tocify {
 <div class="panel panel-default">
 <div class="panel-heading">
 <h2 id="week-10" class="panel-title">
-<a data-toggle="collapse" href="#collapse10">Week 10: 10/24. Networks (II).</a>
+<a data-toggle="collapse" href="#collapse10">Week 10: 10/30. Networks (II).</a>
 </h2>
 </div>
 <div id="collapse10" class="panel-collapse collapse in" style="margin:12px">
+<!--
+
 <ul>
-<li>
-<p>
-<a href="slides/12-networks-contagion.pdf">Slides: collecting social media data (.pdf file)</a>
-</p>
+<li><p><a href="slides/12-networks-contagion.pdf">Slides: collecting social media data (.pdf file)</a></p>
 </li>
-<li>
-<p>
-<a href="code/17-twitter-streaming-data-collection.html">Collecting Twitter data from the Streaming API</a> (<a href="code/17-twitter-streaming-data-collection.Rmd">.Rmd file</a>)
-</p>
+<li><p><a href="code/17-twitter-streaming-data-collection.html">Collecting Twitter data from the Streaming API</a> (<a href="code/17-twitter-streaming-data-collection.Rmd">.Rmd file</a>)</p>
 </li>
-<li>
-<p>
-<a href="code/18-twitter-REST-data-collection.html">Collecting Twitter data from the REST API</a> (<a href="code/18-twitter-REST-data-collection.Rmd">.Rmd file</a>)
-</p>
+<li><p><a href="code/18-twitter-REST-data-collection.html">Collecting Twitter data from the REST API</a> (<a href="code/18-twitter-REST-data-collection.Rmd">.Rmd file</a>)</p>
 </li>
-<li>
-<p>
-<a href="code/19-facebook-data-collection.html">Collecting Facebook data from the Graph API</a> (<a href="code/19-facebook-data-collection.Rmd">.Rmd file</a>)
-</p>
-</li>
-<li>
-<p>
-<a href="challenges/challenge9.Rmd">Coding challenge 9</a>
-</p>
+<li><p><a href="challenges/challenge9.Rmd">Coding challenge 9</a></p>
 </li>
 </ul>
+
+-->
 </div>
 </div>
 </div>
@@ -614,22 +664,34 @@ div.tocify {
 <div class="panel panel-default">
 <div class="panel-heading">
 <h2 id="week-11" class="panel-title">
-<a data-toggle="collapse" href="#collapse11">Week 11: 10/31. Networks (III).</a>
+<a data-toggle="collapse" href="#collapse11">Week 11: 11/06. SQL.</a>
 </h2>
 </div>
 <div id="collapse11" class="panel-collapse collapse in" style="margin:12px">
+<!--
+
 <ul>
-<li>
-<p>
-<a href="code/20-community-detection.html">Community detection methods</a> (<a href="code/20-community-detection.Rmd">.Rmd file</a>)
-</p>
+<li><p><a href="SQL-slides.pdf">SLIDES: Querying large-scale online datasets with SQL and Google BigQuery</a></p>
 </li>
-<li>
-<p>
-<a href="challenges/challenge10.Rmd">Coding challenge 10</a>
-</p>
+
+<li><p><a href="code/01-sql-intro.html">Basics of SQL queries</a> (<a href="code/01-sql-intro.Rmd">.Rmd file</a>)</p>
 </li>
+<li><p><a href="challenges/challenge1.Rmd">Coding challenge 1 (.Rmd file)</a></p>
+</li>
+<li><p><a href="code/02-sql-advanced.html">Querying multiple tables. Grouping and aggregating operations.</a> (<a href="code/02-sql-advanced.Rmd">.Rmd file</a>)</p>
+</li>
+</li>
+<li><p><a href="challenges/challenge1.Rmd">Coding challenge 2 (.Rmd file)</a></p>
+</li>
+
+<li><p><a href="code/03-bigquery-intro.html">Introduction to Google BigQuery</a> (<a href="code/03-bigquery-intro.Rmd">.Rmd file</a>)</p>
+</li>
+<li><p><a href="challenges/challenge3.Rmd">Coding challenge 3 (.Rmd file)</a></p>
+</li>
+
 </ul>
+
+-->
 </div>
 </div>
 </div>
@@ -637,27 +699,44 @@ div.tocify {
 <div class="panel panel-default">
 <div class="panel-heading">
 <h2 id="week-12" class="panel-title">
-<a data-toggle="collapse" href="#collapse12">Week 12: 11/07. Spatial statistics.</a>
+<a data-toggle="collapse" href="#collapse12">Week 12: 11/13. Networks (III).</a>
 </h2>
 </div>
 <div id="collapse12" class="panel-collapse collapse in" style="margin:12px">
+<!--
+
 <ul>
-<li>
-<p>
-<a href="code/21-latent-space.html">Latent space network models</a> (<a href="code/21-latent-space.Rmd">.Rmd file</a>)
-</p>
+<li><p><a href="code/20-community-detection.html">Community detection methods</a> (<a href="code/20-community-detection.Rmd">.Rmd file</a>)</p>
 </li>
-<li>
-<p>
-<a href="code/22-GIS.html">GIS analysis</a> (<a href="code/22-GIS.Rmd">.Rmd file</a>)
-</p>
-</li>
-<li>
-<p>
-<a href="challenges/challenge11.Rmd">Coding challenge 11</a>
-</p>
+<li><p><a href="challenges/challenge10.Rmd">Coding challenge 10</a></p>
 </li>
 </ul>
+
+-->
+</div>
+</div>
+</div>
+<div class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h2 id="week-12" class="panel-title">
+<a data-toggle="collapse" href="#collapse12">Week 13: 11/20. Data visualization.</a>
+</h2>
+</div>
+<div id="collapse12" class="panel-collapse collapse in" style="margin:12px">
+<!--
+
+<ul>
+<li><p><a href="code/22-GIS.html">Maps</a> (<a href="code/22-GIS.Rmd">.Rmd file</a>)</p>
+</li>
+<li><p><a href="code/21-latent-space.html">Latent space network models</a> (<a href="code/21-latent-space.Rmd">.Rmd file</a>)</p>
+</li>
+<li><p><a href="challenges/challenge11.Rmd">Coding challenge 11</a></p>
+</li>
+
+</ul>
+
+-->
 </div>
 </div>
 </div>
