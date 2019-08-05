@@ -2,6 +2,8 @@
 title: Course outline and readings
 ---
 
+Note: slides will be added as the course progresses.
+
 <div class="panel-group">
 <div class="panel panel-default">
 <div class="panel-heading">
@@ -40,7 +42,9 @@ title: Course outline and readings
 
 <p><b>Topics:</b> Computational social science: research opportunities and challenges. Ethics of social science research in the digital age. Big data, big bias? Data collection: automated data collection from the web.</p>
 
+<!--
 <p><a href="slides/02-big-data.pdf">SLIDES (.pdf): Computational Social Science - Research opportunities and challenges.</a></p>
+-->
 
 <h4>Background reading</h4>
 <ul>
@@ -74,7 +78,9 @@ title: Course outline and readings
 
 <p><b>Topics:</b> Large-scale online experiments. Parallel programming with R.</p>
 
+<!--
 <p><a href="slides/05-experiments.pdf">SLIDES (.pdf): Experimental research in the digital age.</a></p>
+-->
 
 <h4>Background reading</h4>
 <ul>
@@ -110,8 +116,9 @@ title: Course outline and readings
 
 <p><b>Topics:</b> Introduction to automated text analysis. Sources of textual data. String manipulation in R. Regular expressions. Text processing with quanteda.</p>
 
+<!--
 <p><a href="slides/06-text-intro.pdf">SLIDES (.pdf): Introduction to automated text analysis. Text preprocessing.</a></p>
-
+-->
 
 <h4>Background reading</h4>
 <ul>
@@ -145,8 +152,9 @@ title: Course outline and readings
 
 <p><b>Topics:</b> Dictionary methods applied to sentiment analysis.</p>
 
+<!--
 <p><a href="slides/07-dictionaries.pdf">SLIDES (.pdf): Dictionary methods.</a></p>
-
+-->
 
 <h4>Background reading</h4>
 <ul>
@@ -180,7 +188,9 @@ title: Course outline and readings
 
 <p><b>Topics:</b> Supervised machine learning applied to text classification. Crowd-sourcing the creation of training datasets.</p>
 
+<!--
 <p><a href="slides/08-supervised-learning.pdf">SLIDES (.pdf): Introduction to supervised learning applied to text classification.</a></p>
+-->
 
 <h4>Background reading</h4>
 <ul>
@@ -215,7 +225,9 @@ title: Course outline and readings
 
 <p><b>Topics:</b> Unsupervised machine learning (topic models).</p>
 
+<!--
 <p><a href="slides/09-topic-models.pdf">SLIDES (.pdf): Introduction to unsupervised machine learning. Topic models.</a></p>
+-->
 
 <h4>Background reading</h4>
 <ul>
@@ -247,7 +259,10 @@ title: Course outline and readings
 
 <p><b>Topics:</b> Ideological scaling of documents. Event detection. Introduction to word embeddings.</p>
 
+<!--
 <p><a href="slides/10-advanced-text.pdf">SLIDES (.pdf): Advanced automated text analysis.</a></p>
+-->
+
 
 <h4>Background reading</h4>
 <ul>
@@ -288,7 +303,9 @@ What works, what doesn’t, and how to tell the difference for applied research<
 
 <p><b>Topics:</b> Basic concepts in social network analysis. Network visualization.</p>
 
+<!--
 <p><a href="slides/11-networks-intro.pdf">SLIDES (.pdf): Introduction to social network analysis.</a></p>
+-->
 
 <h4>Background reading</h4>
 <ul>
@@ -355,7 +372,9 @@ What works, what doesn’t, and how to tell the difference for applied research<
 
 <p><b>Topics:</b> Querying large-scale online datasets with SQL and Google BigQuery.</p>
 
+<!--
 <p><a href="slides/12-SQL.pdf">SLIDES (.pdf): SQL and Google BigQuery.</a></p>
+-->
 
 <h4>Background reading</h4>
 <ul>
@@ -381,7 +400,9 @@ What works, what doesn’t, and how to tell the difference for applied research<
 
 <p><b>Topics:</b> Latent variable models. Introduction to exponential random graph models.</p>
 
+<!--
 <p><a href="slides/13-networks-latent.pdf">SLIDES (.pdf): Latent space network models. Community detection.</a></p>
+-->
 
 <h4>Background reading</h4>
 <ul>
@@ -497,8 +518,9 @@ What works, what doesn’t, and how to tell the difference for applied research<
 
 <p><b>Other topics not covered in this year's version of the course:</b> Spatial data. Geographical Information Systems (GIS). Spatial autocorrelation. Spatial autoregresion models.</p>
 
+<!--
 <p><a href="slides/14-GIS.pdf">SLIDES (.pdf): GIS.</a></p>
-
+-->
 
 <h4>Background reading</h4>
 <ul>
