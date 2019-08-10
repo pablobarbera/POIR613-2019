@@ -60,7 +60,7 @@ Note: slides will be added as the course progresses.
 <ul>
 <li><p>Kramer, A. D., Guillory, J. E., & Hancock, J. T. (2014). <a href="http://www.pnas.org/content/111/24/8788.short">Experimental evidence of massive-scale emotional contagion through social networks.</a> <i>Proceedings of the National Academy of Sciences</i>, 111(24), 8788-8790.<p>
 </li>
-
+<li><p>Hargittai, E. (2018). <a href="https://journals.sagepub.com/doi/abs/10.1177/0894439318788322">Potential Biases in Big Data: Omitted Voices on Social Media.</a> <i>Social Science Computer Review</i>, forthcoming.</p>
 </ul>
 
 </div>
