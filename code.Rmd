@@ -14,7 +14,7 @@ The following list provides links to the code used in the guided coding sessions
 <div id="collapse1" class="panel-collapse collapse in" style="margin:12px">
 
 <ul>
-<li><p><a href="slides/02-gitHub.pdf">Slides: GitHub (.pdf file)</a></p>
+<li><p><a href="slides/02-github.pdf">Slides: GitHub (.pdf file)</a></p>
 </li>
 <li><p><a href="code/01-RMarkdown-setup.html">Introduction to RMarkdown</a> (<a href="code/01-RMarkdown-setup.rmd">.Rmd file</a>)</p>
 </li>
