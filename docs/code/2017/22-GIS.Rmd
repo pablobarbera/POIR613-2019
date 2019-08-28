@@ -1,0 +1,228 @@
+---
+title: "GIS in R"
+author: Pablo Barbera
+date: October 31, 2017
+output: html_document
+---
+
+### Working with shape files
+
+The first part of this guided coding session will be devoted to learning how to work with shape files in R. The dataset we will contains the coordinates of around 16,000 tweets that mentioned the word "shutdown," collected on October 1st, 2013.
+
+```{r}
+df <- read.csv("../data/shutdown_locations.csv", stringsAsFactors=F)
+str(df)
+```
+
+R already has some shape files built in that we can quickly work with. For example, at the country level:
+
+```{r}
+library(maps)
+countries <- map.where(database="world", x=df$Longitude, y=df$Latitude)
+tail(sort(table(countries)))
+map("world")
+```
+
+At the state level in the U.S.:
+
+
+```{r}
+states <- map.where(database="state", x=df$Longitude, y=df$Latitude)
+tail(sort(table(states)))
+map("state")
+```
+
+And at the county level in the U.S:
+
+```{r}
+counties <- map.where(database="county", x=df$Longitude, y=df$Latitude)
+tail(sort(table(counties)))
+map("county")
+```
+
+But we can also load our own shape file. For example, the official region shape files, available [here](https://www.census.gov/geo/maps-data/data/tiger-cart-boundary.html).
+
+```{r}
+library(maptools)
+region <- readShapePoly("../data/region/cb_2016_us_region_20m.shp")
+plot(region)
+region@data
+
+# now convert to a Spatial Polygons object to identify region for each point
+cc <- SpatialPolygons2map(region, namefield="NAME")
+plot(cc) # this is what is internally in the object, just a set of points!
+regions <- map.where(database=cc, x=df$Longitude, y=df$Latitude)
+table(states)
+
+```
+
+### Producing choropleth map
+
+Now imagine we want to produce a choropleth map, that is, a map where each area is shaded as a function of some parameter of the data. Let's say we want to produce a map of the U.S. states with each region shaded by the number of tweets.
+
+First, we will create a data frame with the data
+
+```{r}
+states <- map.where(database="state", x=df$Longitude, y=df$Latitude)
+tail(sort(table(states)))
+
+# cleaning state names and creating data frame with counts
+states <- gsub('(.*):.*', states, repl="\\1")
+tab <- table(states, exclude=NULL)
+tab <- data.frame(tab); names(tab) <- c("state", "tweets")
+head(tab)
+```
+
+Now let's start with a simple map:
+
+```{r}
+library(ggplot2)
+library(maps)
+states_map <- map_data('state')
+
+p <- ggplot(tab, aes(map_id=state))
+p + geom_map(aes(fill=tweets), map = states_map) +
+         expand_limits(x = states_map$long, y = states_map$lat)
+
+```
+
+We can then start playing around with the color and size of the borders.
+
+```{r}
+p + geom_map(aes(fill=tweets), map = states_map, color="yellow") +
+         expand_limits(x = states_map$long, y = states_map$lat)
+
+pq <- p + geom_map(aes(fill=tweets), map = states_map, color="grey", size=.1) +
+         expand_limits(x = states_map$long, y = states_map$lat)
+pq
+
+```
+
+And try with different color scales:
+
+```{r}
+pq + scale_fill_continuous(low="white", high="black") ## same as...
+
+pq + scale_fill_gradient(low="white", high="black") ## smoothing btw 2 colors
+
+pq + scale_fill_gradientn(colours = rainbow(7)) ## for >2 colors
+
+pq + scale_fill_gradientn(colours = c("red", "white", "blue")) ## for >2 colors
+ 
+library(RColorBrewer) ## by far the best. Check: http://colorbrewer2.org/
+colors <- rev(brewer.pal(7,"YlOrRd"))
+
+pq + scale_fill_continuous(low=colors[7], high=colors[1])
+```
+
+Given the skewed distribution of the dataset, we probably want to transform it by taking the log:
+
+```{r}
+pq + scale_fill_continuous(trans="log")
+
+pq + scale_fill_continuous(trans="log", breaks=c(10, 100, 1000),
+    labels = c("10", "100", "1K"))
+```
+
+The two final steps will be to remove axes and background, and to change the orientation and location of the legend
+
+```{r}
+pq <- pq + theme(
+        # removing axes
+        axis.line = element_blank(), axis.text = element_blank(), 
+        axis.ticks = element_blank(), axis.title = element_blank(),
+        # removing background / borders
+        panel.background = element_blank(), plot.background = element_blank(),
+        panel.border = element_blank(), panel.grid = element_blank()
+    )
+pq
+```
+
+```{r}
+pq + theme(legend.direction="horizontal", 
+    legend.position = c(.20, .10),
+    legend.key.size = unit(c(.8), "cm"))
+
+```
+
+
+### Producing maps of locations
+
+The other type of map we may want to produce is one where you overlay dots over a map. For example, let's produce a map of tweets in Europe, colored by language. The dataset we will use contains 80,300 tweets collected on September 15, 2013.
+
+We will start by preparing the underlying map of Europe:
+
+```{r}
+library(cshapes)
+library(scales)
+library(ggplot2)
+library(grid)
+library(mapproj)
+
+# preparing data frame with current country boundaries
+world.data <- fortify(cshp(date=as.Date("2012-06-30")))
+
+# base layer: map of Europe
+p <- ggplot(world.data, aes(long,lat,group=group)) + 
+    geom_polygon(fill="black", color="grey80", size=0.25) +
+    coord_map("lagrange", xlim=c(-14.5, 35), ylim=c(32.5,61))
+p
+
+# removing axes, ticks, changing background...
+pq <- p + theme(
+    # dark background
+        panel.background = element_rect(fill = "black"),
+        plot.background = element_rect(fill="black"),
+        # removing axis lines and ticks
+        axis.line = element_blank(), axis.text = element_blank(), 
+        axis.ticks = element_blank(), axis.title = element_blank(), 
+        panel.border = element_blank(), 
+        panel.grid.major = element_blank(), panel.grid.minor = element_blank()
+    )
+pq
+```
+
+Now let's clean the tweet data:
+
+```{r}
+df <- read.csv("../data/loc_lang.csv", stringsAsFactors=F)
+df <- df[df$lang!="und",] ## removing "undetermined" language
+df <- df[df$lat>32.5 & df$lon>(-14.5) & df$lat<61 & df$lon<35,]
+tab <- sort(table(df$lang), dec=TRUE) ## table for tweets by language
+top15lang <- names(tab)[1:15] ## top 15 languages
+df <- df[df$lang %in% top15lang,]
+```
+
+And we're ready to plot it!
+
+```{r}
+pq <- ggplot(world.data, aes(long,lat,group=group)) + 
+    geom_polygon(fill="black", color="grey80", size=0.25) +
+    geom_point(data = df, 
+        aes(x = lon, y=lat, color=lang, group=NA), size=0.3) +
+    coord_map("lagrange", xlim=c(-14.5, 35), ylim=c(32.5,61)) +
+    theme(
+        panel.background = element_rect(fill = "black"),
+        plot.background = element_rect(fill="black"),
+        axis.line = element_blank(), axis.text = element_blank(), 
+        axis.ticks = element_blank(), axis.title = element_blank(), 
+        panel.border = element_blank(), 
+        panel.grid = element_blank(), 
+        legend.background = element_rect(colour = F, fill = "black"),
+        legend.key = element_rect(fill = "black", colour = F),
+        legend.title = element_text(color="white"),
+        legend.text = element_text(color="white", size=10)
+    ) +
+    guides(color = guide_legend(override.aes = list(size=5)))
+# adding language labels
+langs <- c("German", "English", "Spanish", "Estonian",
+    "French", "Indonesian", "Italian", "Latvian", "Dutch",
+    "Portuguese", "Russian", "Slovak", "Slovenian", 
+    "Tagalog", "Turkish")
+pq <- pq + scale_color_discrete("Language", labels = langs)
+pq
+
+
+```
+
+

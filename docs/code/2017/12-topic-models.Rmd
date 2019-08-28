@@ -1,0 +1,311 @@
+---
+title: "Unsupervised machine learning"
+author: Pablo Barbera
+date: October 3rd, 2017
+output: html_document
+---
+
+## Topic Modeling: LDA
+
+While supervised learning is used when we know the categories we want to produce, unsupervised learning (including topic modeling) is used when we do not know the categories. In topic modeling, documents are not assumed to belong to one topic or category, but simultaneously belong to several topics. The topic distributions also vary over documents. 
+
+The workhorse function for the topic model is `LDA`, which stands for Latent Dirichlet Allocation, the technical name for this particular kind of model. 
+
+We will now use a dataset that contains the lead paragraph of around 5,000 articles about the economy published in the New York Times between 1980 and 2014. As before, we will preprocess the text using the standard set of techniques.
+
+The number of topics in a topic model is somewhat arbitrary, so you need to play with the number of topics to see if you get anything more meaningful. We start here with 30 topics.
+
+```{r message = FALSE}
+library(topicmodels)
+# reading data and preparing corpus object
+nyt <- read.csv("../data/nytimes.csv", stringsAsFactors = FALSE)
+library(quanteda)
+nytcorpus <- corpus(nyt$lead_paragraph)
+nytdfm <- dfm(nytcorpus, remove=stopwords("english"), verbose=TRUE,
+               remove_punct=TRUE, remove_numbers=TRUE)
+cdfm <- dfm_trim(nytdfm, min_docfreq = 2)
+
+# estimate LDA with K topics
+K <- 30
+lda <- LDA(cdfm, k = K, method = "Gibbs", 
+                control = list(verbose=25L, seed = 123, burnin = 100, iter = 500))
+```
+
+We can use `get_terms` to the top `n` terms from the topic model, and `get_topics` to predict the top `k` topic for each document. This will help us interpret the results of the model.
+
+```{r}
+terms <- get_terms(lda, 15)
+terms[,5]
+topics <- get_topics(lda, 1)
+head(topics)
+```
+
+Let's take a closer look at some of these topics. To help us interpret the output, we can look at the words associated with each topic and take a random sample of documents highly associated with each topic.
+
+```{r}
+# Topic 5
+paste(terms[,5], collapse=", ")
+sample(nyt$lead_paragraph[topics==5], 1)
+# Topic 11
+paste(terms[,11], collapse=", ")
+sample(nyt$lead_paragraph[topics==11], 1)
+# Topic 12
+paste(terms[,12], collapse=", ")
+sample(nyt$lead_paragraph[topics==12], 1)
+# Topic 16
+paste(terms[,16], collapse=", ")
+sample(nyt$lead_paragraph[topics==16], 1)
+```
+
+You will that often some topics do not make much sense. They just capture the remaining cluster of words, and often correspond to stopwords. For example:
+
+```{r}
+# Topic 3
+paste(terms[,3], collapse=", ")
+sample(nyt$lead_paragraph[topics==3], 1)
+# Topic 4
+paste(terms[,4], collapse=", ")
+sample(nyt$lead_paragraph[topics==4], 1)
+```
+
+In the case of date with timestamps, looking at the evolution of certain topics over time can also help interpret their meaning. Let's look for example at Topic 13, which appears to be related to the stock market.
+
+```{r}
+# Topic 13
+paste(terms[,13], collapse=", ")
+sample(nyt$lead_paragraph[topics==13], 1)
+# add predicted topic to dataset
+nyt$pred_topic <- topics
+nyt$year <- substr(nyt$datetime, 1, 4) # extract year
+ # frequency table with articles about stock market, per year
+tab <- table(nyt$year[nyt$pred_topic==13])
+plot(tab)
+```
+
+But we can actually do better than this. LDA is a probabilistic model, which means that for each document, it actually computes a distribution over topics. In other words, each document is considered to be __about a mixture of topics__. 
+
+This information is included in the matrix `gamma` in the LDA object (`theta` in the notation we used for the slides). For example, article 1 is 10% about topic 8, 9% about topic 20, 7% about topic 23, and then less than 5% for each of the rest.
+
+```{r}
+round(lda@gamma[1,], 2)
+```
+
+So we can actually take the information in the matrix and aggregate it to compute the average probability that an article each year is about a particular topic. Let's now choose Topic 21, which appears to be related to the financial crisis.
+
+```{r}
+# Topic 21
+paste(terms[,21], collapse=", ")
+# add probability to df
+nyt$prob_topic_21 <- lda@gamma[,21]
+# now aggregate at the year level
+agg <- aggregate(nyt$prob_topic_21, by=list(year=nyt$year), FUN=mean)
+# and plot it
+plot(agg$year, agg$x, type="l", xlab="Year", ylab="Avg. prob. of article about topic 21",
+     main="Estimated proportion of articles about the financial crisis")
+
+```
+
+
+## Topic Modeling: Structural Topic Model
+
+Most text corpora have not only the documents per se, but also a lot of metadata associated -- we know the author, characteristics of the author, when the document was produced, etc. The structural topic model takes advantage of this metadata to improve the discovery of topics. Here we will learn how it works, how we can interpret the output, and some issues related to its usage for research.
+
+We will continue with the previous example, but now adding one covariate: the party of the president.
+
+```{r}
+library(stm)
+# extracting covariates
+year <- as.numeric(substr(nyt$datetime, 1, 4))
+repub <- ifelse(year %in% c(1981:1992, 2000:2008), 1, 0)
+```
+
+And now we're ready to run `stm`!
+
+```{r}
+# running STM
+stm <- stm(documents=cdfm, K=30, prevalence=~repub, max.em.its=100)
+save(stm, file="../backup/stm-output.Rdata")
+```
+
+
+`stm` offers a series of features to explore the output. First, just like LDA, we can look at the words that are most associated with each topic.
+
+```{r}
+load("../backup/stm-output.Rdata")
+# looking at a few topics
+labelTopics(stm, topics=1)
+labelTopics(stm, topics=4)
+labelTopics(stm, topics=5)
+labelTopics(stm, topics=7)
+labelTopics(stm, topics=9)
+```
+
+But unlike LDA, we now can estimate the effects of the features we considered into the prevalence of different topics
+
+```{r}
+# effects
+est <- estimateEffect(~repub, stm,
+	uncertainty="None")
+summary(est, topics=1)
+summary(est, topics=4)
+summary(est, topics=5)
+summary(est, topics=7)
+summary(est, topics=9)
+```
+
+
+Let's say we're interested in finding the most partisan topics. How would we do this?
+
+```{r}
+# let's look at the structure of the output object...
+names(est)
+length(est$parameters)
+est$parameters[[1]]
+
+# aha! we'll just extract the coefficients for each topic
+coef <- se <- rep(NA, 30)
+for (i in 1:30){
+	coef[i] <- est$parameters[[i]][[1]]$est[2]
+	se[i] <- sqrt(est$parameters[[i]][[1]]$vcov[2,2])
+}
+
+df <- data.frame(topic = 1:30, coef=coef, se=se)
+df <- df[order(df$coef),] # sorting by "partisanship"
+head(df[order(df$coef),])
+tail(df[order(df$coef),])
+
+# three most "democratic" topics
+labelTopics(stm, topics=df$topic[1])
+labelTopics(stm, topics=df$topic[2])
+labelTopics(stm, topics=df$topic[3])
+
+# three most "republican" topics
+labelTopics(stm, topics=df$topic[30])
+labelTopics(stm, topics=df$topic[29])
+labelTopics(stm, topics=df$topic[28])
+```
+
+Let's now try running a slightly more complex example where both prevalence and content are a function of covariates. Here we assume that topics discussed by Republicans and Democrats may be different, and also that the "meaning" of topics discussed may change over time.
+
+```{r}
+# metadata into a data frame
+meta <- data.frame(year=year, repub=repub)
+```
+
+```{r}
+# another run
+stm <- stm(documents=cdfm, K=30, prevalence=~s(year)+repub,
+	max.em.its=100, content=~repub, data=meta)
+
+save(stm, file="../backup/stm-small-output.Rdata")
+```
+
+`stm` offers other functions to explore how content varies as a function of covariates. Let's take a look.
+
+```{r}
+load("../backup/stm-small-output.Rdata")
+
+# summary
+plot(stm, type = "summary", xlim = c(0, .3))
+
+# how topics are different under republican (TRUE) presidents
+plot(stm, type = "perspectives", topics = 6)
+plot(stm, type = "perspectives", topics = 4)
+
+# we can also compare specific topics
+plot(stm, type = "perspectives", topics = c(1,10))
+
+# prevalence over time
+est <- estimateEffect(~s(year)+repub, 
+	stm, uncertainty = "None", meta=meta)
+
+plot(est, covariate="repub", topics=1:30,
+	model=stm, method="difference",
+	cov.value1=0, cov.value2=1,
+	xlab = "More Democrats ... More Republicans",
+	labeltype="custom", custom.labels=paste("Topic", 1:30))
+plot(stm, type = "perspectives", topics = 12)
+
+plot(est, "year", method="continuous", topics=1:2)
+```
+
+
+## Choosing the number of topics
+
+Finally, this is the code to generate the figure in the slides. Many moving parts here...
+
+```{r}
+require(cvTools)
+cvLDA <- function(Ntopics,dtm,K=5) {
+  folds<-cvFolds(nrow(dtm),K,1)
+  perplex <- rep(NA,K)
+  llk <- rep(NA,K)
+  for(i in unique(folds$which)){
+    cat(i, " ")
+    which.test <- folds$subsets[folds$which==i]
+    which.train <- {1:nrow(dtm)}[-which.test]
+    dtm.train <- dtm[which.train,]
+    dtm.test <- dtm[which.test,]
+    lda.fit <- LDA(dtm.train, k=Ntopics, method="Gibbs",
+        control=list(verbose=50L, iter=100))
+    perplex[i] <- perplexity(lda.fit, convert(dtm.test, to="topicmodels"))
+    llk[i] <- logLik(lda.fit)
+  }
+  return(list(K=Ntopics,perplexity=perplex,logLik=llk))
+}
+```
+
+```{r}
+K <- c(20, 30, 40, 50, 60, 70)
+
+results <- list()
+
+i = 1
+for (k in K){
+    cat("\n\n\n##########\n ", k, "topics", "\n")
+    res <- cvLDA(k, cdfm)
+    results[[i]] <- res
+    i = i + 1
+}
+```
+
+
+```{r}
+## plot
+df <- data.frame(
+    k = rep(K, each=5),
+    perp =  unlist(lapply(results, '[[', 'perplexity')),
+    loglk = unlist(lapply(results, '[[', 'logLik')),
+    stringsAsFactors=F)
+
+min(df$perp)
+df$ratio_perp <- df$perp / max(df$perp)
+df$ratio_lk <- df$loglk / min(df$loglk)
+
+df <- data.frame(cbind(
+    aggregate(df$ratio_perp, by=list(df$k), FUN=mean),
+    aggregate(df$ratio_perp, by=list(df$k), FUN=sd)$x,
+    aggregate(df$ratio_lk, by=list(df$k), FUN=mean)$x,
+    aggregate(df$ratio_lk, by=list(df$k), FUN=sd)$x),
+    stringsAsFactors=F)
+names(df) <- c("k", "ratio_perp", "sd_perp", "ratio_lk", "sd_lk")
+library(reshape)
+pd <- melt(df[,c("k","ratio_perp", "ratio_lk")], id.vars="k")
+pd2 <- melt(df[,c("k","sd_perp", "sd_lk")], id.vars="k")
+pd$sd <- pd2$value
+levels(pd$variable) <- c("Perplexity", "LogLikelihood")
+
+library(ggplot2)
+library(grid)
+
+p <- ggplot(pd, aes(x=k, y=value, linetype=variable))
+pq <- p + geom_line() + geom_point(aes(shape=variable), 
+        fill="white", shape=21, size=1.40) +
+    geom_errorbar(aes(ymax=value+sd, ymin=value-sd), width=4) +
+    scale_y_continuous("Ratio wrt worst value") +
+    scale_x_continuous("Number of topics", 
+        breaks=K) +
+    theme_bw() 
+pq
+```
+

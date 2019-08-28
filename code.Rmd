@@ -13,14 +13,16 @@ The following list provides links to the code used in the guided coding sessions
 </div>
 <div id="collapse1" class="panel-collapse collapse in" style="margin:12px">
 
-<!--
-
 <ul>
-<li><p><a href="slides/03-GitHub.pdf">Slides: GitHub (.pdf file)</a></p>
+<li><p><a href="slides/02-gitHub.pdf">Slides: GitHub (.pdf file)</a></p>
+</li>
+<li><p><a href="code/01-RMarkdown-setup.html">Introduction to RMarkdown</a> (<a href="code/01-RMarkdown-setup.rmd">.Rmd file</a>)</p>
+</li>
+<li><p><a href="https://classroom.github.com/a/KGpWHEQ2">Link to Challenge 0 (GitHub Classroom)</a></p>
 </li>
 </ul>
 
--->
+
 
 </div>
 </div>
@@ -40,8 +42,6 @@ The following list provides links to the code used in the guided coding sessions
 
 <ul>
 <li><p><a href="slides/03-scraping.pdf">Slides: webscraping (.pdf file)</a></p>
-</li>
-<li><p><a href="code/00-setup.html">Introduction to RMarkdown</a> (<a href="code/00-setup.Rmd">.Rmd file</a>)</p>
 </li>
 <li><p><a href="code/01-scraping-tables.html">Scraping tables from websites</a> (<a href="code/01-scraping-tables.Rmd">.Rmd file</a>)</p>
 </li>
