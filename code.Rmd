@@ -33,25 +33,21 @@ The following list provides links to the code used in the guided coding sessions
 <div class="panel panel-default">
 <div class="panel-heading">
 <h2 id="week-2" class="panel-title">
-<a data-toggle="collapse" href="#collapse2">Week 2: 09/04. Web Scraping.</a>
+<a data-toggle="collapse" href="#collapse2">Week 2: 09/04. Good programming practices.</a>
 </h2>
 </div>
 <div id="collapse2" class="panel-collapse collapse in" style="margin:12px">
 
-<!--
-
 <ul>
-<li><p><a href="slides/03-scraping.pdf">Slides: webscraping (.pdf file)</a></p>
+<li><p><a href="slides/04-good-coding.pdf">Slides: good coding / programming practices (.pdf file)</a></p>
 </li>
-<li><p><a href="code/01-scraping-tables.html">Scraping tables from websites</a> (<a href="code/01-scraping-tables.Rmd">.Rmd file</a>)</p>
+<li><p><a href="code/02-loops-functions.html">Functions and loops in R</a> (<a href="code/02-loops-functions.Rmd">.Rmd file</a>)</p>
 </li>
-<li><p><a href="code/02-scraping-unstructured-data.html">Scraping unstructured data</a> (<a href="code/02-scraping-unstructured-data.Rmd">.Rmd file</a>)</p>
+<li><p><a href="code/03-efficient-programming.html">Efficient programming with R</a> (<a href="code/03-efficient-programming.Rmd">.Rmd file</a>)</p>
 </li>
-<li><p><a href="challenges/challenge1.Rmd">Coding challenge 1 (.Rmd file)</a></p>
+<li><p><a href="https://classroom.github.com/a/BVkWl7Wf">Link to challenge 1</a></p>
 </li>
 </ul>
-
--->
 
 </div>
 </div>
@@ -61,7 +57,7 @@ The following list provides links to the code used in the guided coding sessions
 <div class="panel panel-default">
 <div class="panel-heading">
 <h2 id="week-3" class="panel-title">
-<a data-toggle="collapse" href="#collapse3">Week 3: 09/11. Efficient programming.</a>
+<a data-toggle="collapse" href="#collapse3">Week 3: 09/11. Webscraping.</a>
 </h2>
 </div>
 <div id="collapse3" class="panel-collapse collapse in" style="margin:12px">
@@ -69,11 +65,15 @@ The following list provides links to the code used in the guided coding sessions
 <!--
 
 <ul>
-<li><p><a href="slides/06-parallel.pdf">Slides: efficient data analysis with R (.pdf file)</a></p>
+<li><p><a href="slides/03-scraping.pdf">Slides: webscraping (.pdf file)</a></p>
 </li>
 
-<li><p><a href="code/05-efficient-programming.html">Efficient programming with R</a> (<a href="code/05-efficient-programming.Rmd">.Rmd file</a>)</p>
+
+<li><p><a href="code/01-scraping-tables.html">Scraping tables from websites</a> (<a href="code/01-scraping-tables.Rmd">.Rmd file</a>)</p>
 </li>
+<li><p><a href="code/02-scraping-unstructured-data.html">Scraping unstructured data</a> (<a href="code/02-scraping-unstructured-data.Rmd">.Rmd file</a>)</p>
+</li>
+
 <li><p><a href="code/06-parallel-computing.html">Parallel computing with R</a> (<a href="code/06-parallel-computing.Rmd">.Rmd file</a>)</p>
 </li>
 </li>
