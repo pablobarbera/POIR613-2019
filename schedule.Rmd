@@ -76,9 +76,7 @@ Note: slides will be added as the course progresses.
 
 <p><b>Topics:</b> Large-scale online experiments.  Data collection: automated data collection from the web.</p>
 
-<!--
 <p><a href="slides/05-experiments.pdf">SLIDES (.pdf): Experimental research in the digital age.</a></p>
--->
 
 <h4>Background reading</h4>
 <ul>

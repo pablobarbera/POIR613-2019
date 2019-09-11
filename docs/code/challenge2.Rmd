@@ -1,0 +1,75 @@
+---
+title: "Challenge: Scraping Campaign Speeches"
+author: Pablo Barbera
+output: html_document
+---
+
+The purpose of this challenge is to start practicing your webscraping skills by collecting a dataset with all the campaign speeches by Donald Trump and Hillary Clinton, available in [The American Presidency Project website](http://www.presidency.ucsb.edu/index.php)
+
+As with the rest of challenges throughout this semester, the goal is to write R code in the chunks within this RMarkdown file that will accomplish the tasks detailed below.
+
+We will start with the list of campaign speeches by Hillary Clinton, available [here](https://www.presidency.ucsb.edu/documents/presidential-documents-archive-guidebook/documents-related-to-presidential-elections/2016/report/200317/all/63). Look at the underlying html code and then read the html data into R.
+
+```{r}
+url <- "https://www.presidency.ucsb.edu/documents/presidential-documents-archive-guidebook/documents-related-to-presidential-elections/2016/report/200317/all/63?date_filter%5Bvalue%5D=&order=field_docs_start_date_time&sort=desc"
+## READ HTML CODE ##
+
+```
+
+Then, using the code we have used in the guided coding session, you should be able to extract the relevant information from this page. The goal here is to end up with a data frame with three variables: actor, date, and title of the speech. You can call this data frame `clinton`.
+
+```{r}
+
+```
+
+This table does not contain the URL, but we will need them for the rest of this challenge. Use selectorGadget to identify the CSS selector of the URLs for each campaign speech, and then write code to extract all the URLs in a vector. As a last step here, add that vector as an additional variable in the data frame. (Feel free to ignore the additional pages with older speeches.)
+
+```{r}
+
+```
+
+Now let's try to scrape the text from her last campaign speech. Here's a [direct link](https://www.presidency.ucsb.edu/documents/remarks-new-york-city-conceding-the-2016-presidential-election) to it, but in a second we'll try to generalize this step.
+
+Scrape the entire speech and save it as a single string. This one is a bit harder because of the way the website is structured, but searching in the underlying html code for parts of the text should give you a clue.
+
+```{r}
+first <- "https://www.presidency.ucsb.edu/documents/remarks-new-york-city-conceding-the-2016-presidential-election"
+
+## CODE HERE ##
+
+```
+
+After successfully scraping the speech, create a function called `scrape_speech` that will take a URL as argument and return the text as a single string. Test that it works with the URL provided above.
+
+```{r}
+
+
+```
+
+Now, create an empty variable in the data frame you created earlier. You can call it `text`. Using a loop, scrape the text for the first 20 speeches in the website. Make sure you add some time between iterations of the loop to make sure we don't overload the website with requests!
+
+
+```{r}
+
+```
+
+Repeat the process above, but this time with the campaign speeches by Donald Trump, available [here](https://www.presidency.ucsb.edu/documents/presidential-documents-archive-guidebook/documents-related-to-presidential-elections/2016/report/200301/all/63?date_filter%5Bvalue%5D=&order=field_docs_start_date_time&sort=desc), and store it in a data frame called `trump`. Make sure you filter only speeches for the same time period as Clinton.
+
+```{r}
+
+
+```
+
+As a final step, put the two datasets together with `rbind` and save the resulting dataset into disk with `write.csv`. Don't worry about collecting all the speeches -- we'll come back to this example later in the semester and I'll provide the full speech dataset.
+
+
+```{r} 
+
+
+```
+
+
+
+
+
+
