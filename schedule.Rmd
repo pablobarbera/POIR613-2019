@@ -113,6 +113,8 @@ Note: slides will be added as the course progresses.
 
 <p><b>Topics:</b> Recent advances in survey research. Multilevel regression and poststratification. Parallel programming with R.</p>
 
+<p><a href="slides/07-multilevel.pdf">SLIDES (.pdf): Introduction to multilevel models in R.</a></p>
+
 <h4>Background reading</h4>
 <ul>
 <li><p>Wang, W., Rothschild, D., Goel, S., & Gelman, A. (2015). <a href="http://stat.columbia.edu/~gelman/research/published/forecasting-with-nonrepresentative-polls.pdf">Forecasting elections with non-representative polls.</a> <i>International Journal of Forecasting</i>, 31(3), 980-991.<p>

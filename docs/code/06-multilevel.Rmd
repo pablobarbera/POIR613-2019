@@ -1,0 +1,164 @@
+---
+title: "Multilevel modeling with R"
+author: "Pablo Barbera"
+output: html_document
+---
+
+The following code is based on materials generously shared by by Zoltan Fazekas.
+
+```{r, message=FALSE}
+library(ggplot2)
+library(lme4)
+library(arm)
+options(stringsAsFactors = FALSE)
+```
+
+
+### Multilevel modeling
+
+Our running example to learn about multilevel models using R will be a study of the relationship between having a college and support for Trump in the 2016 ANES (American National Election Study). 
+
+```{r}
+anes <- read.csv("../data/anes-ml.csv", stringsAsFactors=FALSE)
+```
+
+This dataset contains observations in all 50 states (plus DC), and thus has a hierarchical structure, with level 1 observations (individuals) nested within level-2 units (states). It has three variables: `trump` (Trump feeling thermometer, from 0 to 100, where highest is more support), `college` (dummy variable indicating whether respondent has a college degree), and `state` (a character string that indicates the U.S. state where the respondent leaves).
+
+```{r}
+nrow(anes)
+summary(anes)
+table(anes$state)
+```
+
+When thinking about how having a college degree may affect evaluations of Trump, it is not unreasonable to think that different states will have different baseline levels of support for Trump (regardless of education) and also that the effect of a college degree may vary across states. Thus, in this case it may be appropriate to have a varying intercepts and varying slopes model.
+
+### Models with no predictors
+
+But for now let's start with the simplest model: a **complete pooling** model that ignores the hierarchical structure of the data and only has one intercept. Here, we find that the average thermometer response is 36.9 (95% CI from 35.9 to 38.0)
+
+```{r}
+pool <- glm(trump ~ 1, data=anes)
+summary(pool)
+confint(pool)
+```
+
+Of course, we know this model is too simple. This estimate fails to capture the large differences in the feeling thermometer we should observe across the U.S. A better estimate of the level of support for Trump in each state is to just take the state average. This could be achieved using a **no pooling** model where we include a fixed effect for each state.
+
+(Note we add `-1` so that the intercept is dropped and we get a different fixed effect for each state.)
+
+Here we see that there are indeed large differences in the averages across states. However, one limitation of these estimates is that the highest and lowest are likely to be over- and under-estimating the true average. Why? Given the small sample size in some states, it is likely we have estimated those extreme values just by chance alone.
+
+```{r}
+no.pool <- glm(trump ~ state - 1, data=anes)
+no.pool
+
+# saving no pooling estimates for later
+np_est <- data.frame(
+  state = gsub("state", "", names(coef(no.pool))),
+  coef = coef(no.pool),
+  se = diag(sqrt(vcov(no.pool))),
+  model = "No pooling"
+)
+```
+
+In these cases, a better approach is to have a model where we do **partial pooling**, in order to "borrow strength" from groups with more observations and thus shrink some of the extreme estimates towards the grand mean. We can achieve this using a **varying-intercept model with no predictors**:
+
+```{r}
+mlm.0 <- lmer(trump ~ 1 + (1 | state),
+              data = anes)
+mlm.0
+coef(mlm.0)
+
+# saving varying intercept model estimates
+vi_est <- data.frame(
+  state = rownames(coef(mlm.0)$state),
+  coef = coef(mlm.0)$state[,1],
+  se = se.ranef(mlm.0)$state[,1],
+  model = "Varying intercepts"
+)
+
+```
+
+We can now compare the two sets of estimates to see this shrinking in the partial pooling model taking place. Note also how some the largest confidence intervals in the no pooling model also become much smaller, since we now borrow strength from other states (and have more certainty about how some of the extreme values are actually less likely).
+
+```{r, fig.width=10, fig.height=4}
+## comparative plot
+ggplot(rbind(np_est, vi_est),
+       aes(x      = reorder(state, -coef),
+           y      = coef,
+           ymin   = coef - 1.96 * se,
+           ymax   = coef + 1.96 * se,
+           color = model)) +
+  geom_pointrange(position = position_dodge(width=0.5)) +
+  scale_color_manual("Model", values = c("darkred",
+                                    "darkblue")) +
+  ylab("State-level intercept") + xlab("") +
+  theme(axis.text.x = element_text(angle = 90)) +
+  theme_minimal() +
+  theme(legend.position = "top")
+```
+
+### Models with predictors
+
+Now let's switch to a slightly different estimation problem: let's say we want to know whether respondents with a college degree are more or less likely to express warm feelings towards Trump.
+
+As earlier, we can start with a **complete pooling** model: respondents with a college degree give responses that are 6.3 points less warm in average.
+
+```{r}
+pool <- glm(trump ~ college, data=anes)
+summary(pool)
+
+```
+
+This model assumes that the average response for all individuals without a college degree (i.e. the intercept) is the same for all states -- something we now know is likely unreasonable. Thus we can estimate a multilevel model with **varying intercepts**. We now find a smaller estimate of the effect: -5.6 points.
+
+```{r}
+## varying intercept with 1 predictor (college)
+mlm.1 <- lmer(trump ~ college +
+                (1 | state),
+              data = anes)
+summary(mlm.1)
+```
+
+Finally, we can relax even further our assumptions and test whether the effect of a college degree varies across states as well. To answer this question, we can fit a **varying intercepts, varying slope** model. As you can see below, we now have a separate intercept and a separate estimate for the effect of a college degree in each state.
+
+```{r}
+## varying intercept + varying slope model
+mlm.2 <- lmer(trump ~ college + (1 + college | state),
+              data = anes)
+summary(mlm.2)
+coef(mlm.2)
+```
+
+We find large variation in the effect of a college degree, for example from -4.6 points in California to 6.9 points in Arkansas. If we plot these two sets of estimates, we find that these are actually highly correlated: the effect of a college degree is largest in states where the baseline support for Trump is highest. There are different ways we could interpret this finding: perhaps it's just a floor effect (in some states the average was low, and thus there wasn't a lot of room for change) or there might be a more substantive interpretation, such as the fact that education is correlated with socioeconomic status and race/ethnicity, and thus here we could be capturing the size of the gap along these dimensions on support for Trump.
+
+```{r}
+h_res <- as.data.frame(coef(mlm.2)$state[1:2])
+se    <- data.frame(se.ranef(mlm.2)$state)
+h_res <- cbind(h_res, se)
+names(h_res)[1:4] <- c("alpha", "beta", "alpha_se", "beta_se")
+h_res$state <- rownames(h_res)
+
+ggplot(h_res,
+       aes(x     = alpha,
+           y     = beta,
+           label = state,
+           ymin  = beta - 2 * beta_se,
+           ymax  = beta + 2 * beta_se)) +
+  geom_vline(xintercept = fixef(mlm.2)[1], alpha = 0.3) + ## grand-mean
+  geom_hline(yintercept = fixef(mlm.2)[2], alpha = 0.3) + ## grand-mean know.
+  stat_smooth(method = "lm",
+              linetype = 2,
+              colour = "darkblue",
+              se = FALSE) + ## the "correlation"
+  geom_linerange(alpha = 0.5, colour = "darkred") + ## uncertainty beta
+  geom_errorbarh(aes(xmax = alpha + 2*alpha_se,     ## uncertainty alpha
+                     xmin = alpha - 2*alpha_se, height = 0),
+                 alpha = 0.5, colour = "darkred") +
+  geom_point(shape = 20, size = 3, colour = "darkred") +
+  geom_text(size = 2, hjust = 1.5, vjust = -1.5) +
+  ylab("Effect of education") +
+  xlab("State-level intercept") +
+  theme_minimal()
+```
+
