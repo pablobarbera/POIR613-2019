@@ -148,9 +148,8 @@ Note: slides will be added as the course progresses.
 
 <p><b>Topics:</b> Introduction to automated text analysis. Sources of textual data. String manipulation in R. Regular expressions. Text processing with quanteda.</p>
 
-<!--
-<p><a href="slides/06-text-intro.pdf">SLIDES (.pdf): Introduction to automated text analysis. Text preprocessing.</a></p>
--->
+<p><a href="slides/09-text-intro.pdf">SLIDES (.pdf): Introduction to automated text analysis. Text preprocessing.</a></p>
+
 
 <h4>Background reading</h4>
 <ul>

@@ -1,0 +1,60 @@
+---
+title: "Challenge 4: Introduction to text analysis"
+author: Pablo Barbera
+output: html_document
+---
+
+In this challenge, we will use dataset that contains slightly over 25,000 tweets published by the 4 leading candidates in the 2016 Presidential Primary Elections in the US (Cruz, Trump, Clinton, Sanders). Read the dataset into R and then use the `str` or `head` functions to get a sense of the variables that this dataset contains.
+
+```{r}
+data <- read.csv("data/candidate-tweets.csv", stringsAsFactors=FALSE)
+
+```
+
+How many tweets are retweets? Create a new data frame that contains only original tweets (excluding retweets).
+
+```{r}
+
+```
+
+How many tweets were sent by each of the candidates? Create another (smaller) data frame that contains only tweets by Bernie Sanders.
+
+```{r}
+
+```
+
+How many times did Bernie Sanders mention words related to 'health care'? and 'immigration'? and 'billionaires'? 'gun control'? 'poverty'? Use regular expressions to make sure your searches return all relevant results.
+
+```{r}
+
+```
+
+What are the 10 most frequent hashtags in the tweets by Bernie Sanders? Try to answer this question creating a function, instead of copying and pasting the code from earlier in the class.
+
+```{r}
+
+```
+
+Now, find the 10 most frequent hashtags for each candidate. You can use a loop to answer this question or just run the above function for each candidate separately.
+
+```{r}
+
+```
+
+Now going to back to the dataset with tweets by Bernie Sanders, try to create a corpus and DFM object. Think carefully through the different options (e.g. should you exclude stopwords?). Then, look at the 25 most frequent words.
+
+```{r}
+
+```
+
+Plot the DFM you just created using a wordcloud. What do you learn?
+
+```{r}
+
+```
+
+The variable `source` contains information about the device from which each tweet was sent. How many tweets did each candidate send from an Android device? and from an iphone? Use regular expressions applied to the `source` variable to answer this question.
+
+```{r}
+
+```

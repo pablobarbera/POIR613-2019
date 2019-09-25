@@ -129,19 +129,19 @@ The following list provides links to the code used in the guided coding sessions
 </div>
 <div id="collapse5" class="panel-collapse collapse in" style="margin:12px">
 
-<!--
-
 <ul>
-<li><p><a href="code/07-text-intro.html">Basics of text analysis with R</a> (<a href="code/07-text-intro.Rmd">.Rmd file</a>)</p>
-
-
-<li><p><a href="code/08-dictionary-methods.html">Dictionary methods applied to sentiment analysis</a> (<a href="code/08-dictionary-methods.Rmd">.Rmd file</a>)</p>
+<li><p><a href="slides/10-APIs.pdf">Slides: APIs (.pdf file)</a></p>
 </li>
-<li><p><a href="challenges/challenge4.Rmd">Coding challenge 4 (.Rmd file)</a></p>
+<li><p><a href="code/08-intro-text-analysis.html">Introduction to text analysis with R</a> (<a href="code/08-intro-text-analysis.Rmd">.Rmd file</a>)</p>
 </li>
+<li><p><a href="code/09-quanteda-intro.html">Introduction to quanteda package</a> (<a href="code/09-quanteda-intro.Rmd">.Rmd file</a>)</p>
+</li>
+<li><p><a href="code/10-APIs.html">APIs</a> (<a href="code/10-APIs.Rmd">.Rmd file</a>)</p>
+</li>
+<li><p><a href="https://classroom.github.com/a/BFiDkO9o">Link to challenge 3</a></p>
+</li>
+
 </ul>
-
--->
 
 </div>
 </div>
@@ -158,6 +158,16 @@ The following list provides links to the code used in the guided coding sessions
 <div id="collapse6" class="panel-collapse collapse in" style="margin:12px">
 
 <!--
+
+<ul>
+<li><p><a href="code/07-text-intro.html">Basics of text analysis with R</a> (<a href="code/07-text-intro.Rmd">.Rmd file</a>)</p>
+
+
+<li><p><a href="code/08-dictionary-methods.html">Dictionary methods applied to sentiment analysis</a> (<a href="code/08-dictionary-methods.Rmd">.Rmd file</a>)</p>
+</li>
+<li><p><a href="challenges/challenge4.Rmd">Coding challenge 4 (.Rmd file)</a></p>
+</li>
+</ul>
 
 <ul>
 <li><p><a href="code/09-supervised-learning.html">Supervised learning applied to text classification</a> (<a href="code/09-supervised-learning.Rmd">.Rmd file</a>)</p>
