@@ -181,9 +181,8 @@ Note: slides will be added as the course progresses.
 
 <p><b>Topics:</b> Dictionary methods applied to sentiment analysis.</p>
 
-<!--
-<p><a href="slides/07-dictionaries.pdf">SLIDES (.pdf): Dictionary methods.</a></p>
--->
+<p><a href="slides/11-dictionaries.pdf">SLIDES (.pdf): Dictionary methods.</a></p>
+
 
 <h4>Background reading</h4>
 <ul>
