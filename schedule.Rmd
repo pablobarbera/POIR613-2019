@@ -217,9 +217,8 @@ Note: slides will be added as the course progresses.
 
 <p><b>Topics:</b> Supervised machine learning applied to text classification. Crowd-sourcing the creation of training datasets.</p>
 
-<!--
-<p><a href="slides/08-supervised-learning.pdf">SLIDES (.pdf): Introduction to supervised learning applied to text classification.</a></p>
--->
+<p><a href="slides/12-machine-learning.pdf">SLIDES (.pdf): Introduction to supervised learning applied to text classification.</a></p>
+
 
 <h4>Background reading</h4>
 <ul>
