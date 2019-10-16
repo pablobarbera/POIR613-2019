@@ -1,0 +1,58 @@
+---
+title: "Challenge 7 solutions"
+output: html_document
+---
+
+### Topic models
+
+1. The running example in this exercise will focus on understanding the communication strategies of Donald Trump on Twitter. First, read the file `trump-tweets.csv`, which contains Trump's tweets from January 1st 2017 to October 1st, 2019. Create a histogram with the number of tweets by month.
+
+```{r}
+library(readr)
+tweets <- read_csv("data/trump-tweets.csv", col_types="cDccii")
+
+
+```
+
+Create a corpus object and a DFM using options that seem appropriate to you.
+
+```{r}
+
+
+```
+
+2. Run an LDA model. You may want to experiment with different number of topics or just stick to `K=30` as in the previous example, and to experiment with different pre-processing decisions.
+
+```{r}
+
+```
+
+Look at the words most asociated with each topic for a sample of topics. Do you find that the results are valid according to the different definitions of validity we discussed in the lecture? Can you put labels to the topics?
+
+```{r}
+
+
+```
+
+3. Pick a topic whose prevalence you think may have evolved over time and plot it. (For example, North Korea). What do you find?
+
+```{r}
+
+
+```
+
+4. [Advanced] For this topic, compute the probabilities that each word is associated with the topic. You should be able to get them from the `beta` value within the `LDA` object. Note that the values of this matrix are in the log scale; in order to get the probabilities you'll need to exponentiate them. Sort the words from highest to lowest probability and display the top 30. If your code is correct, you should see the same result as when you ran `terms()` earlier:
+
+```{r}
+
+
+```
+
+5. [Advanced] Now, use this metric but to extract the probability that a given word belongs to each of the topics. Choose the word "russia" (or any other word you find relevant) and compute those probabilities. Note that these probabilities will probably be very small, but you can normalize them so that they all up to one for this given word. To which topic does the word "Russia" belong?
+
+```{r}
+
+
+```
+
+

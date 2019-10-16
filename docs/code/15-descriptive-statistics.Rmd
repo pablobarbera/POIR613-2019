@@ -1,0 +1,130 @@
+---
+title: "Describing and comparing documents"
+output: html_document
+---
+
+# Lexical diversity
+
+```{r}
+require(quanteda)
+```
+
+`textstat_lexdiv()` calculates various measures of lexical diversity based on the number of unique types of tokens and the length of a document. It is useful for analyzing speakers' or writers' linguistic skill, or complexity of ideas expressed in documents.
+
+
+```{r}
+dfmat_inaug <- dfm(data_corpus_inaugural, remove = stopwords('en'))
+tstat_lexdiv <- textstat_lexdiv(dfmat_inaug)
+tail(tstat_lexdiv, 5)
+```
+
+
+```{r}
+plot(tstat_lexdiv$TTR, type = 'l', xaxt = 'n', xlab = NULL, ylab = "TTR")
+grid()
+axis(1, at = seq_len(nrow(tstat_lexdiv)), labels = docvars(dfmat_inaug, 'President'))
+```
+
+# Readability
+
+`textstat_readability()` computes a metric of document complexity based on characteristics of the text such as number of words, sentence length, number of syllables, etc.
+
+```{r}
+stat_read <- textstat_readability(data_corpus_inaugural,
+                     measure = c("Flesch.Kincaid", "FOG"))
+plot(stat_read$Flesch.Kincaid, type = 'l', xaxt = 'n', xlab = NULL, ylab = "Flesch.Kincaid")
+grid()
+axis(1, at = seq_len(nrow(stat_read)), labels = docvars(dfmat_inaug, 'President'))
+```
+
+# Distance metrics
+
+`textstat_simil()` computes matrices of distances and similarities between documents. It is useful for comparing the feature use across different documents.
+
+Euclidean distance:
+
+```{r}
+docs <- c("this is document one", "this is document two")
+(doc_dfm <- dfm(docs))
+textstat_dist(doc_dfm, method="euclidean")
+
+# let's do the math...
+(d1 <- as.numeric(doc_dfm[1,]))
+(d2 <- as.numeric(doc_dfm[2,]))
+
+sqrt(sum((d1 - d2)^2))
+```
+
+Cosine similarity:
+
+```{r}
+textstat_simil(doc_dfm, method="cosine")
+
+# some more math...
+sum(d1 * d2) / ( sqrt(sum(d1^2)) *  sqrt(sum(d2^2)) )
+```
+
+Note that these two metrics measure the opposite thing: Euclidean distance measures how *different* documents are, whereas cosine similarity measures how *similar* documents are. Of course, it's easy to reverse them; generally, we can just say (1 - distance) = similarity.
+
+And here's an example of how we would apply these metrics in practice. Let's say I want to build a recommendation engine for my favorite type of movie.
+
+```{r}
+library(readr)
+# data source: http://www.cs.cmu.edu/~ark/personas/
+movie <- read_csv(unz("data/movie-plots.csv.zip", "movie-plots.csv"),
+                  col_types="cccc")
+
+# now we find a movie I like
+scifi <- which(movie$name=="Gravity")
+movie[scifi,]
+
+# pre-process the data
+mcorp <- corpus(movie, text_field = "plot")
+docnames(mcorp) <- docvars(mcorp)$name
+mdfm <- dfm(mcorp, verbose=TRUE, remove_punct=TRUE,
+            remove_numbers=TRUE, remove=stopwords("english"))
+
+# and I will compute cosine similarity with respect to all other movies
+simil <- textstat_simil(mdfm, 
+                        selection=scifi, method="cosine")
+simil <- simil[order(simil, decreasing=TRUE),]
+head(simil, n=5)
+
+# and we can read their plots
+movie$plot[movie$name %in% names(simil)[2:5]]
+
+```
+
+# Clustering methods
+
+Let's explore an application of k-means clustering to the plots of recent movies:
+
+```{r}
+recent <- corpus_subset(mcorp, release_year>=2010)
+mdfm <- dfm(recent, verbose=TRUE, remove_punct=TRUE,
+            remove_numbers=TRUE, remove=stopwords("english"))
+cdfm <- dfm_weight(dfm_trim(mdfm, min_docfreq = 5, verbose=TRUE), "prop")
+
+set.seed(777) # set random seed to ensure replicability
+kc <- kmeans(cdfm, centers=5)
+table(kc$cluster)
+head(docvars(recent)$name[kc$cluster==1])
+head(docvars(recent)$name[kc$cluster==2])
+head(docvars(recent)$name[kc$cluster==3])
+head(docvars(recent)$name[kc$cluster==4])
+head(docvars(recent)$name[kc$cluster==5])
+
+# action movies?
+head(textstat_keyness(cdfm, target=kc$cluster==1),n=20)
+# romantic movies?
+head(textstat_keyness(cdfm, target=kc$cluster==2),n=20)
+# independent films?
+head(textstat_keyness(cdfm, target=kc$cluster==3),n=20)
+# drama?
+head(textstat_keyness(cdfm, target=kc$cluster==4),n=20)
+# comedy?
+head(textstat_keyness(cdfm, target=kc$cluster==5),n=20)
+```
+
+
+

@@ -202,34 +202,17 @@ The following list provides links to the code used in the guided coding sessions
 </div>
 <div id="collapse8" class="panel-collapse collapse in" style="margin:12px">
 
-<!--
 
 <ul>
-<li><p><a href="code/11-text-discovery.html">Exploring large-scale text datasets</a> (<a href="code/11-text-discovery.Rmd">.Rmd file</a>)</p>
-</li>
-<li><p><a href="code/12-topic-models.html">Topic models</a> (<a href="code/12-topic-models.Rmd">.Rmd file</a>)</p>
-</li>
-<li><p><a href="code/10-encoding-issues.html">Encoding issues when working with text</a> (<a href="code/10-encoding-issues.Rmd">.Rmd file</a>)</p>
+<li><p><a href="code/14-topic-models.html">Topic models</a> (<a href="code/14-topic-models.Rmd">.Rmd file</a>)</p>
 </li>
 
-<li><p><a href="challenges/challenge6.Rmd">Coding challenge 6</a></p>
+<li><p><a href="code/15-descriptive-statistics.html">Describing and comparing documents</a> (<a href="code/15-descriptive-statistics.Rmd">.Rmd file</a>)</p>
+</li>
+
+<li><p><a href="https://classroom.github.com/a/F482fOMD">Link to challenge 7</a></p>
 </li>
 </ul>
-
--->
-
-<!--
-
-<ul>
-<li><p><a href="code/13-word-embeddings.html">Introduction to word2vec</a> (<a href="code/13-word-embeddings.Rmd">.Rmd file</a>)</p>
-</li>
-<li><p><a href="code/14-ideological-scaling.html">Ideological scaling</a> (<a href="code/14-ideological-scaling.Rmd">.Rmd file</a>)</p>
-</li>
-<li><p><a href="challenges/challenge7.Rmd">Coding challenge 7</a></p>
-</li>
-</ul>
-
--->
 
 </div>
 </div>
@@ -244,6 +227,22 @@ The following list provides links to the code used in the guided coding sessions
 </h2>
 </div>
 <div id="collapse9" class="panel-collapse collapse in" style="margin:12px">
+
+
+<!--
+
+<ul>
+<li><p><a href="code/13-word-embeddings.html">Introduction to word2vec</a> (<a href="code/13-word-embeddings.Rmd">.Rmd file</a>)</p>
+</li>
+<li><p><a href="code/14-ideological-scaling.html">Ideological scaling</a> (<a href="code/14-ideological-scaling.Rmd">.Rmd file</a>)</p>
+</li>
+<li><p><a href="challenges/challenge7.Rmd">Coding challenge 7</a></p>
+</li>
+<li><p><a href="code/10-encoding-issues.html">Encoding issues when working with text</a> (<a href="code/10-encoding-issues.Rmd">.Rmd file</a>)</p>
+</li>
+
+</ul>
+
 
 <!--
 
