@@ -234,6 +234,8 @@ The following list provides links to the code used in the guided coding sessions
 </li>
 <li><p><a href="code/17-word-embeddings-application.html">Applications of word embeddings</a> (<a href="code/17-word-embeddings-application.Rmd">.Rmd file</a>)</p>
 </li>
+<li><p><a href="code/18-data-in-PDFs.html">Parsing text in PDF files</a> (<a href="code/18-data-in-PDFs.Rmd">.Rmd file</a>)</p>
+</li>
 <li><p><a href="https://classroom.github.com/a/V7PIW7ui">Link to challenge 8</a></p>
 </li>
 </ul>
