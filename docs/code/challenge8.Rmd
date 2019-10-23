@@ -1,0 +1,75 @@
+---
+title: "Challenge 8"
+---
+
+What are the characteristics of arguments that are more likely to change people's minds? In this challenge, we will try to answer this question using data collected from Reddit and apply the text analytic methods we have covered in the last few weeks. This problem set was inspired by the article ["Winning arguments"](https://arxiv.org/pdf/1602.01103.pdf) by Tan et al. (I recommend you take a look at the paper for inspiration and some background information.)
+
+I will be sharing with you some data I collected from the [*Change My View*](https://www.reddit.com/r/changemyview) subreddit on Reddit. This subreddit is a forum where someone gives an opinion and then in the comments other users try to make arguments to change that person's opinion. Whenever his/her opinion changes, this is noted with a `delta`, which means he/she changed their mind.
+
+The data contained in `cmv-comments.csv` contains a sample of 1,400 comments on this subreddit. Around 700 of these made people change their mind (`delta==1`). The dataset contains the text of comment that led to a change of mind (`comment`), the thread on which that comment was posted (`title` and `post_text`), as well as other comment- and post-level variables.
+
+Your task will be to conduct an analysis of the specific characteristics of arguments that make them more persuasive. Using the techniques learned in the class, you will try to determine what is different about comments that receive a delta compared to those that do not.
+
+### 1. What linguistic features make comments more convincing?
+
+Write code below to answer the following questions:
+
+- Are comments that receive a delta longer than comments that do not?
+- Do comments that receive a delta contain more punctuation than those that do not?
+- Does the text in comments that receive a delta have higher levels of complexity (lexical diversity and readability scores)?
+- Are there other lingustic features that vary depending on whether a given comment is likely to be persuasive or not?
+
+Use the text in the `comment` variable and the functions in the `quanteda` package.
+
+```{r, eval=FALSE}
+library("quanteda", quietly = TRUE, warn.conflicts = FALSE, verbose = FALSE)
+r <- read.csv("data/cmv-comments.csv", stringsAsFactors = FALSE)
+
+
+```
+
+**Your answer here.**
+
+### 2. Does the sentiment of a comment affect its persuasiveness? What about its appeal to moral values?
+
+Use one of the sentiment dictionaries included in the `quanteda.dictionaries` package, as well as the Moral Foundations Dictionary (`data_dictionary_MFD`) to answer the questions above. Pay attention to whether you need to normalize the DFM in any way.
+
+```{r}
+
+```
+
+**Your answer here.**
+
+### 3. Are off-topic comments less likely to be convincing?
+
+To answer this question, compute a metric of distance between `post_text` -- the text of the original post (from the author who wants to be convinced) -- and `comment` -- the text of the comment that was found persuasive. Do this for each row of the dataset. Use any metric that you find appropriate, paying attention as usual to whether any type of normalization is required. Explain why this metric may capture whether a comment is `off-topic` or not.
+
+```{r}
+
+```
+
+**Your answer her.**
+
+### 4. What words appear to be good predictors of persuasion?
+
+Are there specific words that are predictive that a thread or comment will lead to persuasion? Or maybe some specific issues about which more people are likely to change their view? To answer this question, first use keyness analysis to detect which words are more likely to appear in comments that persuade people (`comment` variable) and in the text of the post (`post_text`) that started the conversation. Do you find that specific words are good predictors of whether someone will change their mind on a thread?
+
+```{r}
+
+```
+
+**Your answer here.**
+
+### 5. Is persuasion more likely to happen for some topics than others?
+
+Are specific topics about which people are more likely to change their mind? Fit a topic model with the text of the original post (`post_text`). Choose a number of topics that seems appropriate. Then, add a new variable to the data frame that refers to the most likely topic for that post. Compute the proportion of threads related to that topic for which a delta was assigned. What do you learn?
+
+```{r}
+
+
+```
+
+**Your answer here.**
+
+
+

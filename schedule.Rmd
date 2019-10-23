@@ -285,11 +285,10 @@ Note: slides will be added as the course progresses.
 </div>
 <div id="collapse9" class="panel-collapse collapse in" style="margin:12px">
 
-<p><b>Topics:</b> Ideological scaling of documents. Event detection. Introduction to word embeddings.</p>
+<p><b>Topics:</b> Introduction to word embeddings. Ideological scaling of documents. Event detection.</p>
 
-<!--
-<p><a href="slides/10-advanced-text.pdf">SLIDES (.pdf): Advanced automated text analysis.</a></p>
--->
+<p><a href="slides/14-word-embeddings.pdf">SLIDES (.pdf): Word embeddings.</a></p>
+
 
 
 <h4>Background reading</h4>
