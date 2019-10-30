@@ -332,9 +332,8 @@ What works, what doesn’t, and how to tell the difference for applied research<
 
 <p><b>Topics:</b> Basic concepts in social network analysis. Network visualization.</p>
 
-<!--
-<p><a href="slides/11-networks-intro.pdf">SLIDES (.pdf): Introduction to social network analysis.</a></p>
--->
+<p><a href="slides/15-networks-intro.pdf">SLIDES (.pdf): Introduction to social network analysis.</a></p>
+
 
 <h4>Background reading</h4>
 <ul>

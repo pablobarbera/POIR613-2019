@@ -240,20 +240,6 @@ The following list provides links to the code used in the guided coding sessions
 </li>
 </ul>
 
-
-<!--
-
-<ul>
-<li><p><a href="code/15-networks-intro-visualization.html">Introduction social network analysis with igraph</a> (<a href="code/15-networks-intro-visualization.Rmd">.Rmd file</a>)</p>
-</li>
-<li><p><a href="code/16-networks-descriptive-analysis.html">Descriptive analysis of social network datasets</a> (<a href="code/16-networks-descriptive-analysis.Rmd">.Rmd file</a>)</p>
-</li>
-<li><p><a href="challenges/challenge8.Rmd">Coding challenge 8</a></p>
-</li>
-</ul>
-
--->
-
 </div>
 </div>
 </div>
@@ -267,6 +253,20 @@ The following list provides links to the code used in the guided coding sessions
 </h2>
 </div>
 <div id="collapse10" class="panel-collapse collapse in" style="margin:12px">
+
+
+<ul>
+<li><p><a href="code/19-networks-intro.html">Introduction to social network analysis with igraph</a> (<a href="code/19-networks-intro.Rmd">.Rmd file</a>)</p>
+</li>
+<li><p><a href="code/20-community-detection.html">Community detection</a> (<a href="code/20-community-detection.Rmd">.Rmd file</a>)</p>
+</li>
+<li><p><a href="code/gephi-tutorial.pdf">Network visualization with Gephi</a></p>
+</li>
+<li><p><a href="https://classroom.github.com/a/Dmqd98lZ">Link to challenge 9</a></p>
+</li>
+</ul>
+
+
 
 <!--
 
