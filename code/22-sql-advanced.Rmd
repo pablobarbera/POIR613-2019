@@ -1,0 +1,130 @@
+---
+title: "Querying a SQL database"
+author: Pablo Barbera
+---
+
+## Querying multiple SQL tables
+
+Now's where we get to see the magic of SQL. It makes it really easy to combine multiple SQL tables using __JOIN__. We just select columns from different tables and then specify what _key_ should be used to match them using __ON__. 
+
+The example belows shows an __inner join__, but there are other types (left vs right outer joins, cross joins...) that we will not cover here.
+
+```{r}
+library(DBI)
+db <- dbConnect(RSQLite::SQLite(), "twitter-db.sqlite")
+
+dbGetQuery(db, 
+  "SELECT tweets.retweet_count, congress.party, tweets.date, tweets.text
+  FROM tweets JOIN congress
+    ON congress.screen_name = tweets.screen_name
+  LIMIT 10")
+```
+
+Note the structure: (1) to select the specific columns, you need to specify them as TABLENAME.COLUMNAME, (2) then set the tables you are merging using FROM FIRSTABLE JOIN SECONDTABLE, and finally (3) make sure you add which shared column should be used to merge: ON FIRSTABLE.KEY = SECONDTABLE.KEY.
+
+Once we know how to merge tables, we can use columns from both tables. For example, let's say we want to find the most retweeted tweet by a Democrat, or by a Republican. Here's how we would do it:
+
+```{r}
+dbGetQuery(db, 
+  "SELECT tweets.screen_name, tweets.text, tweets.retweet_count, congress.party 
+  FROM tweets JOIN congress
+    ON congress.screen_name = tweets.screen_name
+  WHERE congress.party = 'Democrat'
+  ORDER BY retweet_count DESC
+  LIMIT 1")
+dbGetQuery(db, 
+  "SELECT tweets.screen_name, tweets.text, tweets.retweet_count, congress.party 
+  FROM tweets JOIN congress
+    ON congress.screen_name = tweets.screen_name
+  WHERE congress.party = 'Republican'
+  ORDER BY retweet_count DESC
+  LIMIT 1")
+```
+
+Note that this will include retweets of retweets - how do we select only original tweets?
+
+```{r}
+dbGetQuery(db, 
+  "SELECT tweets.screen_name, tweets.text, tweets.retweet_count, congress.party 
+  FROM tweets JOIN congress
+    ON congress.screen_name = tweets.screen_name
+  WHERE congress.party = 'Democrat'
+  AND tweets.text NOT LIKE 'RT @%'
+  ORDER BY retweet_count DESC
+  LIMIT 1")
+dbGetQuery(db, 
+  "SELECT tweets.screen_name, tweets.text, tweets.retweet_count, congress.party 
+  FROM tweets JOIN congress
+    ON congress.screen_name = tweets.screen_name
+  WHERE congress.party = 'Republican'
+  AND tweets.text NOT LIKE 'RT @%'
+  ORDER BY retweet_count DESC
+  LIMIT 1")
+```
+
+
+## Grouping and aggregating
+
+SQL makes it really easy to compute aggregate statistics of one column based on values of a different column, with a series of built-in functions (COUNT, AVG, MAX, MIN...). Let's now see a few examples of this type of queries:
+
+```{r}
+# use COUNT with * to return the total number of rows
+dbGetQuery(db, 'SELECT COUNT(*) FROM tweets')
+dbGetQuery(db, 'SELECT COUNT(*) FROM congress')
+```
+
+Combining everything we've learned, we can for example count the total number of tweets by party, or by party and gender.
+
+```{r}
+dbGetQuery(db, 
+  "SELECT congress.party, COUNT(*) AS total_tweets
+  FROM tweets JOIN congress
+    ON congress.screen_name = tweets.screen_name
+  GROUP BY congress.party")
+
+dbGetQuery(db, 
+  "SELECT congress.party, congress.gender, COUNT(*) AS total_tweets
+  FROM tweets JOIN congress
+    ON congress.screen_name = tweets.screen_name
+  GROUP BY congress.party, congress.gender")
+```
+
+There are other functions besides just __COUNT__. We can also compute averages, the maximum and minimu of a column, the sum... We can also functions like __SUBSTR__ to extract parts of a character string.
+
+```{r}
+# average number of tweets by party
+dbGetQuery(db, 
+  "SELECT congress.party, AVG(tweets.retweet_count), COUNT(*) 
+  FROM tweets JOIN congress
+    ON congress.screen_name = tweets.screen_name
+  GROUP BY congress.party")
+
+# we can also compute it in a different way...
+dbGetQuery(db, 
+  "SELECT congress.party, SUM(tweets.retweet_count)/COUNT(*) AS average 
+  FROM tweets JOIN congress
+    ON congress.screen_name = tweets.screen_name
+  GROUP BY congress.party")
+
+# most popular post by party
+dbGetQuery(db, 
+  "SELECT congress.screen_name, tweets.text, congress.party, MAX(tweets.retweet_count), COUNT(*) 
+  FROM tweets JOIN congress
+    ON congress.screen_name = tweets.screen_name
+  GROUP BY congress.party")
+
+# number of tweets by year-monnth
+dbGetQuery(db, 
+  "SELECT SUBSTR(date, 1, 7) AS year_month, COUNT(*) as post_count
+  FROM tweets
+  GROUP BY year_month")
+
+```
+
+
+
+
+
+
+
+

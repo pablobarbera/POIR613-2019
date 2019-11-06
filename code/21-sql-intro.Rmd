@@ -1,0 +1,245 @@
+---
+title: "Querying a SQL database"
+author: Pablo Barbera
+---
+
+## Creating a SQL database
+
+For this first part of the materials, we'll be working with a SQLite database, which is self-contained in a file within our hard drive, without any need to set up a server. Note that even if our queries use this system, the language we use generalizes to a database of any size.
+
+The data we will work with is a set of tweets by Members of the 114th U.S. Congress (2015-2016), which I collected from Twitter's public API..
+
+We'll start by connecting to the database and adding the first table, with information at the member of congress level. 
+
+```{r}
+library(DBI)
+```
+
+```{r, eval=FALSE}
+# create database: this will create a file in our hard drive where our tweets will be stored.
+db <- dbConnect(RSQLite::SQLite(), "twitter-db.sqlite")
+
+# reading the first file
+congress <- read.csv("data/congress-twitter.csv",
+	stringsAsFactors=F)
+
+# adding first table: user-level data. 'name' indicates the name of the table
+# where we will store our data, and 'value' is the data frame that we have
+# loaded in memory with such table.
+dbWriteTable(db, name="congress", value=congress)
+
+# testing that it works with a simple query
+dbListFields(db, "congress")
+dbGetQuery(db, 'SELECT * FROM congress LIMIT 5')
+```
+
+Note that we have used `dbWriteTable` to add the data frame to our database, and then check that it all worked with `dbListFields` and `dbGetQuery`. As we will see in a second, this second function is what we will use to query the database, and it will always return a table.
+
+We now switch to the second table. However, the files are too big to open them all in memory. Instead, we will open them one by one, and then __append__ them to the table. Let's see how that works...
+
+```{r, eval=FALSE}
+fls <- list.files("data/tweets", full.names=TRUE)
+
+for (f in fls){
+  
+  message(f)
+
+  # read file into memory
+  tw <- read.csv(f, stringsAsFactors=F)
+  
+  # adding to table in SQL database
+  dbWriteTable(db, "tweets", tw, append=TRUE)
+  
+}
+
+# testing that it works
+dbListFields(db, "tweets")
+dbGetQuery(db, 'SELECT * FROM tweets LIMIT 5')
+
+# what if we make a mistake and want to remove the table?
+# dbRemoveTable(db, "tweets")
+
+# and we close the connection for now
+dbDisconnect(db)
+
+```
+
+## Querying an SQL database
+
+Now that we have our tables in the database, let's see how we can query them. First we connect using `dbConnect` and then we type our query with `dbGetQuery`. Generally, we will write the query __clauses__ in capital letters and the column names in lowercase.
+
+```{r}
+db <- dbConnect(RSQLite::SQLite(), "twitter-db.sqlite")
+test <- dbGetQuery(db, 'SELECT * FROM congress LIMIT 5')
+str(test)
+```
+
+RMarkdown actually allows us to write the SQL query directly as a chunk of code. But it's much easier if we do this in R for now.
+
+```{sql, connection=db}
+SELECT * FROM congress LIMIT 5
+```
+
+This is the list of query clauses that we will use to work with the database table:
+
+- __SELECT__: determines which columns to include in the query's result set
+
+- __FROM__: identifies the tables from which to draw data and how tables should be joined
+
+- __LIMIT__: in combination with SELECT, limits the number of records returned
+
+- __WHERE__: filter out unwanted data
+
+- __GROUP BY__: groups rows together by common column values
+
+- __ORDER BY__: sorts the rows in the final result set by one or more columns
+
+
+Let's start with some examples of __SELECT__:
+
+```{r}
+# querying just one column
+dbGetQuery(db, "SELECT name FROM congress LIMIT 10")
+
+# multiple columns
+dbGetQuery(db, "SELECT name, party FROM congress LIMIT 10")
+
+# adding expressions
+dbGetQuery(db, "SELECT screen_name, favorite_count/retweet_count, UPPER(lang) FROM tweets LIMIT 10")
+
+# adding aliases to the new columns
+dbGetQuery(db, "SELECT screen_name, favorite_count/retweet_count AS like_ratio FROM tweets LIMIT 10")
+
+# it's often a good idea to write a query in multiple lines so that it's easier to read it:
+dbGetQuery(db, "SELECT screen_name, 
+           favorite_count/retweet_count AS like_ratio 
+           FROM tweets 
+           LIMIT 10")
+
+# selecting unique values from a column
+dbGetQuery(db, "SELECT DISTINCT screen_name 
+           FROM tweets 
+           LIMIT 10")
+
+```
+
+Now some examples of how we can use __WHERE__ to subset the database based on values of specific columns:
+
+```{r}
+# selecting based on values of a column
+dbGetQuery(db, "SELECT name, party 
+           FROM congress
+           WHERE party = 'Republican'
+           LIMIT 10")
+
+# greater than, working with dates
+dbGetQuery(db, "SELECT screen_name, text, date 
+           FROM tweets
+           WHERE date > '2016-12-29'
+           LIMIT 10")
+
+# AND operator
+dbGetQuery(db, "SELECT screen_name, text, date, retweet_count 
+           FROM tweets
+           WHERE date > '2016-11-01' AND retweet_count > 500
+           LIMIT 10")
+
+# OR operator
+dbGetQuery(db, "SELECT screen_name, text, date, retweet_count, favorite_count
+           FROM tweets
+           WHERE date > '2016-12-01' AND (
+              retweet_count > 100 OR favorite_count > 100
+            )
+           LIMIT 10")
+
+# membership, IN
+dbGetQuery(db, "SELECT screen_name, text, lang
+           FROM tweets
+           WHERE lang IN ('es', 'fr')
+           LIMIT 10")
+
+# matching conditions:
+# _ matches exactly one character
+# % matches any number of characters
+dbGetQuery(db, "SELECT screen_name, text, date
+           FROM tweets
+           WHERE date LIKE '2015-01-__'
+           LIMIT 10")
+
+dbGetQuery(db, "SELECT screen_name, text, date
+           FROM tweets
+           WHERE date LIKE '2015-03%'
+           LIMIT 10")
+
+# SQLite does not have regular expressions, but we can be creative...
+dbGetQuery(db, "SELECT screen_name, text, date
+           FROM tweets
+           WHERE text LIKE '%southern california%'
+           LIMIT 1")
+
+```
+
+
+Very useful for us -- __GROUP BY__ allows us to aggregate results based on values of a specific variables. For example, what is the count of tweets by language?
+
+```{r}
+dbGetQuery(db, 
+  "SELECT lang, COUNT(lang) AS lang_count
+  FROM tweets
+  GROUP BY lang")
+```
+
+And we can then order the results using __ORDER BY__. The default is alphabetical order for the first column, but we can change that:
+
+```{r}
+# sort by type_count
+dbGetQuery(db, 
+  "SELECT lang, COUNT(lang) AS lang_count
+  FROM tweets
+  GROUP BY lang
+  ORDER BY lang_count")
+
+# now in descending order
+dbGetQuery(db, 
+  "SELECT lang, COUNT(lang) AS lang_count
+  FROM tweets
+  GROUP BY lang
+  ORDER BY lang_count DESC")
+
+# which was the most popular tweet?
+dbGetQuery(db, 
+  "SELECT screen_name, text, date, retweet_count
+  FROM tweets
+  ORDER BY retweet_count DESC
+  LIMIT 1")
+
+# You can also specify the column number instead of the name
+dbGetQuery(db, 
+  "SELECT screen_name, text, date, retweet_count
+  FROM tweets
+  ORDER BY 4 DESC
+  LIMIT 1")
+
+# Who was the member of congress with most tweets?
+dbGetQuery(db, 
+  "SELECT screen_name, COUNT(screen_name) AS tweet_count
+  FROM tweets
+  GROUP BY screen_name
+  ORDER BY tweet_count DESC
+  LIMIT 5")
+
+# and the least?
+dbGetQuery(db, 
+  "SELECT screen_name, COUNT(screen_name) AS tweet_count
+  FROM tweets
+  GROUP BY screen_name
+  ORDER BY tweet_count
+  LIMIT 5")
+
+```
+
+
+
+
+
+

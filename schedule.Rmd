@@ -368,9 +368,8 @@ What works, what doesn’t, and how to tell the difference for applied research<
 
 <p><b>Topics:</b> Querying large-scale online datasets with SQL and Google BigQuery.</p>
 
-<!--
-<p><a href="slides/12-SQL.pdf">SLIDES (.pdf): SQL and Google BigQuery.</a></p>
--->
+<p><a href="slides/16-SQL.pdf">SLIDES (.pdf): Introduction to SQL.</a></p>
+
 
 <h4>Background reading</h4>
 <ul>
