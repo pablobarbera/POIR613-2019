@@ -47,14 +47,14 @@ Due date
 <td>
 <a href="research_project.html#draft">Full draft</a>
 </td>
-<td>Nov 25 10:00pm (Friday)
+<td>Nov 25 10:00pm (Monday)
 </td>
 </tr>
 <tr>
 <td>
 <a href="research_project.html#presentations">Presentations</a>
 </td>
-<td>Dec 3 (Tuesday)
+<td>Dec 4 (Wednesday)
 </td>
 </tr>
 <tr>
