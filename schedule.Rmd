@@ -396,6 +396,8 @@ What works, what doesn’t, and how to tell the difference for applied research<
 
 <p><b>Topics:</b> Social contagion processes: homophily vs influence. Collecting social media data.</p>
 
+<p><a href="slides/17-networks-data.pdf">SLIDES (.pdf): Social contagion processes. Twitter Data.</a></p>
+
 <h4>Background reading</h4>
 <ul>
 <li><p>McPherson, M., Smith-Lovin, L., & Cook, J. M. (2001). <a href="http://www.annualreviews.org/doi/abs/10.1146/annurev.soc.27.1.415">Birds of a feather: Homophily in social networks.</a> <i>Annual review of sociology</i>, 27(1), 415-444.</p>
