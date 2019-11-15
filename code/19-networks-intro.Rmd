@@ -15,6 +15,8 @@ The first step is to read the list of edges in this network:
 library(igraph)
 edges <- read.csv("data/GOT-edges.csv", stringsAsFactors=F)
 head(edges)
+# changing name of weight variable so that igraph correctly recognizes as edge weight
+names(edges)[3] <- "weight"
 ```
 
 How do we convert this dataset into a network object in R? There are multiple packages to work with networks, but the most popular is `igraph` because it's very flexible and easy to do, and in my experience it's much faster and scales well to very large networks. Other packages that you may want to explore are `sna` and `networks`.
@@ -49,7 +51,7 @@ g[1,1:20] # first row of adjacency matrix
 
 What are the most important nodes in a network? We can answer this question computing a metric of  __centrality__.
 
-The most basic measure is __degree__, the number of adjacent edges to each node. It is often considered a measure of direct influence. In this network, it will be the total number of times each user co-appears with someone else.
+The most basic measure is __degree__, the number of adjacent edges to each node. It is often considered a measure of direct influence. In this network, it will be the unique number of times each user co-appears with someone else. For example, Tyrion co-appears at least once with 36 other characters.
 
 ```{r}
 sort(degree(g))
@@ -63,6 +65,12 @@ tail(sort(degree(g, mode="out")))
 ```
 
 Here they will be identical because the network is undirected.
+
+When edges have weights, if you want to compute weigthed degree, the correct function is `strength`:
+
+```{r}
+sort(strength(g))
+```
 
 __Closeness__ measures how many steps are required to access every other node from a given node. It's a measure of how long information takes to arrive (who hears news first?), or how easily a node can reach other nodes. Higher values mean less centrality.
 
