@@ -385,9 +385,9 @@ summary {
 <p>Now, how do we create the igraph object? We can use the <code>graph_from_data_frame</code> function:</p>
 <pre class="r"><code>g &lt;- graph_from_data_frame(d=edges, directed=FALSE)
 g</code></pre>
-<pre><code>## IGRAPH e9ead34 UN-- 107 352 -- 
-## + attr: name (v/c), Weight (e/n)
-## + edges from e9ead34 (vertex names):
+<pre><code>## IGRAPH 6da3a70 UNW- 107 352 -- 
+## + attr: name (v/c), weight (e/n)
+## + edges from 6da3a70 (vertex names):
 ##  [1] Aemon  --Grenn     Aemon  --Samwell   Aerys  --Jaime    
 ##  [4] Aerys  --Robert    Aerys  --Tyrion    Aerys  --Tywin    
 ##  [7] Alliser--Mance     Amory  --Oberyn    Arya   --Anguy    
@@ -405,7 +405,7 @@ g</code></pre>
 - <code>weight (e/n)</code> means <em>weight</em> is an edge attribute and it’s numeric</p>
 <p>This is how you access specific elements within the igraph object:</p>
 <pre class="r"><code>V(g) # nodes</code></pre>
-<pre><code>## + 107/107 vertices, named, from e9ead34:
+<pre><code>## + 107/107 vertices, named, from 6da3a70:
 ##   [1] Aemon        Aerys        Alliser      Amory        Arya        
 ##   [6] Balon        Belwas       Beric        Bran         Brienne     
 ##  [11] Bronn        Brynden      Catelyn      Cersei       Craster     
@@ -446,7 +446,7 @@ g</code></pre>
 ## [101] &quot;Olenna&quot;       &quot;Marillion&quot;    &quot;Ellaria&quot;      &quot;Mace&quot;        
 ## [105] &quot;Ramsay&quot;       &quot;Chataya&quot;      &quot;Doran&quot;</code></pre>
 <pre class="r"><code>E(g) # edges</code></pre>
-<pre><code>## + 352/352 edges from e9ead34 (vertex names):
+<pre><code>## + 352/352 edges from 6da3a70 (vertex names):
 ##  [1] Aemon  --Grenn     Aemon  --Samwell   Aerys  --Jaime    
 ##  [4] Aerys  --Robert    Aerys  --Tyrion    Aerys  --Tywin    
 ##  [7] Alliser--Mance     Amory  --Oberyn    Arya   --Anguy    
@@ -461,17 +461,17 @@ g</code></pre>
 <pre class="r"><code>g[1:10, 1:10] # adjacency matrix</code></pre>
 <pre><code>## 10 x 10 sparse Matrix of class &quot;dgCMatrix&quot;</code></pre>
 <pre><code>##    [[ suppressing 10 column names &#39;Aemon&#39;, &#39;Aerys&#39;, &#39;Alliser&#39; ... ]]</code></pre>
-<pre><code>##                            
-## Aemon   . . . . . . . . . .
-## Aerys   . . . . . . . . . .
-## Alliser . . . . . . . . . .
-## Amory   . . . . . . . . . .
-## Arya    . . . . . . . 1 1 .
-## Balon   . . . . . . . . . .
-## Belwas  . . . . . . . . . .
-## Beric   . . . . 1 . . . . .
-## Bran    . . . . 1 . . . . .
-## Brienne . . . . . . . . . .</code></pre>
+<pre><code>##                              
+## Aemon   . . . .  . . .  . . .
+## Aerys   . . . .  . . .  . . .
+## Alliser . . . .  . . .  . . .
+## Amory   . . . .  . . .  . . .
+## Arya    . . . .  . . . 23 9 .
+## Balon   . . . .  . . .  . . .
+## Belwas  . . . .  . . .  . . .
+## Beric   . . . . 23 . .  . . .
+## Bran    . . . .  9 . .  . . .
+## Brienne . . . .  . . .  . . .</code></pre>
 <pre class="r"><code>g[1,1:20] # first row of adjacency matrix</code></pre>
 <pre><code>##    Aemon    Aerys  Alliser    Amory     Arya    Balon   Belwas    Beric 
 ##        0        0        0        0        0        0        0        0 
@@ -483,7 +483,7 @@ g</code></pre>
 <div id="measuring-node-importance" class="section level4">
 <h4>Measuring node importance</h4>
 <p>What are the most important nodes in a network? We can answer this question computing a metric of <strong>centrality</strong>.</p>
-<p>The most basic measure is <strong>degree</strong>, the number of adjacent edges to each node. It is often considered a measure of direct influence. In this network, it will be the total number of times each user co-appears with someone else.</p>
+<p>The most basic measure is <strong>degree</strong>, the number of adjacent edges to each node. It is often considered a measure of direct influence. In this network, it will be the unique number of times each user co-appears with someone else. For example, Tyrion co-appears at least once with 36 other characters.</p>
 <pre class="r"><code>sort(degree(g))</code></pre>
 <pre><code>##        Amory      Shireen       Walton      Illyrio         Karl 
 ##            1            1            1            1            1 
@@ -537,14 +537,60 @@ g</code></pre>
 <pre><code>##  Tywin  Jaime   Robb    Jon  Sansa Tyrion 
 ##     22     24     25     26     26     36</code></pre>
 <p>Here they will be identical because the network is undirected.</p>
+<p>When edges have weights, if you want to compute weigthed degree, the correct function is <code>strength</code>:</p>
+<pre class="r"><code>sort(strength(g))</code></pre>
+<pre><code>##      Cressen       Ramsay        Amory      Shireen        Doran 
+##            4            4            5            5            5 
+##         Karl        Orell      Rakharo       Lancel        Luwin 
+##            6            6            7            7            8 
+##        Aegon      Chataya       Walton      Illyrio      Kraznys 
+##            8            9           10           10           10 
+##      Ellaria    Jon Arryn      Rickard       Qyburn        Bowen 
+##           10           11           11           11           11 
+##       Olenna         Worm        Anguy    Salladhor        Roose 
+##           12           14           15           16           17 
+##     Myrcella          Nan Robert Arryn      Viserys         Mace 
+##           18           18           19           19           20 
+##        Dalla         Styr    Marillion      Eddison       Hoster 
+##           21           23           23           24           24 
+##      Pycelle        Jeyne      Alliser        Balon         Elia 
+##           24           28           29           29           29 
+##       Daario    Missandei       Tommen          Val       Roslin 
+##           30           30           31           31           32 
+##         Ilyn         Irri       Lothar        Drogo        Aerys 
+##           32           33           34           35           37 
+##        Janos        Theon      Rhaegar  Rattleshirt         Shae 
+##           37           38           42           44           45 
+##        Meryn        Varys        Kevan      Brynden        Renly 
+##           47           49           50           55           55 
+##        Bronn       Gendry       Qhorin       Thoros   Melisandre 
+##           59           59           59           60           62 
+##    Barristan      Podrick       Belwas        Gilly        Aemon 
+##           63           64           67           69           74 
+##        Beric      Craster        Loras       Oberyn       Rickon 
+##           75           75           76           76           81 
+##        Grenn      Ygritte        Davos       Walder        Jorah 
+##           81           82           87           87           89 
+##        Petyr     Margaery       Edmure       Eddard         Lysa 
+##           89           96           98          108          108 
+##       Gregor      Brienne        Jojen       Robert       Sandor 
+##          117          122          125          128          137 
+##        Meera      Stannis        Mance        Hodor      Catelyn 
+##          139          146          160          177          184 
+##        Tywin       Cersei     Daenerys      Joffrey         Arya 
+##          204          226          232          255          269 
+##      Samwell         Robb         Bran        Jaime        Sansa 
+##          282          342          344          372          383 
+##          Jon       Tyrion 
+##          442          551</code></pre>
 <p><strong>Closeness</strong> measures how many steps are required to access every other node from a given node. It’s a measure of how long information takes to arrive (who hears news first?), or how easily a node can reach other nodes. Higher values mean less centrality.</p>
 <pre class="r"><code>tail(sort(closeness(g, normalized=TRUE)))</code></pre>
-<pre><code>##   Stannis      Arya      Robb    Robert     Sansa    Tyrion 
-## 0.4796380 0.4862385 0.4884793 0.5000000 0.5096154 0.5120773</code></pre>
+<pre><code>##    Catelyn      Sansa       Arya    Stannis     Robert     Tyrion 
+## 0.06515058 0.06666667 0.06760204 0.06790519 0.06964520 0.06982872</code></pre>
 <p><strong>Betweenness</strong> measures brokerage or gatekeeping potential. It is (approximately) the number of shortest paths between nodes that pass through a particular node. It defines the importance of a node is in terms of how frequently it connects other nodes.</p>
 <pre class="r"><code>tail(sort(betweenness(g)))</code></pre>
-<pre><code>##     Sansa      Robb  Daenerys    Tyrion    Robert       Jon 
-##  705.1986  706.5573  874.8372 1101.3850 1165.6025 1279.7534</code></pre>
+<pre><code>##   Catelyn     Sansa   Stannis       Jon    Tyrion    Robert 
+##  598.0000  683.5667  696.5167  921.6000 1163.7833 1166.1500</code></pre>
 </div>
 <div id="network-properties" class="section level4">
 <h4>Network properties</h4>

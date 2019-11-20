@@ -429,17 +429,9 @@ What works, what doesn’t, and how to tell the difference for applied research<
 </div>
 <div id="collapse13" class="panel-collapse collapse in" style="margin:12px">
 
-<p><b>Topics:</b> Latent variable models. Introduction to exponential random graph models.</p>
+<p><b>Topics:</b> Dimensionality reduction. Latent variable models.</p>
 
-<!--
-<p><a href="slides/13-networks-latent.pdf">SLIDES (.pdf): Latent space network models. Community detection.</a></p>
--->
-
-<h4>Background reading</h4>
-<ul>
-<li><p>Robins, G., Pattison, P., Kalish, Y., & Lusher, D. (2007). <a href="http://www.sciencedirect.com/science/article/pii/S0378873306000372">An introduction to exponential random graph (p*) models for social networks.</a> <i>Social networks</i>, 29(2), 173-191.</p>
-</li>
-</ul>
+<p><a href="slides/18-latent-variables.pdf">SLIDES (.pdf): Principal component analysis. Latent space network models.</a></p>
 
 <h4>Readings for discussion</h4>
 <ul>

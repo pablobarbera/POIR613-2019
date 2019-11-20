@@ -1,0 +1,50 @@
+---
+title: "Principal Components Analysis"
+author: Pablo Barbera
+---
+
+The code below replicates the examples shown in the lecture slides. See the slides for additional details.
+
+
+```{r}
+data <- read.csv("../data/image-codings.csv", stringsAsFactors = F)
+data$image_url <- as.factor(data$image_url)
+# change image urls to more readable inputs that are included in the urls
+levels(data$image_url) <- c("a1", "a2", "a3", "a4", "b1", "b2", "b3", "b4", 
+                            "c1", "c2", "c3", "c4", "d1", "d2", "d3", "d4",
+                            "e1", "e2", "e3", "e4", "f1", "f2", "f3", "f4")
+varnames <- names(data)[2:13]
+# fixing the order of the levels in the factors
+for (var in varnames) {
+  data[, var] <- factor(data[, var], levels = c("Not at All", "A Little",
+                                                "Moderately", "Quite a Bit", "Extremely"))
+}
+# transforming factor scale to a 1-5 scale
+data_factor <- data.frame(lapply(data[, 2:13], function(x) as.numeric(as.factor(x))))
+data_factor$Images <- data[, 14]
+data <- data_factor
+
+# group by image then getting the averages of the emotion atributes
+aggdata <- aggregate(data[, 1:12], by = list(data$Images), FUN = mean, na.rm = T) 
+aggdata
+
+# plotting a heatmap
+row.names(aggdata) <- aggdata$Group.1
+aggdata <- aggdata[, 2:13]
+aggdata_matrix <- t(data.matrix(aggdata))
+aggdata_heatmap <- heatmap(aggdata_matrix, 
+                           margins = c(2, 0))
+
+# running PCA
+pca <- princomp(aggdata)
+
+# loading for first two components
+round(pca$loadings[,1:2],2)
+
+# scree plot: how many dimensions to keep?
+screeplot(pca, 
+          main="Screeplot: Relative importance of\neach different PC",
+          las=2)
+
+```
+

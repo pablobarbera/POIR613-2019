@@ -334,19 +334,15 @@ For an extended version of these scripts, see the materials for my <a href="http
 </div>
 <div id="collapse12" class="panel-collapse collapse in" style="margin:12px">
 
-<!--
-
 <ul>
-<li><p><a href="code/22-GIS.html">Maps</a> (<a href="code/22-GIS.Rmd">.Rmd file</a>)</p>
+<li><p><a href="code/25-PCA.html">Principal Components Analysis</a> (<a href="code/25-PCA.Rmd">.Rmd file</a>)</p>
 </li>
-<li><p><a href="code/21-latent-space.html">Latent space network models</a> (<a href="code/21-latent-space.Rmd">.Rmd file</a>)</p>
+<li><p><a href="code/26-latent-space.html">Latent space network models</a> (<a href="code/26-latent-space.Rmd">.Rmd file</a>)</p>
 </li>
-<li><p><a href="challenges/challenge11.Rmd">Coding challenge 11</a></p>
-</li>
+
 
 </ul>
 
--->
 
 </div>
 </div>
